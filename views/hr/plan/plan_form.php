@@ -44,248 +44,144 @@
                 <tr>
                     <th class="table-info">6:00-7:00am</th>
                     <td id="hc" class="table-light">
-                        <input type="text" class="hc" name="hc" disabled={true} />
+                        <input type="text" class="hc" name="hc" />
                     </td>
                     <td contenteditable></td>
                     <td contenteditable></td>
                     <td contenteditable></td>
                     <td class="table-info"></td>
                     <td class="table-light">
-                        <div class="dropdown">
-                            <button class="btn btn-light dropdown-toggle" id="dropdownMenuIconsButton" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Planned interruption
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuIconsButton" style="min-width: 17.5rem">
-                                <li>
-                                    <a class="dropdown-item" href="#!">SETUP</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#!">LUNCH</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#!">SHIFT TURN</a>
-                                </li>
-                            </ul>
-                        </div>
+                        <select name="planned_interruption-1" id="planned_interruption" onchange="add_Select(this);">
+                            <option value="0" selected="selected">Planned Interruption</option>
+                            <select>
                     </td>
-                    <td contenteditable></td>
+                    <td class="table-info" id="less-time-1"></td>
                     <td class="table-info"></td>
                     <td class="table-info"></td>
                 </tr>
                 <tr>
                     <th class="table-info">7:00-8:00am</th>
                     <td id="hc" class="table-light">
-                        <input type="text" class="hc" name="hc" disabled={true} />
+                        <input type="text" class="hc" name="hc" />
                     </td>
                     <td contenteditable></td>
                     <td contenteditable></td>
                     <td contenteditable></td>
                     <td class="table-info"></td>
                     <td class="table-light">
-                        <div class="dropdown">
-                            <button class="btn btn-light dropdown-toggle" id="dropdownMenuIconsButton" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Planned interruption
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuIconsButton" style="min-width: 17.5rem">
-                                <li>
-                                    <a class="dropdown-item" href="#!">SETUP</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#!">LUNCH</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#!">SHIFT TURN</a>
-                                </li>
-                            </ul>
-                        </div>
+                        <select name="planned_interruption" id="planned_interruption" onchange="add_Select(this);">
+                            <option value="0" selected="selected">Planned Interruption</option>
+                            <select>
                     </td>
-                    <td contenteditable></td>
+                    <td class="table-info" id="less-time-2"></td>
                     <td class="table-info"></td>
                     <td class="table-info"></td>
                 </tr>
                 <tr>
                     <th class="table-info">9:00-10:00am</th>
                     <td id="hc" class="table-light">
-                        <input type="text" class="hc" name="hc" disabled={true} />
+                        <input type="text" class="hc" name="hc" />
                     </td>
                     <td contenteditable></td>
                     <td contenteditable></td>
                     <td contenteditable></td>
                     <td class="table-info"></td>
                     <td class="table-light">
-                        <div class="dropdown">
-                            <button class="btn btn-light dropdown-toggle" id="dropdownMenuIconsButton" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Planned interruption
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuIconsButton" style="min-width: 17.5rem">
-                                <li>
-                                    <a class="dropdown-item" href="#!">SETUP</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#!">LUNCH</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#!">SHIFT TURN</a>
-                                </li>
-                            </ul>
-                        </div>
+                        <select name="planned_interruption" id="planned_interruption" onchange="add_Select(this);">
+                            <option value="0" selected="selected">Planned Interruption</option>
+                            <select>
                     </td>
-                    <td contenteditable></td>
+                    <td class="table-info" id="less-time-3"></td>
                     <td class="table-info"></td>
                     <td class="table-info"></td>
                 </tr>
                 <tr>
                     <th class="table-info">10:00-11:00am</th>
                     <td id="hc" class="table-light">
-                        <input type="text" class="hc" name="hc" disabled={true} />
+                        <input type="text" class="hc" name="hc" />
                     </td>
                     <td contenteditable></td>
                     <td contenteditable></td>
                     <td contenteditable></td>
                     <td class="table-info"></td>
                     <td class="table-light">
-                        <div class="dropdown">
-                            <button class="btn btn-light dropdown-toggle" id="dropdownMenuIconsButton" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Planned interruption
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuIconsButton" style="min-width: 17.5rem">
-                                <li>
-                                    <a class="dropdown-item" href="#!">SETUP</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#!">LUNCH</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#!">SHIFT TURN</a>
-                                </li>
-                            </ul>
-                        </div>
+                        <select name="planned_interruption" id="planned_interruption" onchange="add_Select(this);">
+                            <option value="0" selected="selected">Planned Interruption</option>
+                            <select>
                     </td>
-                    <td contenteditable></td>
+                    <td class="table-info" id="less-time-4"></td>
                     <td class="table-info"></td>
                     <td class="table-info"></td>
                 </tr>
                 <tr>
                     <th class="table-info">11:00-12:00pm</th>
                     <td id="hc" class="table-light">
-                        <input type="text" class="hc" name="hc" disabled={true} />
+                        <input type="text" class="hc" name="hc" />
                     </td>
                     <td contenteditable></td>
                     <td contenteditable></td>
                     <td contenteditable></td>
                     <td class="table-info"></td>
                     <td class="table-light">
-                        <div class="dropdown">
-                            <button class="btn btn-light dropdown-toggle" id="dropdownMenuIconsButton" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Planned interruption
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuIconsButton" style="min-width: 17.5rem">
-                                <li>
-                                    <a class="dropdown-item" href="#!">SETUP</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#!">LUNCH</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#!">SHIFT TURN</a>
-                                </li>
-                            </ul>
-                        </div>
+                        <select name="planned_interruption" id="planned_interruption" onchange="add_Select(this);">
+                            <option value="0" selected="selected">Planned Interruption</option>
+                            <select>
                     </td>
-                    <td contenteditable></td>
+                    <td class="table-info" id="less-time-5"></td>
                     <td class="table-info"></td>
                     <td class="table-info"></td>
                 </tr>
                 <tr>
                     <th class="table-info">12:00-13:00pm</th>
                     <td id="hc" class="table-light">
-                        <input type="text" class="hc" name="hc" disabled={true} />
+                        <input type="text" class="hc" name="hc" />
                     </td>
                     <td contenteditable></td>
                     <td contenteditable></td>
                     <td contenteditable></td>
                     <td class="table-info"></td>
                     <td class="table-light">
-                        <div class="dropdown">
-                            <button class="btn btn-light dropdown-toggle" id="dropdownMenuIconsButton" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Planned interruption
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuIconsButton" style="min-width: 17.5rem">
-                                <li>
-                                    <a class="dropdown-item" href="#!">SETUP</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#!">LUNCH</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#!">SHIFT TURN</a>
-                                </li>
-                            </ul>
-                        </div>
+                        <select name="planned_interruption" id="planned_interruption" onchange="add_Select(this);">
+                            <option value="0" selected="selected">Planned Interruption</option>
+                            <select>
                     </td>
-                    <td contenteditable></td>
+                    <td class="table-info" id="less-time-6"></td>
                     <td class="table-info"></td>
                     <td class="table-info"></td>
                 </tr>
                 <tr>
                     <th class="table-info">13:00-14:00pm</th>
                     <td id="hc" class="table-light">
-                        <input type="text" class="hc" name="hc" disabled={true} />
+                        <input type="text" class="hc" name="hc" />
                     </td>
                     <td contenteditable></td>
                     <td contenteditable></td>
                     <td contenteditable></td>
                     <td class="table-info"></td>
                     <td class="table-light">
-                        <div class="dropdown">
-                            <button class="btn btn-light dropdown-toggle" id="dropdownMenuIconsButton" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Planned interruption
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuIconsButton" style="min-width: 17.5rem">
-                                <li>
-                                    <a class="dropdown-item" href="#!">SETUP</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#!">LUNCH</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#!">SHIFT TURN</a>
-                                </li>
-                            </ul>
-                        </div>
+                        <select name="planned_interruption" id="planned_interruption" onchange="add_Select(this);">
+                            <option value="0" selected="selected">Planned Interruption</option>
+                            <select>
                     </td>
-                    <td contenteditable></td>
+                    <td class="table-info" id="less-time-7"></td>
                     <td class="table-info"></td>
                     <td class="table-info"></td>
                 </tr>
                 <tr>
                     <th class="table-info">14:00-15:30pm</th>
                     <td id="hc" class="table-light">
-                        <input type="text" class="hc" name="hc" disabled={true} />
+                        <input type="text" class="hc" name="hc" />
                     </td>
                     <td contenteditable></td>
                     <td contenteditable></td>
                     <td contenteditable></td>
                     <td class="table-info"></td>
                     <td class="table-light">
-                        <div class="dropdown">
-                            <button class="btn btn-light dropdown-toggle" id="dropdownMenuIconsButton" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Planned interruption
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuIconsButton" style="min-width: 17.5rem">
-                                <li>
-                                    <a class="dropdown-item" href="#!">SETUP</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#!">LUNCH</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#!">SHIFT TURN</a>
-                                </li>
-                            </ul>
-                        </div>
+                        <select name="planned_interruption" id="planned_interruption" onchange="add_Select(this);">
+                            <option value="0" selected="selected">Planned Interruption</option>
+                            <select>
                     </td>
-                    <td contenteditable></td>
+                    <td class="table-info" id="less-time-8"></td>
                     <td class="table-info"></td>
                     <td class="table-info"></td>
                 </tr>
@@ -294,12 +190,58 @@
     </div>
 </div>
 <script>
-    function addHC() {
+    const addHC = () => {
         var elements = document.querySelectorAll(".hc");
         var valor = document.getElementById('hc-head').value;
 
         for (var i = 0; i < elements.length; i++) {
             elements[i].value = valor;
         }
-    }
+    };
+
+    const SELECTED_PLANNED_INTERRUPTION = [{
+            id: "0",
+            name: "SETUP",
+            value: "1"
+        },
+        {
+            id: "1",
+            name: "LUNCH",
+            value: "0.5"
+        },
+        {
+            id: "2",
+            name: "SHIFT TURN",
+            value: "0.083"
+        },
+        {
+            id: "3",
+            name: "TIER",
+            value: "0.167"
+        }
+
+    ];
+    window.onload = function() {
+        // var elm = document.querySelectorAll("[id='planned_interruption']");
+        // console.log({elm})
+        // for(var y = 0; y < elm.length; y++ ){
+        //     console.log(y)
+        // }
+
+        const getInputSelect = document.getElementById('planned_interruption');
+        console.log({
+            getInputSelect
+        })
+        for (var x in SELECTED_PLANNED_INTERRUPTION) {
+            getInputSelect.options[getInputSelect.options.length] = new Option(
+                SELECTED_PLANNED_INTERRUPTION[x].name,
+                SELECTED_PLANNED_INTERRUPTION[x].value);
+        }
+    };
+
+    const add_Select = (elemento) => {
+        const valueSelect = elemento.value;
+        var element = document.getElementById("less-time-1");
+        element.innerHTML = valueSelect;
+    };
 </script>
