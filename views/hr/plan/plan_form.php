@@ -66,12 +66,24 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
                             <td contenteditable></td>
                             <td class="table-info"></td>
                             <td class="table-light">
+                                <select style="border: 0; background-color: transparent;" class="form-control" name="" id="" required>
+                                    <option value="">Select</option>
+                                    <?php
+                                    $query = "SELECT * FROM planned_interruptions";
+                                    $result = mysqli_query($connection, $query);
+                                    while ($row = mysqli_fetch_array($result)):
+                                    ?>
+                                        <option value="<?php echo $row['i_time'] ?>"><?php echo $row['i_name']; ?></option>
+                                    <?php endwhile; ?>
+                                </select>
+                                <!--
                                 <mwc-select label="Planned interruption" onchange="add_Select(this)">
                                     <mwc-list-item value="0.5">LUNCH</mwc-list-item>
                                     <mwc-list-item value="1">SETUP</mwc-list-item>
                                     <mwc-list-item value="0.083">SHIFT TURN</mwc-list-item>
                                     <mwc-list-item value="0.167">TIER</mwc-list-item>
                                 </mwc-select>
+                                -->
                             </td>
                             <td class="table-info" id="less-time"></td>
                             <td class="table-info"></td>
@@ -87,6 +99,7 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
                             <td contenteditable></td>
                             <td class="table-info"></td>
                             <td class="table-light">
+
                                 <mwc-select label="Planned interruption" onchange="add_Select(this)">
                                     <mwc-list-item value="0.5">LUNCH</mwc-list-item>
                                     <mwc-list-item value="1">SETUP</mwc-list-item>
