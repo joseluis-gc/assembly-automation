@@ -12,6 +12,7 @@ require_once("_settings/db.php");
 
 require_once("classes/Login.php");
 
+require_once ("libraries/helper.php");
 
 $login = new Login();
 

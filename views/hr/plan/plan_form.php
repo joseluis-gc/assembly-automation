@@ -1,3 +1,17 @@
+<?php
+if(isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])){
+    $query = "SELECT * FROM assets 
+    LEFT JOIN site ON asset_site = site_id 
+    LEFT JOIN plant ON plant.plant_id = site.plant_id 
+    WHERE asset_id = {$_GET['asset_id']}";
+    $result = mysqli_query($connection, $query);
+    $row = mysqli_fetch_array($result);
+
+}
+else{
+    die("Invalid Parameter.");
+}
+?>
 <div class="container-xl p-5">
     <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 gx-5">
 
@@ -6,19 +20,19 @@
         <thead>
             <tr>
                 <th scope="col" class="fw-bold"><small>PLANT:</small></th>
-                <th scope="col" class="table-light" contenteditable></th>
+                <th scope="col" class="table-light" contenteditable><?php echo $row['plant_name'] ?></th>
                 <th scope="col" class="fw-bold"><small>AREA:</small></th>
-                <th scope="col" class="table-light" contenteditable></th>
+                <th scope="col" class="table-light" contenteditable><?php echo $row['site_name'] ?></th>
                 <th scope="col" class="fw-bold"><small>OUTPUT:</small></th>
                 <th scope="col" class="table-light" contenteditable></th>
                 <th scope="col" class="fw-bold"><small>SHIFT:</small></th>
-                <th scope="col" class="table-light" contenteditable></th>
+                <th scope="col" class="table-light" contenteditable><?php echo getShift() ?></th>
                 <th scope="col" class="fw-bold"><small>HC:</small></th>
                 <th scope="col" class="table-light">
                     <input type="text" id="hc-head" onkeyup="addHC()" />
                 </th>
                 <th scope="col" class="fw-bold"><small>DATE:</small></th>
-                <th scope="col" class="table-light" contenteditable></th>
+                <th scope="col" class="table-light" contenteditable><?php echo date("m/d/Y") ?></th>
                 <th scope="col" class="fw-bold"><small>SUPERVISOR:</small></th>
                 <th scope="col" class="table-light" contenteditable></th>
             </tr>
