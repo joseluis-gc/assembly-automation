@@ -18,7 +18,7 @@
 <!-- Load Bootstrap JS bundle-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 <!-- Load global scripts-->
-<script type="module" src="js/material.js"></script>
+<script type="module" src="views/_assets/js/material.js"></script>
 <script src="views/_assets/js/scripts.js"></script>
 <!--  Load Chart.js via CDN-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.0.0-beta.10/chart.min.js" crossorigin="anonymous"></script>
