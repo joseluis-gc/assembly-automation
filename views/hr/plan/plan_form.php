@@ -1,3 +1,4 @@
+
 <?php
 if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
     $query = "SELECT * FROM assets 
@@ -58,182 +59,201 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
                     <tbody>
                         <tr>
                             <th class="table-info">6:00-7:00am</th>
-                            <td id="hc" class="table-light">
-                                <input type="text" class="hc" name="hc" disabled={true} />
+                            <td id="hc" class="table-info">
+                                <input type="text" class="hc" name="hc" />
                             </td>
                             <td contenteditable></td>
                             <td contenteditable></td>
                             <td contenteditable></td>
                             <td class="table-info"></td>
                             <td class="table-light">
-                                <select style="border: 0; background-color: transparent;" class="form-control" name="" id="" required>
+                            <select style="border: 0; background-color: transparent;" onchange="add_Select(this);" class="form-control" id="1" required>
                                     <option value="">Select</option>
                                     <?php
                                     $query = "SELECT * FROM planned_interruptions";
                                     $result = mysqli_query($connection, $query);
-                                    while ($row = mysqli_fetch_array($result)):
+                                    while ($row = mysqli_fetch_array($result)) :
                                     ?>
                                         <option value="<?php echo $row['i_time'] ?>"><?php echo $row['i_name']; ?></option>
                                     <?php endwhile; ?>
                                 </select>
-                                <!--
-                                <mwc-select label="Planned interruption" onchange="add_Select(this)">
-                                    <mwc-list-item value="0.5">LUNCH</mwc-list-item>
-                                    <mwc-list-item value="1">SETUP</mwc-list-item>
-                                    <mwc-list-item value="0.083">SHIFT TURN</mwc-list-item>
-                                    <mwc-list-item value="0.167">TIER</mwc-list-item>
-                                </mwc-select>
-                                -->
                             </td>
-                            <td class="table-info" id="less-time"></td>
+                            <td class="table-info" id="less-time-1"></td>
                             <td class="table-info"></td>
                             <td class="table-info"></td>
                         </tr>
                         <tr>
                             <th class="table-info">7:00-8:00am</th>
-                            <td id="hc" class="table-light">
-                                <input type="text" class="hc" name="hc" disabled={true} />
+                            <td id="hc" class="table-info">
+                                <input type="text" class="hc" name="hc" />
                             </td>
                             <td contenteditable></td>
                             <td contenteditable></td>
                             <td contenteditable></td>
                             <td class="table-info"></td>
                             <td class="table-light">
-
-                                <mwc-select label="Planned interruption" onchange="add_Select(this)">
-                                    <mwc-list-item value="0.5">LUNCH</mwc-list-item>
-                                    <mwc-list-item value="1">SETUP</mwc-list-item>
-                                    <mwc-list-item value="0.083">SHIFT TURN</mwc-list-item>
-                                    <mwc-list-item value="0.167">TIER</mwc-list-item>
-                                </mwc-select>
+                            <select style="border: 0; background-color: transparent;" onchange="add_Select(this);" class="form-control" id="2" required>
+                                    <option value="">Select</option>
+                                    <?php
+                                    $query = "SELECT * FROM planned_interruptions";
+                                    $result = mysqli_query($connection, $query);
+                                    while ($row = mysqli_fetch_array($result)) :
+                                    ?>
+                                        <option value="<?php echo $row['i_time'] ?>"><?php echo $row['i_name']; ?></option>
+                                    <?php endwhile; ?>
+                                </select>
                             </td>
-                            <td class="table-info" id="less-time"></td>
+                            <td class="table-info" id="less-time-2"></td>
                             <td class="table-info"></td>
                             <td class="table-info"></td>
                         </tr>
                         <tr>
                             <th class="table-info">9:00-10:00am</th>
-                            <td id="hc" class="table-light">
-                                <input type="text" class="hc" name="hc" disabled={true} />
+                            <td id="hc" class="table-info">
+                                <input type="text" class="hc" name="hc" />
                             </td>
                             <td contenteditable></td>
                             <td contenteditable></td>
                             <td contenteditable></td>
                             <td class="table-info"></td>
                             <td class="table-light">
-                                <mwc-select label="Planned interruption" onchange="add_Select(this)">
-                                    <mwc-list-item value="0.5">LUNCH</mwc-list-item>
-                                    <mwc-list-item value="1">SETUP</mwc-list-item>
-                                    <mwc-list-item value="0.083">SHIFT TURN</mwc-list-item>
-                                    <mwc-list-item value="0.167">TIER</mwc-list-item>
-                                </mwc-select>
+                            <select style="border: 0; background-color: transparent;" onchange="add_Select(this);" class="form-control" id="3" required>
+                                    <option value="">Select</option>
+                                    <?php
+                                    $query = "SELECT * FROM planned_interruptions";
+                                    $result = mysqli_query($connection, $query);
+                                    while ($row = mysqli_fetch_array($result)) :
+                                    ?>
+                                        <option value="<?php echo $row['i_time'] ?>"><?php echo $row['i_name']; ?></option>
+                                    <?php endwhile; ?>
+                                </select>
                             </td>
-                            <td class="table-info" id="less-time"></td>
+                            <td class="table-info" id="less-time-3"></td>
                             <td class="table-info"></td>
                             <td class="table-info"></td>
                         </tr>
                         <tr>
                             <th class="table-info">10:00-11:00am</th>
-                            <td id="hc" class="table-light">
-                                <input type="text" class="hc" name="hc" disabled={true} />
+                            <td id="hc" class="table-info">
+                                <input type="text" class="hc" name="hc" />
                             </td>
                             <td contenteditable></td>
                             <td contenteditable></td>
                             <td contenteditable></td>
                             <td class="table-info"></td>
                             <td class="table-light">
-                                <mwc-select label="Planned interruption" onchange="add_Select(this)">
-                                    <mwc-list-item value="0.5">LUNCH</mwc-list-item>
-                                    <mwc-list-item value="1">SETUP</mwc-list-item>
-                                    <mwc-list-item value="0.083">SHIFT TURN</mwc-list-item>
-                                    <mwc-list-item value="0.167">TIER</mwc-list-item>
-                                </mwc-select>
+                            <select style="border: 0; background-color: transparent;" onchange="add_Select(this);" class="form-control" id="4" required>
+                                    <option value="">Select</option>
+                                    <?php
+                                    $query = "SELECT * FROM planned_interruptions";
+                                    $result = mysqli_query($connection, $query);
+                                    while ($row = mysqli_fetch_array($result)) :
+                                    ?>
+                                        <option value="<?php echo $row['i_time'] ?>"><?php echo $row['i_name']; ?></option>
+                                    <?php endwhile; ?>
+                                </select>
                             </td>
-                            <td class="table-info" id="less-time"></td>
+                            <td class="table-info" id="less-time-4"></td>
                             <td class="table-info"></td>
                             <td class="table-info"></td>
                         </tr>
                         <tr>
                             <th class="table-info">11:00-12:00pm</th>
-                            <td id="hc" class="table-light">
-                                <input type="text" class="hc" name="hc" disabled={true} />
+                            <td id="hc" class="table-info">
+                                <input type="text" class="hc" name="hc" />
                             </td>
                             <td contenteditable></td>
                             <td contenteditable></td>
                             <td contenteditable></td>
                             <td class="table-info"></td>
                             <td class="table-light">
-                                <mwc-select label="Planned interruption" onchange="add_Select(this)">
-                                    <mwc-list-item value="0.5">LUNCH</mwc-list-item>
-                                    <mwc-list-item value="1">SETUP</mwc-list-item>
-                                    <mwc-list-item value="0.083">SHIFT TURN</mwc-list-item>
-                                    <mwc-list-item value="0.167">TIER</mwc-list-item>
-                                </mwc-select>
+                            <select style="border: 0; background-color: transparent;" onchange="add_Select(this);" class="form-control" id="5" required>
+                                    <option value="">Select</option>
+                                    <?php
+                                    $query = "SELECT * FROM planned_interruptions";
+                                    $result = mysqli_query($connection, $query);
+                                    while ($row = mysqli_fetch_array($result)) :
+                                    ?>
+                                        <option value="<?php echo $row['i_time'] ?>"><?php echo $row['i_name']; ?></option>
+                                    <?php endwhile; ?>
+                                </select>
                             </td>
-                            <td class="table-info" id="less-time"></td>
+                            <td class="table-info" id="less-time-5"></td>
                             <td class="table-info"></td>
                             <td class="table-info"></td>
                         </tr>
                         <tr>
                             <th class="table-info">12:00-13:00pm</th>
-                            <td id="hc" class="table-light">
-                                <input type="text" class="hc" name="hc" disabled={true} />
+                            <td id="hc" class="table-info">
+                                <input type="text" class="hc" name="hc" />
                             </td>
                             <td contenteditable></td>
                             <td contenteditable></td>
                             <td contenteditable></td>
                             <td class="table-info"></td>
                             <td class="table-light">
-                                <mwc-select label="Planned interruption" onchange="add_Select(this)">
-                                    <mwc-list-item value="0.5">LUNCH</mwc-list-item>
-                                    <mwc-list-item value="1">SETUP</mwc-list-item>
-                                    <mwc-list-item value="0.083">SHIFT TURN</mwc-list-item>
-                                    <mwc-list-item value="0.167">TIER</mwc-list-item>
-                                </mwc-select>
+                            <select style="border: 0; background-color: transparent;" onchange="add_Select(this);" class="form-control" id="6" required>
+                                    <option value="">Select</option>
+                                    <?php
+                                    $query = "SELECT * FROM planned_interruptions";
+                                    $result = mysqli_query($connection, $query);
+                                    while ($row = mysqli_fetch_array($result)) :
+                                    ?>
+                                        <option value="<?php echo $row['i_time'] ?>"><?php echo $row['i_name']; ?></option>
+                                    <?php endwhile; ?>
+                                </select>
                             </td>
-                            <td class="table-info" id="less-time"></td>
+                            <td class="table-info" id="less-time-6"></td>
                             <td class="table-info"></td>
                             <td class="table-info"></td>
                         </tr>
                         <tr>
                             <th class="table-info">13:00-14:00pm</th>
-                            <td id="hc" class="table-light">
-                                <input type="text" class="hc" name="hc" disabled={true} />
+                            <td id="hc" class="table-info">
+                                <input type="text" class="hc" name="hc" />
                             </td>
                             <td contenteditable></td>
                             <td contenteditable></td>
                             <td contenteditable></td>
                             <td class="table-info"></td>
                             <td class="table-light">
-                                <mwc-select label="Planned interruption" onchange="add_Select(this)">
-                                    <mwc-list-item value="0.5">LUNCH</mwc-list-item>
-                                    <mwc-list-item value="1">SETUP</mwc-list-item>
-                                    <mwc-list-item value="0.083">SHIFT TURN</mwc-list-item>
-                                    <mwc-list-item value="0.167">TIER</mwc-list-item>
-                                </mwc-select>
+                                <select style="border: 0; background-color: transparent;" onchange="add_Select(this);" class="form-control" id="7" required>
+                                    <option value="">Select</option>
+                                    <?php
+                                    $query = "SELECT * FROM planned_interruptions";
+                                    $result = mysqli_query($connection, $query);
+                                    while ($row = mysqli_fetch_array($result)) :
+                                    ?>
+                                        <option value="<?php echo $row['i_time'] ?>"><?php echo $row['i_name']; ?></option>
+                                    <?php endwhile; ?>
+                                </select>
                             </td>
-                            <td class="table-info" id="less-time"></td>
+                            <td class="table-info" id="less-time-7"></td>
                             <td class="table-info"></td>
                             <td class="table-info"></td>
                         </tr>
                         <tr>
                             <th class="table-info">14:00-15:30pm</th>
-                            <td id="hc" class="table-light">
-                                <input type="text" class="hc" name="hc" disabled={true} />
+                            <td id="hc" class="table-info">
+                                <input type="text" class="hc" name="hc" />
                             </td>
                             <td contenteditable></td>
                             <td contenteditable></td>
                             <td contenteditable></td>
                             <td class="table-info"></td>
                             <td class="table-light">
-                                <mwc-select label="Planned interruption" onchange="add_Select(this)">
-                                    <mwc-list-item value="0.5">LUNCH</mwc-list-item>
-                                    <mwc-list-item value="1">SETUP</mwc-list-item>
-                                    <mwc-list-item value="0.083">SHIFT TURN</mwc-list-item>
-                                    <mwc-list-item value="0.167">TIER</mwc-list-item>
-                                </mwc-select>
+                                <select style="border: 0; background-color: transparent;" onchange="add_Select(this);" class="form-control" id="8" required>
+                                    <option value="">Select</option>
+                                    <?php
+                                    $query = "SELECT * FROM planned_interruptions";
+                                    $result = mysqli_query($connection, $query);
+                                    while ($row = mysqli_fetch_array($result)) :
+                                    ?>
+                                        <option value="<?php echo $row['i_time'] ?>"><?php echo $row['i_name']; ?></option>
+                                    <?php endwhile; ?>
+                                </select>
                             </td>
-                            <td class="table-info" id="less-time"></td>
+                            <td class="table-info" id="less-time-8"></td>
                             <td class="table-info"></td>
                             <td class="table-info"></td>
                         </tr>
@@ -251,16 +271,11 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
         for (var i = 0; i < elements.length; i++) {
             elements[i].value = valor;
         }
-    }
-<<<<<<< HEAD
-</script>
+    };
 
-=======
-    // const add_Select = (elemento) => {
-    //     const getSelect = document.querySelectorAll("[id='less-time']");
-    //     const valueSelect = elemento.value;
-    //     var element = document.getElementById("less-time");
-    //     element.innerHTML = valueSelect;
-    // };
+    function add_Select(element) {
+        const valueSelected = element.value;
+        const elementSelected = document.getElementById("less-time-"+element.id)
+        elementSelected.innerHTML = valueSelected; 
+    };
 </script>
->>>>>>> 3d117a1ea4a18c11da24e8754ebaab0da6a67865
