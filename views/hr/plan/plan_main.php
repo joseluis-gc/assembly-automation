@@ -6,7 +6,13 @@
     <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 gx-5">
 
         <?php
-        $query = "SELECT * FROM plant WHERE plant_active = 1";
+        if(isset($_GET['plant_id']) && is_numeric($_GET['plant_id'])) {
+            echo "set";
+            $query = "SELECT * FROM plant WHERE plant_active = 1 AND plant_id = {$_GET['plant_id']}";
+        }else{
+            echo "not set";
+            $query = "SELECT * FROM plant WHERE plant_active = 1";
+        }
         $result = mysqli_query($connection,$query);
         if(!$result):
             die("Query Error");
@@ -36,7 +42,7 @@
                         $result_sites = mysqli_query($connection, $query_sites);
                         while($row_site = mysqli_fetch_array($result_sites)):
                         ?>
-                            <a class="nav-link ripple-gray px-3 py-2" href="index.php?page=plan_site=<?php echo $row_site['site_id']; ?>"><?php echo $row_site['site_name']; ?></a>
+                            <a class="nav-link ripple-gray px-3 py-2" href="index.php?page=plan_measurement&plan_site=<?php echo $row_site['site_id']; ?>"><?php echo $row_site['site_name']; ?></a>
                         <?php
                         endwhile;
                         ?>

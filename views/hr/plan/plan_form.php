@@ -1,4 +1,7 @@
-<div>
+<div class="container-xl p-5">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 gx-5">
+
+    <div>
     <table class="table text-center table-success table-bordered mb-0 mt-3">
         <thead>
             <tr>
@@ -291,6 +294,8 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+</div>
     </div>
 </div>
 <script>

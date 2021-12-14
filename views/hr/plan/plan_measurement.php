@@ -1,8 +1,8 @@
 <?php
-if (isset($GET['plan_site']) && is_numeric($_GET['plan_site'])) {
-    $plan_site = $GET['plan_site'];
+if(isset($_GET['plan_site']) && is_numeric($_GET['plan_site'])) {
+    $plan_site = $_GET['plan_site'];
 }else{
-    die("No Parameter");
+    die("No Parameter!".$_GET['plan_site']);
 }
 ?>
 <!-- Page header-->
@@ -13,7 +13,7 @@ if (isset($GET['plan_site']) && is_numeric($_GET['plan_site'])) {
     <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 gx-5">
 
         <?php
-        $query = "SELECT * FROM assets WHERE asset_site = $plan_site";
+        $query = "SELECT * FROM assets WHERE asset_site = $plan_site AND pom = 1";
         $result = mysqli_query($connection,$query);
         if(!$result):
             die("Query Error");
@@ -30,25 +30,13 @@ if (isset($GET['plan_site']) && is_numeric($_GET['plan_site'])) {
                             <div class="d-flex align-items-center">
                                 <i class="material-icons text-primary">person</i>
                                 <div class="ms-3">
-                                    <div class="fs-6 mb-1 fw-500"><?php echo $row['plant_name'] ?></div>
+                                    <div class="fs-6 mb-1 fw-500"><?php echo $row['asset_name'] ?></div>
                                     <div class="small">Elige una celda</div>
                                 </div>
                             </div>
                             <i class="material-icons card-header-icon">expand_less</i>
                         </div>
-                        <div class="card-body px-0 collapse show" id="usersCollapseContent" data-bs-parent="#usersCollapse">
-                            <div class="nav flex-column">
-                                <?php
-                                $query_sites = "SELECT * FROM site WHERE plant_id = {$row['plant_id']}";
-                                $result_sites = mysqli_query($connection, $query_sites);
-                                while($row_site = mysqli_fetch_array($result_sites)):
-                                    ?>
-                                    <a class="nav-link ripple-gray px-3 py-2" href="index.php?page=plan_site=<?php echo $row_site['site_id']; ?>"><?php echo $row_site['site_name']; ?></a>
-                                <?php
-                                endwhile;
-                                ?>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
 

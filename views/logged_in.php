@@ -16,6 +16,11 @@ if (!empty($page)) {
         break;
 
 
+        case "plan_form":
+            include ("views/hr/plan/plan_form.php");
+        break;
+
+
         default:
             include ("views/home/home.php");
         break;
