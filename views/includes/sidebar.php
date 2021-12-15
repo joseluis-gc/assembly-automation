@@ -162,7 +162,7 @@
                     <!-- Divider-->
                     <div class="drawer-menu-divider"></div>
                     <!-- Drawer section heading (Plugins)-->
-                    <div class="drawer-menu-heading">Plugins</div>
+                    <div class="drawer-menu-heading">Configuración</div>
                     <!-- Drawer link (Charts)-->
                     <a class="nav-link" href="plugins-charts.html">
                         <div class="nav-link-icon"><i class="material-icons">bar_chart</i></div>
@@ -191,7 +191,7 @@
                     <i class="material-icons text-muted">account_circle</i>
                     <div class="ms-3">
                         <div class="caption">Logged in as:</div>
-                        <div class="small fw-500">Start Bootstrap</div>
+                        <div class="small fw-500"><?php echo $_SESSION['user_name']; ?></div>
                     </div>
                 </div>
             </div>

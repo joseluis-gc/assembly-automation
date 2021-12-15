@@ -11,6 +11,9 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
 }
 ?>
 <div class="container-xl p-5">
+
+
+    
     <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 gx-5">
 
         <div>
@@ -22,7 +25,7 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
                         <th scope="col" class="fw-bold"><small>AREA:</small></th>
                         <th scope="col" class="table-light" contenteditable><?php echo $row['site_name'] ?></th>
                         <th scope="col" class="fw-bold"><small>OUTPUT:</small></th>
-                        <th scope="col" class="table-light" contenteditable></th>
+                        <th scope="col" class="table-light" contenteditable><?php echo $row['asset_name']; ?></th>
                         <th scope="col" class="fw-bold"><small>SHIFT:</small></th>
                         <th scope="col" class="table-light" contenteditable><?php echo getShift() ?></th>
                         <th scope="col" class="fw-bold"><small>HC:</small></th>
@@ -30,7 +33,7 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
                             <input type="text" id="hc-head" onkeyup="addHC()" />
                         </th>
                         <th scope="col" class="fw-bold"><small>DATE:</small></th>
-                        <th scope="col" class="table-light" contenteditable><?php echo date("m/d/Y") ?></th>
+                        <th scope="col" class="table-light" contenteditable><input class="form-control" type="date" value="<?php echo date("Y-m-d") ?>"></th>
                         <th scope="col" class="fw-bold"><small>SUPERVISOR:</small></th>
                         <th scope="col" class="table-light" contenteditable></th>
                     </tr>
@@ -61,7 +64,18 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
                             <td id="hc" class="table-info">
                                 <input type="text" class="hc" name="hc" />
                             </td>
-                            <td contenteditable></td>
+                            <td contenteditable>
+                                <input style="width: 150px;" type="text" list="pn" name="partno" class="form-control"/>
+                                <datalist id="pn">
+                                    <?php
+                                    $query_pph = "SELECT DISTINCT routing FROM hour_pph";
+                                    $result_pph = mysqli_query($connection, $query_pph);
+                                    while($row_pph = mysqli_fetch_array($result_pph)):
+                                        ?>
+                                        <option><?php echo $row_pph['routing']; ?></option>
+                                    <?php endwhile; ?>
+                                </datalist>
+                            </td>
                             <td contenteditable></td>
                             <td id="plan_by_hr">
                                 <input type="text" class="planByHr" onkeyup="calculo(this);" name="plan_by_hr_1" />
