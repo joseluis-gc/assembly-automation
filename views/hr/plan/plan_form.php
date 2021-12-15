@@ -68,11 +68,11 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
                                 <input style="width: 150px;" type="text" list="pn" name="partno" class="form-control"/>
                                 <datalist id="pn">
                                     <?php
-                                    $query_pph = "SELECT DISTINCT routing FROM hour_pph";
+                                    $query_pph = "SELECT DISTINCT routing, hrs FROM hour_pph";
                                     $result_pph = mysqli_query($connection, $query_pph);
                                     while($row_pph = mysqli_fetch_array($result_pph)):
                                         ?>
-                                        <option><?php echo $row_pph['routing']; ?></option>
+                                        <option data-hrs="<?php echo $row_pph['hrs'] ?>"><?php echo $row_pph['routing']; ?></option>
                                     <?php endwhile; ?>
                                 </datalist>
                             </td>
