@@ -86,7 +86,7 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
                                 </select>
                             </td>
                             <td class="table-info" id="less-time-1"></td>
-                            <td class="table-info" name="stnd_time" id="stnd_time_1"></td>
+                            <td class="table-info" name="stnd_time" id="stnd_time_1">0</td>
                             <td class="table-info"></td>
                         </tr>
                         <tr>
@@ -116,7 +116,7 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
                                 </select>
                             </td>
                             <td class="table-info" id="less-time-2"></td>
-                            <td class="table-info" name="stnd_time" id="stnd_time_2"></td>
+                            <td class="table-info" name="stnd_time" id="stnd_time_2">0</td>
                             <td class="table-info"></td>
                         </tr>
                         <tr>
@@ -148,7 +148,7 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
                                 </select>
                             </td>
                             <td class="table-info" id="less-time-3"></td>
-                            <td class="table-info" name="stnd_time" id="stnd_time_3"></td>
+                            <td class="table-info" name="stnd_time" id="stnd_time_3">0</td>
                             <td class="table-info"></td>
                         </tr>
                         <tr>
@@ -178,7 +178,7 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
                                 </select>
                             </td>
                             <td class="table-info" id="less-time-4"></td>
-                            <td class="table-info" name="stnd_time" id="stnd_time_4"></td>
+                            <td class="table-info" name="stnd_time" id="stnd_time_4">0</td>
                             <td class="table-info"></td>
                         </tr>
                         <tr>
@@ -208,7 +208,7 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
                                 </select>
                             </td>
                             <td class="table-info" id="less-time-5"></td>
-                            <td class="table-info" name="stnd_time" id="stnd_time_5"></td>
+                            <td class="table-info" name="stnd_time" id="stnd_time_5">0</td>
                             <td class="table-info"></td>
                         </tr>
                         <tr>
@@ -238,7 +238,7 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
                                 </select>
                             </td>
                             <td class="table-info" id="less-time-6"></td>
-                            <td class="table-info" name="stnd_time" id="stnd_time_6"></td>
+                            <td class="table-info" name="stnd_time" id="stnd_time_6">0</td>
                             <td class="table-info"></td>
                         </tr>
                         <tr>
@@ -268,7 +268,7 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
                                 </select>
                             </td>
                             <td class="table-info" id="less-time-7"></td>
-                            <td class="table-info" name="stnd_time" id="stnd_time_7"></td>
+                            <td class="table-info" name="stnd_time" id="stnd_time_7">0</td>
                             <td class="table-info"></td>
                         </tr>
                         <tr>
@@ -298,7 +298,7 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
                                 </select>
                             </td>
                             <td class="table-info" id="less-time-8"></td>
-                            <td class="table-info" name="stnd_time" id="stnd_time_8"></td>
+                            <td class="table-info" name="stnd_time" id="stnd_time_8">0</td>
                             <td class="table-info"></td>
                         </tr>
                     </tbody>
@@ -368,7 +368,7 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
             var responseInput = $('#pn [value="' + resp + '"]').data('hrs');
             var resp_standar_time = document.getElementsByName("stnd_time");
 
-            resp_standar_time[id].innerHTML = responseInput;
+            resp_standar_time[id].innerHTML = responseInput || 0;
         })
     };
 
