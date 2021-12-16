@@ -30,5 +30,6 @@
 <!-- Load Simple DataTables Scripts-->
 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
 <script src="views/_assets/js/datatables/datatables-simple-demo.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 </html>
