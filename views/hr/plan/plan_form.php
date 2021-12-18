@@ -11,11 +11,7 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
 }
 ?>
 <div class="container-xl p-5">
-
-
-
     <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 gx-5">
-
         <div>
             <table class="table text-center table-success table-bordered mb-0 mt-3">
                 <thead>
@@ -60,12 +56,12 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
                     </thead>
                     <tbody>
                         <tr>
-                            <th style="min-width: 10rem;" class="table-info">6:00-7:00am</th>
+                            <th style="min-width: 9rem;" class="table-info">6:00-7:00am</th>
                             <td id="hc" class="table-info">
-                                <input type="text" class="hc" name="hc" />
+                                <input type="text" class="hc" name="hc" id="hc_1" />
                             </td>
                             <td>
-                                <input style="min-width: 10rem; border: 0; background-color: transparent;" id="input_item_number_1" onchange="getValueSelectedItemNumber(this, 0);" placeholder="Select" type="text" list="pn" name="partno" class="form-control" />
+                                <input style="min-width: 10rem; border: 0; background-color: transparent;" id="input_item_number_1" onchange="getValueSelectedItemNumber(this, 1);" placeholder="Select" type="text" list="pn" name="partno" class="form-control" />
                                 <datalist id="pn"></datalist>
                             </td>
                             <td contenteditable></td>
@@ -74,7 +70,7 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
                             </td>
                             <td class="table-info" id="cum_plan_1" name="cum_plan">0</td>
                             <td class="table-light">
-                                <select style="min-width: 10rem; border: 0; background-color: transparent;" onchange="add_Select(this);" class="form-control" id="1" required>
+                                <select style="min-width: 15rem; border: 0; background-color: transparent;" onchange="add_Select(this, 1);" class="form-control" required>
                                     <option value="">Select</option>
                                     <?php
                                     $query = "SELECT * FROM planned_interruptions";
@@ -85,17 +81,17 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
                                     <?php endwhile; ?>
                                 </select>
                             </td>
-                            <td class="table-info" id="less-time-1"></td>
-                            <td class="table-info" name="stnd_time" id="stnd_time_1">0</td>
-                            <td class="table-info"></td>
+                            <td class="table-info" id="less_time"><input type="text" name="less_time" id="less_time_1" disabled="true"></td>
+                            <td class="table-info" id="stnd_time"><input type="text" name="stnd_time" id="stnd_time_1" disabled="true"></td>
+                            <td class="table-info" style="min-width: 8rem;" id="qty_by_hr"><input type="text" name="qty_by_hr" id="qty_by_hr_1" value="0" disabled="true"></td>
                         </tr>
                         <tr>
                             <th class="table-info">7:00-8:00am</th>
                             <td id="hc" class="table-info">
-                                <input type="text" class="hc" name="hc" />
+                                <input type="text" class="hc" name="hc" id="hc_2" />
                             </td>
                             <td>
-                                <input style="min-width: 10rem; border: 0; background-color: transparent;" id="input_item_number_2" onchange="getValueSelectedItemNumber(this, 1);" placeholder="Select" type="text" list="pn" name="partno" class="form-control" />
+                                <input style="min-width: 10rem; border: 0; background-color: transparent;" id="input_item_number_2" onchange="getValueSelectedItemNumber(this, 2);" placeholder="Select" type="text" list="pn" name="partno" class="form-control" />
                                 <datalist id="pn"></datalist>
                             </td>
                             <td contenteditable></td>
@@ -104,7 +100,7 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
                             </td>
                             <td class="table-info" id="cum_plan_2" name="cum_plan">0</td>
                             <td class="table-light">
-                                <select style="min-width: 10rem; border: 0; background-color: transparent;" onchange="add_Select(this);" class="form-control" id="2" required>
+                                <select style="min-width: 10rem; border: 0; background-color: transparent;" onchange="add_Select(this, 2);" class="form-control" required>
                                     <option value="">Select</option>
                                     <?php
                                     $query = "SELECT * FROM planned_interruptions";
@@ -115,20 +111,18 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
                                     <?php endwhile; ?>
                                 </select>
                             </td>
-                            <td class="table-info" id="less-time-2"></td>
-                            <td class="table-info" name="stnd_time" id="stnd_time_2">0</td>
-                            <td class="table-info"></td>
+                            <td class="table-info" id="less_time"><input type="text" name="less_time" id="less_time_2" disabled="true"></td>
+                            <td class="table-info" id="stnd_time"><input type="text" name="stnd_time" id="stnd_time_2" disabled="true"></td>
+                            <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr" id="qty_by_hr_2" disabled="true"></td>
                         </tr>
                         <tr>
                             <th class="table-info">9:00-10:00am</th>
                             <td id="hc" class="table-info">
-                                <input type="text" class="hc" name="hc" />
+                                <input type="text" class="hc" name="hc" id="hc_3" />
                             </td>
                             <td>
-                                <input style="min-width: 10rem; border: 0; background-color: transparent;" id="input_item_number_3" onchange="getValueSelectedItemNumber(this, 2);" placeholder="Select" type="text" list="pn" name="partno" class="form-control" />
-                                <datalist id="pn">
-
-                                </datalist>
+                                <input style="min-width: 10rem; border: 0; background-color: transparent;" id="input_item_number_3" onchange="getValueSelectedItemNumber(this, 3);" placeholder="Select" type="text" list="pn" name="partno" class="form-control" />
+                                <datalist id="pn"></datalist>
                             </td>
                             <td contenteditable></td>
                             <td id="plan_by_hr">
@@ -136,7 +130,7 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
                             </td>
                             <td class="table-info" id="cum_plan_3" name="cum_plan">0</td>
                             <td class="table-light">
-                                <select style="min-width: 10rem; border: 0; background-color: transparent;" onchange="add_Select(this);" class="form-control" id="3" required>
+                                <select style="min-width: 10rem; border: 0; background-color: transparent;" onchange="add_Select(this, 3);" class="form-control" required>
                                     <option value="">Select</option>
                                     <?php
                                     $query = "SELECT * FROM planned_interruptions";
@@ -147,17 +141,17 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
                                     <?php endwhile; ?>
                                 </select>
                             </td>
-                            <td class="table-info" id="less-time-3"></td>
-                            <td class="table-info" name="stnd_time" id="stnd_time_3">0</td>
-                            <td class="table-info"></td>
+                            <td class="table-info" id="less_time"><input type="text" name="less_time" id="less_time_3" disabled="true"></td>
+                            <td class="table-info" id="stnd_time"><input type="text" name="stnd_time" id="stnd_time_3" disabled="true"></td>
+                            <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr" id="qty_by_hr_3" disabled="true"></td>
                         </tr>
                         <tr>
                             <th class="table-info">10:00-11:00am</th>
                             <td id="hc" class="table-info">
-                                <input type="text" class="hc" name="hc" />
+                                <input type="text" class="hc" name="hc" id="hc_4" />
                             </td>
                             <td>
-                                <input style="min-width: 10rem; border: 0; background-color: transparent;" id="input_item_number_4" onchange="getValueSelectedItemNumber(this, 3);" placeholder="Select" type="text" list="pn" name="partno" class="form-control" />
+                                <input style="min-width: 10rem; border: 0; background-color: transparent;" id="input_item_number_4" onchange="getValueSelectedItemNumber(this, 4);" placeholder="Select" type="text" list="pn" name="partno" class="form-control" />
                                 <datalist id="pn"></datalist>
                             </td>
                             <td contenteditable></td>
@@ -166,7 +160,7 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
                             </td>
                             <td class="table-info" id="cum_plan_4" name="cum_plan">0</td>
                             <td class="table-light">
-                                <select style="min-width: 10rem; border: 0; background-color: transparent;" onchange="add_Select(this);" class="form-control" id="4" required>
+                                <select style="min-width: 10rem; border: 0; background-color: transparent;" onchange="add_Select(this, 4);" class="form-control" required>
                                     <option value="">Select</option>
                                     <?php
                                     $query = "SELECT * FROM planned_interruptions";
@@ -177,17 +171,17 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
                                     <?php endwhile; ?>
                                 </select>
                             </td>
-                            <td class="table-info" id="less-time-4"></td>
-                            <td class="table-info" name="stnd_time" id="stnd_time_4">0</td>
-                            <td class="table-info"></td>
+                            <td class="table-info" id="less_time"><input type="text" name="less_time" id="less_time_4" disabled="true"></td>
+                            <td class="table-info" id="stnd_time"><input type="text" name="stnd_time" id="stnd_time_4" disabled="true"></td>
+                            <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr" id="qty_by_hr_4" disabled="true"></td>
                         </tr>
                         <tr>
                             <th class="table-info">11:00-12:00pm</th>
                             <td id="hc" class="table-info">
-                                <input type="text" class="hc" name="hc" />
+                                <input type="text" class="hc" name="hc" id="hc_5" />
                             </td>
                             <td>
-                                <input style="min-width: 10rem; border: 0; background-color: transparent;" id="input_item_number_5" onchange="getValueSelectedItemNumber(this, 4);" placeholder="Select" type="text" list="pn" name="partno" class="form-control" />
+                                <input style="min-width: 10rem; border: 0; background-color: transparent;" id="input_item_number_5" onchange="getValueSelectedItemNumber(this, 5);" placeholder="Select" type="text" list="pn" name="partno" class="form-control" />
                                 <datalist id="pn"></datalist>
                             </td>
                             <td contenteditable></td>
@@ -196,7 +190,7 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
                             </td>
                             <td class="table-info" id="cum_plan_5" name="cum_plan">0</td>
                             <td class="table-light">
-                                <select style="min-width: 10rem; border: 0; background-color: transparent;" onchange="add_Select(this);" class="form-control" id="5" required>
+                                <select style="min-width: 10rem; border: 0; background-color: transparent;" onchange="add_Select(this, 5);" class="form-control" required>
                                     <option value="">Select</option>
                                     <?php
                                     $query = "SELECT * FROM planned_interruptions";
@@ -207,17 +201,17 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
                                     <?php endwhile; ?>
                                 </select>
                             </td>
-                            <td class="table-info" id="less-time-5"></td>
-                            <td class="table-info" name="stnd_time" id="stnd_time_5">0</td>
-                            <td class="table-info"></td>
+                            <td class="table-info" id="less_time"><input type="text" name="less_time" id="less_time_5" disabled="true"></td>
+                            <td class="table-info" id="stnd_time"><input type="text" name="stnd_time" id="stnd_time_5" disabled="true"></td>
+                            <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr" id="qty_by_hr_5" disabled="true"></td>
                         </tr>
                         <tr>
                             <th class="table-info">12:00-13:00pm</th>
                             <td id="hc" class="table-info">
-                                <input type="text" class="hc" name="hc" />
+                                <input type="text" class="hc" name="hc" id="hc_6" />
                             </td>
                             <td>
-                                <input style="min-width: 10rem; border: 0; background-color: transparent;" id="input_item_number_6" onchange="getValueSelectedItemNumber(this, 5);" placeholder="Select" type="text" list="pn" name="partno" class="form-control" />
+                                <input style="min-width: 10rem; border: 0; background-color: transparent;" id="input_item_number_6" onchange="getValueSelectedItemNumber(this, 6);" placeholder="Select" type="text" list="pn" name="partno" class="form-control" />
                                 <datalist id="pn"></datalist>
                             </td>
                             <td contenteditable></td>
@@ -226,7 +220,7 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
                             </td>
                             <td class="table-info" id="cum_plan_6" name="cum_plan">0</td>
                             <td class="table-light">
-                                <select style="min-width: 10rem; border: 0; background-color: transparent;" onchange="add_Select(this);" class="form-control" id="6" required>
+                                <select style="min-width: 10rem; border: 0; background-color: transparent;" onchange="add_Select(this, 6);" class="form-control" required>
                                     <option value="">Select</option>
                                     <?php
                                     $query = "SELECT * FROM planned_interruptions";
@@ -237,26 +231,26 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
                                     <?php endwhile; ?>
                                 </select>
                             </td>
-                            <td class="table-info" id="less-time-6"></td>
-                            <td class="table-info" name="stnd_time" id="stnd_time_6">0</td>
-                            <td class="table-info"></td>
+                            <td class="table-info" id="less_time"><input type="text" name="less_time" id="less_time_6" disabled="true"></td>
+                            <td class="table-info" id="stnd_time"><input type="text" name="stnd_time" id="stnd_time_6" disabled="true"></td>
+                            <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr" id="qty_by_hr_6" disabled="true"></td>
                         </tr>
                         <tr>
                             <th class="table-info">13:00-14:00pm</th>
                             <td id="hc" class="table-info">
-                                <input type="text" class="hc" name="hc" />
+                                <input type="text" class="hc" name="hc" id="hc_7" />
                             </td>
                             <td>
-                                <input style="min-width: 10rem; border: 0; background-color: transparent;" id="input_item_number_7" onchange="getValueSelectedItemNumber(this, 6);" placeholder="Select" type="text" list="pn" name="partno" class="form-control" />
+                                <input style="min-width: 10rem; border: 0; background-color: transparent;" id="input_item_number_7" onchange="getValueSelectedItemNumber(this, 7);" placeholder="Select" type="text" list="pn" name="partno" class="form-control" />
                                 <datalist id="pn"></datalist>
                             </td>
                             <td contenteditable></td>
                             <td id="plan_by_hr">
-                                <input type="text" class="planByHr" onkeyup="calculo(this);" name="plan_by_hr_7" />
+                                <input type="text" class="planByHr" onkeyup="calculo(this, 7);" name="plan_by_hr_7" />
                             </td>
                             <td class="table-info" id="cum_plan_7" name="cum_plan">0</td>
                             <td class="table-light">
-                                <select style="min-width: 10rem; border: 0; background-color: transparent;" id="input_item_number_8" onchange="getValueSelectedItemNumber(this, 7);" class="form-control" id="7" required>
+                                <select style="min-width: 10rem; border: 0; background-color: transparent;" id="input_item_number_8" onchange="getValueSelectedItemNumber(this, 7);" class="form-control" required>
                                     <option value="">Select</option>
                                     <?php
                                     $query = "SELECT * FROM planned_interruptions";
@@ -267,14 +261,14 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
                                     <?php endwhile; ?>
                                 </select>
                             </td>
-                            <td class="table-info" id="less-time-7"></td>
-                            <td class="table-info" name="stnd_time" id="stnd_time_7">0</td>
-                            <td class="table-info"></td>
+                            <td class="table-info" id="less_time"><input type="text" name="less_time" id="less_time_7" disabled="true"></td>
+                            <td class="table-info" id="stnd_time"><input type="text" name="stnd_time" id="stnd_time_7" disabled="true"></td>
+                            <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr" id="qty_by_hr_7" disabled="true"></td>
                         </tr>
                         <tr>
                             <th class="table-info">14:00-15:30pm</th>
                             <td id="hc" class="table-info">
-                                <input type="text" class="hc" name="hc" />
+                                <input type="text" class="hc" name="hc" id="hc_8" />
                             </td>
                             <td>
                                 <input style="min-width: 10rem; border: 0; background-color: transparent;" id="input_item_number_8" onchange="getValueSelectedItemNumber(this, 8);" placeholder="Select" type="text" list="pn" name="partno" class="form-control" />
@@ -286,7 +280,7 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
                             </td>
                             <td class="table-info" id="cum_plan_8" name="cum_plan">0</td>
                             <td class="table-light">
-                                <select style="min-width: 10rem; border: 0; background-color: transparent;" onchange="add_Select(this);" class="form-control" id="8" required>
+                                <select style="min-width: 10rem; border: 0; background-color: transparent;" onchange="add_Select(this, 8);" class="form-control" required>
                                     <option value="">Select</option>
                                     <?php
                                     $query = "SELECT * FROM planned_interruptions";
@@ -297,9 +291,9 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
                                     <?php endwhile; ?>
                                 </select>
                             </td>
-                            <td class="table-info" id="less-time-8"></td>
-                            <td class="table-info" name="stnd_time" id="stnd_time_8">0</td>
-                            <td class="table-info"></td>
+                            <td class="table-info" id="less_time"><input type="text" name="less_time" id="less_time_8" disabled="true"></td>
+                            <td class="table-info" id="stnd_time"><input type="text" name="stnd_time" id="stnd_time_8" disabled="true"></td>
+                            <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr" id="qty_by_hr_8" value="0" disabled="true"></td>
                         </tr>
                     </tbody>
                 </table>
@@ -308,15 +302,20 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
     </div>
 </div>
 <script>
+    //ADD HC IN CELLS
     function addHC() {
         var elements = document.querySelectorAll(".hc");
         var valor = document.getElementById('hc-head').value;
 
         for (var i = 0; i < elements.length; i++) {
             elements[i].value = valor;
-        }
+        };
+
+        $("input[onchange*='qty_by_hr']").on("onChange")
+
     };
 
+    //PLAN BY HR
     function calculo(element) {
         var first_value = 0;
         var nombre = element.name;
@@ -345,7 +344,8 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
         }
     };
 
-    window.onload = function() {
+    //GET ITEM NUMBER
+    window.onload = function(element) {
         let find_item = document.querySelector("#pn");
         let stndr_time = document.querySelector("#stnd_time");
         let url = "http://localhost/assembly-automation/functions/ItemNumberSelect/item_number_select.php"
@@ -358,23 +358,42 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
                 find_item.innerHTML = html;
             })
             .catch((e) => {
-                console.log(e)
-            })
+                console.log(e);
+            });
     };
 
+    // GET VALUE SELECTED ITEM NUMBER
     function getValueSelectedItemNumber(element, id) {
-        $("input[name*='partno']").on('keyup', function(data) {
+        $("input[name*='partno']").on('keyup', function() {
             var resp = element.value;
             var responseInput = $('#pn [value="' + resp + '"]').data('hrs');
-            var resp_standar_time = document.getElementsByName("stnd_time");
+            var resp_standar_time = document.getElementById("stnd_time_" + id);
 
-            resp_standar_time[id].innerHTML = responseInput || 0;
-        })
+            resp_standar_time.value = responseInput || 0;
+        });
     };
 
-    function add_Select(element) {
-        const valueSelected = element.value;
-        const elementSelected = document.getElementById("less-time-" + element.id)
-        elementSelected.innerHTML = valueSelected;
+    function operations(id) {
+        console.log(id)
+        //SUMA DE QTY BY HR
+        var getQtyByHr = document.querySelector("input[name*='qty_by_hr']");
+        var hc = $("input[name*='hc']").val();
+        var stnd_time = $("input[name*='stnd_time']").val();
+        var less_time = $("input[name*='less_time']").val();
+        result = ((hc - less_time) / (stnd_time)) || 0;
+
+        if (result === "" || result === null || result === "undefined" || isNaN(result) || result < 0) {
+            return getQtyByHr.value = 0;
+        }
+        getQtyByHr.value = result || 0;
+    };
+
+    //GET LESS TIME
+    function add_Select(element, id) {
+        var valueSelected = element.value;
+        var elementSelected = document.getElementById("less_time_" + id);
+        elementSelected.value = valueSelected || 0;
+
+        elementSelected.value = valueSelected || 0;
     };
 </script>
