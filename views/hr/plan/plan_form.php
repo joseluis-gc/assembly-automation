@@ -58,7 +58,7 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
                         <tr>
                             <th style="min-width: 9rem;" class="table-info">6:00-7:00am</th>
                             <td id="hc" class="table-info">
-                                <input type="text" class="hc" name="hc" id="hc_1" />
+                                <input type="text" class="hc" name="hc" id="hc_1" onchange="operations(1)" />
                             </td>
                             <td>
                                 <input style="min-width: 10rem; border: 0; background-color: transparent;" id="input_item_number_1" onchange="getValueSelectedItemNumber(this, 1);" placeholder="Select" type="text" list="pn" name="partno" class="form-control" />
@@ -88,7 +88,7 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
                         <tr>
                             <th class="table-info">7:00-8:00am</th>
                             <td id="hc" class="table-info">
-                                <input type="text" class="hc" name="hc" id="hc_2" />
+                                <input type="text" class="hc" name="hc" id="hc_2" onchange="operations(2)" />
                             </td>
                             <td>
                                 <input style="min-width: 10rem; border: 0; background-color: transparent;" id="input_item_number_2" onchange="getValueSelectedItemNumber(this, 2);" placeholder="Select" type="text" list="pn" name="partno" class="form-control" />
@@ -118,7 +118,7 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
                         <tr>
                             <th class="table-info">9:00-10:00am</th>
                             <td id="hc" class="table-info">
-                                <input type="text" class="hc" name="hc" id="hc_3" />
+                                <input type="text" class="hc" name="hc" id="hc_3" onchange="operations(3)"/>
                             </td>
                             <td>
                                 <input style="min-width: 10rem; border: 0; background-color: transparent;" id="input_item_number_3" onchange="getValueSelectedItemNumber(this, 3);" placeholder="Select" type="text" list="pn" name="partno" class="form-control" />
@@ -148,7 +148,7 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
                         <tr>
                             <th class="table-info">10:00-11:00am</th>
                             <td id="hc" class="table-info">
-                                <input type="text" class="hc" name="hc" id="hc_4" />
+                                <input type="text" class="hc" name="hc" id="hc_4" onchange="operations(4)" />
                             </td>
                             <td>
                                 <input style="min-width: 10rem; border: 0; background-color: transparent;" id="input_item_number_4" onchange="getValueSelectedItemNumber(this, 4);" placeholder="Select" type="text" list="pn" name="partno" class="form-control" />
@@ -178,7 +178,7 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
                         <tr>
                             <th class="table-info">11:00-12:00pm</th>
                             <td id="hc" class="table-info">
-                                <input type="text" class="hc" name="hc" id="hc_5" />
+                                <input type="text" class="hc" name="hc" id="hc_5" onchange="operations(5)" />
                             </td>
                             <td>
                                 <input style="min-width: 10rem; border: 0; background-color: transparent;" id="input_item_number_5" onchange="getValueSelectedItemNumber(this, 5);" placeholder="Select" type="text" list="pn" name="partno" class="form-control" />
@@ -208,7 +208,7 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
                         <tr>
                             <th class="table-info">12:00-13:00pm</th>
                             <td id="hc" class="table-info">
-                                <input type="text" class="hc" name="hc" id="hc_6" />
+                                <input type="text" class="hc" name="hc" id="hc_6" onchange="operations(6)" />
                             </td>
                             <td>
                                 <input style="min-width: 10rem; border: 0; background-color: transparent;" id="input_item_number_6" onchange="getValueSelectedItemNumber(this, 6);" placeholder="Select" type="text" list="pn" name="partno" class="form-control" />
@@ -238,7 +238,7 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
                         <tr>
                             <th class="table-info">13:00-14:00pm</th>
                             <td id="hc" class="table-info">
-                                <input type="text" class="hc" name="hc" id="hc_7" />
+                                <input type="text" class="hc" name="hc" id="hc_7" onchange="operations(7)" />
                             </td>
                             <td>
                                 <input style="min-width: 10rem; border: 0; background-color: transparent;" id="input_item_number_7" onchange="getValueSelectedItemNumber(this, 7);" placeholder="Select" type="text" list="pn" name="partno" class="form-control" />
@@ -268,7 +268,7 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
                         <tr>
                             <th class="table-info">14:00-15:30pm</th>
                             <td id="hc" class="table-info">
-                                <input type="text" class="hc" name="hc" id="hc_8" />
+                                <input type="text" class="hc" name="hc" id="hc_8" onchange="operations(8)" />
                             </td>
                             <td>
                                 <input style="min-width: 10rem; border: 0; background-color: transparent;" id="input_item_number_8" onchange="getValueSelectedItemNumber(this, 8);" placeholder="Select" type="text" list="pn" name="partno" class="form-control" />
@@ -310,9 +310,6 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
         for (var i = 0; i < elements.length; i++) {
             elements[i].value = valor;
         };
-
-        $("input[onchange*='qty_by_hr']").on("onChange")
-
     };
 
     //PLAN BY HR
@@ -374,13 +371,12 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
     };
 
     function operations(id) {
-        console.log(id)
-        //SUMA DE QTY BY HR
-        var getQtyByHr = document.querySelector("input[name*='qty_by_hr']");
-        var hc = $("input[name*='hc']").val();
-        var stnd_time = $("input[name*='stnd_time']").val();
-        var less_time = $("input[name*='less_time']").val();
-        result = ((hc - less_time) / (stnd_time)) || 0;
+        var hc = document.getElementById("hc_"+id);
+        var stnd_time = document.getElementById("stnd_time_"+id);
+        var less_time = document.getElementById("less_time_"+id);
+        
+        result = ((hc.value - less_time.value) / (stnd_time.value)) || 0;
+        var getQtyByHr = document.getElementById("qty_by_hr_"+id);
 
         if (result === "" || result === null || result === "undefined" || isNaN(result) || result < 0) {
             return getQtyByHr.value = 0;
@@ -393,7 +389,8 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
         var valueSelected = element.value;
         var elementSelected = document.getElementById("less_time_" + id);
         elementSelected.value = valueSelected || 0;
-
         elementSelected.value = valueSelected || 0;
+
+        operations(id);
     };
 </script>
