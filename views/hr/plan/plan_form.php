@@ -118,7 +118,7 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
                         <tr>
                             <th class="table-info">9:00-10:00am</th>
                             <td id="hc" class="table-info">
-                                <input type="text" class="hc" name="hc" id="hc_3" onchange="calcualtedQtyByHr(3)"/>
+                                <input type="text" class="hc" name="hc" id="hc_3" onchange="calcualtedQtyByHr(3)" />
                             </td>
                             <td>
                                 <input style="min-width: 10rem; border: 0; background-color: transparent;" id="input_item_number_3" onchange="getValueSelectedItemNumber(this, 3);" placeholder="Select" type="text" list="pn" name="partno" class="form-control" />
@@ -370,13 +370,14 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
         });
     };
 
+    //CALCULATED QTY BY HR
     function calcualtedQtyByHr(id) {
-        var hc = document.getElementById("hc_"+id);
-        var stnd_time = document.getElementById("stnd_time_"+id);
-        var less_time = document.getElementById("less_time_"+id);
-        
+        var hc = document.getElementById("hc_" + id);
+        var stnd_time = document.getElementById("stnd_time_" + id);
+        var less_time = document.getElementById("less_time_" + id);
+
         result = ((hc.value - less_time.value) / (stnd_time.value)) || 0;
-        var getQtyByHr = document.getElementById("qty_by_hr_"+id);
+        var getQtyByHr = document.getElementById("qty_by_hr_" + id);
 
         if (result === "" || result === null || result === "undefined" || isNaN(result) || result < 0) {
             return getQtyByHr.value = 0;
