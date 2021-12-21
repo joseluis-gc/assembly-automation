@@ -10,28 +10,26 @@
     <title>Button</title>
 </head>
 
-<body class="bg-success bg-gradient">
-    <main>
-        <!-- Main content container-->
-        <div class="container">
-            <div class="row justify-content-center text-center">
-                <div class="col-xxl-7 col-xl-10">
-                    <div class="card card-raised shadow-10 mt-5 mt-xl-10 mb-5">
-                        <div class="card-body p-5">
-                            <!-- Auth header with logo image-->
-                            <div>
-                                <p class="mb-0">ITEM NUMBER</p>
-                                <h1 class="display-3 mb-0">
-                                    <strong>AC1005HF</strong>
-                                </h1>
-                                <h3 class="mb-5 mt-5">5,000/10,000</h3>
-                            </div>
-                            <div class="d-grid gap-2">
-                                <button class="btn btn-outline-success btn-xl" type="button">
+<body class="bg-light">
+    <main class="container">
+        <div class="row justify-content-center text-center">
+            <div class="col-xxl-7 col-xl-10">
+                <div class="card card-raised shadow-10 mt-5 mt-xl-10 mb-5">
+                    <div class="card-body p-5">
+                        <div>
+                            <p class="mb-0">ITEM NUMBER</p>
+                            <h1 class="display-3 mb-0">
+                                <strong>AC1005HF</strong>
+                            </h1>
+                            <h3 class="mb-5 mt-5">5,000/10,000</h3>
+                        </div>
+                        <div class="d-grid gap-2 bg-warning">
+                            <button class="btn btn-raised-success btn-xl btn-lg" type="button">
+                               <span style="width: 100%; display: block; margin: auto;">
                                     <i class="leading-icon material-icons">verified_user</i>
-                                    Terminado
-                                </button>
-                            </div>
+                                Terminado
+                            </span>
+                            </button>
                         </div>
                     </div>
                 </div>
