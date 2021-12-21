@@ -1,0 +1,30 @@
+input {
+  background-color: transparent;
+  border: transparent;
+  text-align: center;
+  font-size: 1rem;
+  width: 3rem;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none !important;
+}
+
+.margin_form {
+  display: block;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 576px) {
+  .margin_form {
+    margin-top: 16rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .margin_form {
+    margin-top: 16rem;
+  }
+}

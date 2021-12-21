@@ -18,6 +18,6 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500" rel="stylesheet" />
     <!-- Load main stylesheet-->
     <link href="views/_assets/css/styles.css" rel="stylesheet" />
-    <link rel="stylesheet" href="views/_assets/css/input_style.css">
+    <link rel="stylesheet" href="views/_assets/css/input.css">
 </head>
 <body class="nav-fixed bg-light">
