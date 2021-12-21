@@ -26,11 +26,27 @@
                         <div class="d-grid gap-2 bg-warning">
                             <button class="btn btn-raised-success shadow-5 ripple-info btn-xl btn-lg" type="button">
                                 <span style="width: 100%; display: block; margin: auto;">
-                                    <i class="leading-icon material-icons">verified_user</i>
                                     Finished item
                                 </span>
                             </button>
                         </div>
+                        <!-- <div class="input-group mt-5 mb-3">
+                            <div class="input-group-prepend" id="button-addon3">
+                                <button class="btn btn-raised-dark" type="button">
+                                    <span style="width: 100%; display: block; margin: auto;">
+                                        <i class="leading-icon material-icons icon-xxl">minimize</i>
+                                    </span>
+                                </button>
+                            </div>
+                            <input type="text" class="form-control text-center" placeholder="5,000/10,000" disabled="true" aria-label="" aria-describedby="button-addon3">
+                            <div class="input-group-prepend" id="button-addon3">
+                                <button class="btn btn-raised-success" type="button">
+                                    <span style="width: 100%; display: block; margin: auto;">
+                                        <i class="leading-icon material-icons icon-xxl">add</i>
+                                    </span>
+                                </button>
+                            </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
