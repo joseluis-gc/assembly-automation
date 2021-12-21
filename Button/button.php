@@ -24,11 +24,11 @@
                             <h3 class="mb-5 mt-5">5,000/10,000</h3>
                         </div>
                         <div class="d-grid gap-2 bg-warning">
-                            <button class="btn btn-raised-success btn-xl btn-lg" type="button">
-                               <span style="width: 100%; display: block; margin: auto;">
+                            <button class="btn btn-raised-success shadow-5 ripple-info btn-xl btn-lg" type="button">
+                                <span style="width: 100%; display: block; margin: auto;">
                                     <i class="leading-icon material-icons">verified_user</i>
-                                Terminado
-                            </span>
+                                    Finished item
+                                </span>
                             </button>
                         </div>
                     </div>
