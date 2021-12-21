@@ -61,11 +61,6 @@
             </div>
         </div>
     </main>
-    <script>
-        function onCheck(){
-
-        }
-    </script>
 </body>
 
 </html>
