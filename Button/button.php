@@ -25,8 +25,8 @@
                             </h1>
                             <h3 class="mb-5 mt-5">5,000/10,000</h3>
                         </div>
-                        <div class="d-grid gap-2 bg-warning">
-                            <button class="btn btn-raised-success shadow-5 ripple-info btn-xl btn-lg" type="button">
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-raised-primary shadow-5 ripple-info btn-xl btn-lg" type="button">
                                 <span style="width: 100%; display: block; margin: auto;">
                                     Capturar
                                 </span>
@@ -51,7 +51,7 @@
                         </div>
                         <div class="form-group d-flex align-items-center justify-content-between mt-10 mb-0">
                             <div class="form-check">
-                                <input class="form-check-input" style="width: 1.5rem; height: 1.5rem; background-color: #3A853E; border-color:#3A853E;" onchange="document.getElementById('finished_check').disabled = !this.checked;" id="flexCheckDefault" type="checkbox" value="">
+                                <input class="form-check-input" style="width: 1.5rem; height: 1.5rem;" onchange="document.getElementById('finished_check').disabled = !this.checked;" id="flexCheckDefault" type="checkbox" value="">
                                 <label class="form-check-label" style="margin-left: 1rem; font-size:1rem; margin-top:0.4rem;" for="flexCheckDefault">Finalizar proceso de captura</label>
                             </div>
                             <button class="btn btn-danger" id="finished_check" disabled >Finalizar Captura</button>
