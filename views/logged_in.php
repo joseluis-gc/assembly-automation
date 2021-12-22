@@ -20,7 +20,9 @@ if (!empty($page)) {
             include ("views/hr/plan/plan_form.php");
         break;
 
-
+        case "captura_manual":
+            include ("views/hr/plan/captura_manual.php");
+        break;
         default:
             include ("views/home/home.php");
         break;
