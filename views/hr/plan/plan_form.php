@@ -297,6 +297,9 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
                         </tr>
                     </tbody>
                 </table>
+                <div class="d-flex justify-content-end">
+                    <button onclick="" class="btn btn-primary">SAVE CHANGES</button>
+                </div>
             </div>
         </div>
     </div>
@@ -380,11 +383,11 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
         //OPERACIONES
         result = ((hc.value - less_time.value) / (stnd_time.value)) || 0;
 
-        if (less_time.value === "" || less_time.value === null || less_time.value === "undefined" || isNaN(less_time.value) || less_time.value < 0 ) {
+        if (less_time.value === "" || less_time.value === null || less_time.value === "undefined" || isNaN(less_time.value) || less_time.value < 0) {
             return getQtyByHr.value = 0
         };
 
-        if (stnd_time.value === "" || stnd_time.value === null || stnd_time.value === "undefined" || isNaN(stnd_time.value) || stnd_time.value < 0 ) {
+        if (stnd_time.value === "" || stnd_time.value === null || stnd_time.value === "undefined" || isNaN(stnd_time.value) || stnd_time.value < 0) {
             return getQtyByHr.value = 0
         };
 
