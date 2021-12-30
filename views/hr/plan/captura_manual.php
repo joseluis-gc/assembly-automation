@@ -39,107 +39,117 @@
                     </div>
                 </td>
                 <td>
-                    <input class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                    <input id="inputValue_1" class="form-control" type="number" value="0" style="min-width: 8rem;" />
+                    <button onclick="getSnackbar(this, 1);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
                 </td>
                 <td>
-                    <input class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                    <input id="inputValue_2" class="form-control" type="number" value="0" style="min-width: 8rem;" />
+                    <button onclick="getSnackbar(this, 2);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
                 </td>
                 <td>
-                    <input class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                    <input id="inputValue_3" class="form-control" type="number" value="0" style="min-width: 8rem;" />
+                    <button onclick="getSnackbar(this, 3);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
                 </td>
                 <td>
-                    <input class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                    <input id="inputValue_4" class="form-control" type="number" value="0" style="min-width: 8rem;" />
+                    <button onclick="getSnackbar(this, 4);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
                 </td>
                 <td>
-                    <input class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                    <input id="inputValue_5" class="form-control" type="number" value="0" style="min-width: 8rem;" />
+                    <button onclick="getSnackbar(this, 5);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
                 </td>
                 <td>
-                    <input class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                    <input id="inputValue_6" class="form-control" type="number" value="0" style="min-width: 8rem;" />
+                    <button onclick="getSnackbar(this, 6);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
                 </td>
                 <td>
-                    <input class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                    <input id="inputValue_7" class="form-control" type="number" value="0" style="min-width: 8rem;" />
+                    <button onclick="getSnackbar(this, 7);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
                 </td>
                 <td>
-                    <input class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                    <input id="inputValue_8" class="form-control" type="number" value="0" style="min-width: 8rem;" />
+                    <button onclick="getSnackbar(this, 8);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
                 </td>
                 <td>
-                    <input class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                    <input id="inputValue_9" class="form-control" type="number" value="0" style="min-width: 8rem;" />
+                    <button onclick="getSnackbar(this, 9);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
                 </td>
                 <td>
-                    <input class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                    <input id="inputValue_10" class="form-control" type="number" value="0" style="min-width: 8rem;" />
+                    <button onclick="getSnackbar(this, 10);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
                 </td>
                 <td>
-                    <input class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                    <input id="inputValue_11" class="form-control" type="number" value="0" style="min-width: 8rem;" />
+                    <button onclick="getSnackbar(this, 11);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
                 </td>
                 <td>
-                    <input class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                    <input id="inputValue_12" class="form-control" type="number" value="0" style="min-width: 8rem;" />
+                    <button onclick="getSnackbar(this, 12);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
                 </td>
                 <td>
-                    <input class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                    <input id="inputValue_13" class="form-control" type="number" value="0" style="min-width: 8rem;" />
+                    <button onclick="getSnackbar(this, 13);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
                 </td>
                 <td>
-                    <input class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                    <input id="inputValue_14" class="form-control" type="number" value="0" style="min-width: 8rem;" />
+                    <button onclick="getSnackbar(this, 14);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
                 </td>
                 <td>
-                    <input class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                    <input id="inputValue_15" class="form-control" type="number" value="0" style="min-width: 8rem;" />
+                    <button onclick="getSnackbar(this, 15);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
                 </td>
                 <td>
-                    <input class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                    <input id="inputValue_16" class="form-control" type="number" value="0" style="min-width: 8rem;" />
+                    <button onclick="getSnackbar(this, 16);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
                 </td>
                 <td>
-                    <input class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                    <input id="inputValue_17" class="form-control" type="number" value="0" style="min-width: 8rem;" />
+                    <button onclick="getSnackbar(this, 17);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
                 </td>
                 <td>
-                    <input class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                    <input id="inputValue_18" class="form-control" type="number" value="0" style="min-width: 8rem;" />
+                    <button onclick="getSnackbar(this, 18);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
                 </td>
                 <td>
-                    <input class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                    <input id="inputValue_19" class="form-control" type="number" value="0" style="min-width: 8rem;" />
+                    <button onclick="getSnackbar(this, 19);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
                 </td>
                 <td>
-                    <input class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                    <input id="inputValue_20" class="form-control" type="number" value="0" style="min-width: 8rem;" />
+                    <button onclick="getSnackbar(this, 20);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
                 </td>
                 <td>
-                    <input class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                    <input id="inputValue_21" class="form-control" type="number" value="0" style="min-width: 8rem;" />
+                    <button onclick="getSnackbar(this, 21);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
                 </td>
                 <td>
-                    <input class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                    <input id="inputValue_22" class="form-control" type="number" value="0" style="min-width: 8rem;" />
+                    <button onclick="getSnackbar(this, 22);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
                 </td>
                 <td>
-                    <input class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                    <input id="inputValue_23" class="form-control" type="number" value="0" style="min-width: 8rem;" />
+                    <button onclick="getSnackbar(this, 23);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
                 </td>
                 <td>
-                    <input class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                    <input id="inputValue_24" class="form-control" type="number" value="0" style="min-width: 8rem;" />
+                    <button onclick="getSnackbar(this, 24);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
                 </td>
             </tr>
         </tbody>
     </table>
+    <mwc-snackbar id="snackbarAlert" labeltext="">
+        <mwc-icon-button icon="close" slot="dismiss"></mwc-icon-button>
+    </mwc-snackbar>
 </div>
 
 <script>
+    function getSnackbar(element, id) {
+        let dataValue = document.querySelector('#inputValue_' + id).value;
+        let snackbar = document.querySelector('#snackbarAlert');
+        snackbar.labelText = "has been captured" + " " + dataValue + " " + "parts";
+        snackbar.show();
+    };
+
     window.onload = function() {
         var d = new Date();
         var h = d.getHours();
