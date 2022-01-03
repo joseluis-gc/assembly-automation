@@ -6,20 +6,19 @@
         <nav class="drawer accordion drawer-light bg-white" id="drawerAccordion">
             <div class="drawer-menu">
                 <div class="nav">
-                    <!-- Drawer section heading (Account)-->
+                    <!-- Drawer section heading (Account)-
                     <div class="drawer-menu-heading d-sm-none">Account</div>
-                    <!-- Drawer link (Notifications)-->
+                     Drawer link (Notifications)
                     <a class="nav-link d-sm-none" href="#!">
                         <div class="nav-link-icon"><i class="material-icons">notifications</i></div>
                         Notifications
                     </a>
-                    <!-- Drawer link (Messages)-->
+                     Drawer link (Messages)
                     <a class="nav-link d-sm-none" href="#!">
                         <div class="nav-link-icon"><i class="material-icons">mail</i></div>
                         Messages
                     </a>
-                    <!-- Divider-->
-                    <div class="drawer-menu-divider d-sm-none"></div>
+                     Divider-->
                     <!-- Drawer section heading (Interface)-->
                     <div class="drawer-menu-heading">Andon App</div>
                     <!-- Drawer link (Overview)-->

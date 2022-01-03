@@ -1,15 +1,20 @@
 <?php
-if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
+if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id']))
+{
     $query = "SELECT * FROM assets 
     LEFT JOIN site ON asset_site = site_id 
     LEFT JOIN plant ON plant.plant_id = site.plant_id 
     WHERE asset_id = {$_GET['asset_id']}";
     $result = mysqli_query($connection, $query);
     $row = mysqli_fetch_array($result);
-} else {
+}
+else
+{
     die("Invalid Parameter.");
 }
+require_once "classes/Login.php";
 ?>
+<form method="post">
 <div class="container-xl p-5">
     <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 gx-5">
         <div>
@@ -17,13 +22,13 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
                 <thead>
                     <tr>
                         <th scope="col" class="fw-bold"><small>PLANT:</small></th>
-                        <th scope="col" class="table-light" contenteditable><?php echo $row['plant_name'] ?></th>
+                        <th scope="col" class="table-light" contenteditable><input style="min-width: 10rem; border: 0; background-color: transparent;" name="plant" type="text" value="<?php echo $row['plant_name'] ?>"></th>
                         <th scope="col" class="fw-bold"><small>AREA:</small></th>
-                        <th scope="col" class="table-light" contenteditable><?php echo $row['site_name'] ?></th>
+                        <th scope="col" class="table-light" contenteditable><input type="text" name="area" value="<?php echo $row['site_name'] ?>"></th>
                         <th scope="col" class="fw-bold"><small>OUTPUT:</small></th>
-                        <th scope="col" class="table-light" contenteditable><?php echo $row['asset_name']; ?></th>
+                        <th scope="col" class="table-light" contenteditable><input type="text" name="asset" value="<?php echo $row['asset_name']; ?>"></th>
                         <th scope="col" class="fw-bold"><small>SHIFT:</small></th>
-                        <th scope="col" class="table-light" contenteditable><?php echo getShift() ?></th>
+                        <th scope="col" class="table-light" contenteditable><input type="text" name="shift" value="<?php echo getShift() ?>"></th>
                         <th scope="col" class="fw-bold"><small>HC:</small></th>
                         <th scope="col" class="table-light">
                             <input type="number" id="hc-head" onkeyup="addHC()" />
@@ -31,7 +36,7 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
                         <th scope="col" class="fw-bold"><small>DATE:</small></th>
                         <th scope="col" class="table-light" contenteditable><input style="min-width: 10rem; border: 0; background-color: transparent;" class="form-control" type="date" value="<?php echo date("Y-m-d") ?>"></th>
                         <th scope="col" class="fw-bold"><small>SUPERVISOR:</small></th>
-                        <th scope="col" class="table-light" contenteditable></th>
+                        <th scope="col" class="table-light" contenteditable><input type="text"></th>
                     </tr>
                 </thead>
             </table>
@@ -300,7 +305,17 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
             </div>
         </div>
     </div>
+    <div class="row mt-5">
+        <div>
+            <button type="submit" name="register_plan" class="btn btn-raised-primary">Guardar Plan</button>
+        </div>
+    </div>
 </div>
+</form>
+
+
+
+
 <script>
     //ADD HC IN CELLS
     function addHC() {
@@ -345,7 +360,7 @@ if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
     window.onload = function(element) {
         let find_item = document.querySelector("#pn");
         let stndr_time = document.querySelector("#stnd_time");
-        let url = "http://localhost/assembly-automation/functions/ItemNumberSelect/item_number_select.php"
+        let url = "http://localhost/development/automation/functions/ItemNumberSelect/item_number_select.php"
 
         fetch(url, {
                 method: 'GET',
