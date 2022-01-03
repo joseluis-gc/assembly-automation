@@ -1,3 +1,9 @@
+<style>
+    .invisible{
+        border: 0;
+        background-color: transparent;
+    }
+</style>
 <?php
 if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id']))
 {
@@ -14,25 +20,42 @@ else
 }
 require_once "classes/Login.php";
 ?>
+<form method="POST">
+ <input type="hidden" name="plant_id" value="<?php echo $row['plant_id']?>">   
+ <input type="hidden" name="site_id" value="<?php echo $row['site_id']?>"> 
+ <input type="hidden" name="asset_id" value="<?php echo $row['asset_id']?>"> 
+
 <table class="table container text-center table-info table-bordered mb-0 mt-3">
     <thead>
         <tr>
             <th scope="col" class="fw-bold"><small>PLANT:</small></th>
-            <th scope="col" class="table-light" contenteditable><?php echo $row['plant_name'] ?></th>
+            <th scope="col" class="table-light" >
+            <input type="text" name="plant_id" value="<?php echo $row['plant_name'] ?>">     
+            </th>
             <th scope="col" class="fw-bold"><small>AREA:</small></th>
-            <th scope="col" class="table-light" contenteditable><?php echo $row['site_name'] ?></th>
+            <th scope="col" class="table-light">
+                <input type="text" name="area_id" value="<?php echo $row['site_name'] ?>">
+            </th>
             <th scope="col" class="fw-bold"><small>OUTPUT:</small></th>
-            <th scope="col" class="table-light" contenteditable><?php echo $row['asset_name']; ?></th>
+            <th scope="col" class="table-light" >
+                <input type="text" name="output_id" value="<?php echo $row['asset_name']; ?>">
+            </th>
             <th scope="col" class="fw-bold"><small>SHIFT:</small></th>
-            <th scope="col" class="table-light" contenteditable><?php echo getShift() ?></th>
+            <th scope="col" class="table-light">
+                <input type="text" name="sift_id" value="<?php echo getShift() ?>">
+            </th>
             <th scope="col" class="fw-bold"><small>HC:</small></th>
             <th scope="col" class="table-light">
-                <input type="number" id="hc-head" onkeyup="addHC()" />
+                <input type="number" name="hc_id" id="hc-head" onkeyup="addHC()" />
             </th>
             <th scope="col" class="fw-bold"><small>DATE:</small></th>
-            <th scope="col" class="table-light" contenteditable><input style="min-width: 10rem; border: 0; background-color: transparent;" class="form-control" type="date" value="<?php echo date("Y-m-d") ?>"></th>
+            <th scope="col" class="table-light">
+                <input style="min-width: 10rem; border: 0; background-color: transparent;" name="date_id" class="form-control" type="date" value="<?php echo date("Y-m-d") ?>">
+            </th>
             <th scope="col" class="fw-bold"><small>SUPERVISOR:</small></th>
-            <th scope="col" class="table-light" style="min-width: 6rem;" contenteditable></th>
+            <th scope="col" class="table-light">
+        <input type="text" name="supervisor_id" value="">
+        </th>
         </tr>
     </thead>
 </table>
@@ -59,17 +82,19 @@ require_once "classes/Login.php";
             <tr>
                 <th style="min-width: 9rem;" class="table-info">6:00-7:00am</th>
                 <td id="hc" class="table-info">
-                    <input type="number" class="hc" name="hc_6_7" id="hc_1" onkeyup="calculatedQtyByHr(1)" />
+                    <input type="number" class="hc" name="hc_6" id="hc_1" onkeyup="calculatedQtyByHr(1)" />
                 </td>
                 <td>
-                    <input style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(1)" id="input_item_number_1" onchange="getValueSelectedItemNumber(this, 1);" placeholder="Select" type="text" list="pn" name="partno" class="form-control" />
+                    <input style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(1)" id="input_item_number_1" onchange="getValueSelectedItemNumber(this, 1);" placeholder="Select" type="text" list="pn" name="partno_6" class="form-control" />
                     <datalist id="pn"></datalist>
                 </td>
-                <td contenteditable></td>
-                <td id="plan_by_hr">
-                    <input type="text" class="planByHr" onkeyup="calculo(this);" name="plan_by_hr_6_7" />
+                <td>
+                    <input type="text" name="wo_number_6" value="">
                 </td>
-                <td class="table-info" id="cum_plan_1" name="cum_plan">0</td>
+                <td id="plan_by_hr">
+                    <input type="text" class="planByHr" onkeyup="calculo(this);" name="plan_by_hr_6" />
+                </td>
+                <td class="table-info" id="cum_plan_6" name="cum_plan">0</td>
                 <td class="table-light">
                     <select style="min-width: 15rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(1)" onchange="add_Select(this, 1);" class="form-control" required>
                         <option value="">Select</option>
@@ -82,22 +107,24 @@ require_once "classes/Login.php";
                         <?php endwhile; ?>
                     </select>
                 </td>
-                <td class="table-info" id="less_time"><input type="text" name="less_time_6_7" id="less_time_1" disabled="true"></td>
-                <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_6_7" id="stnd_time_1" disabled="true"></td>
-                <td class="table-info" style="min-width: 8rem;" id="qty_by_hr"><input type="text" name="qty_by_hr_6_7" id="qty_by_hr_1" disabled="true"></td>
+                <td class="table-info" id="less_time"><input type="text" name="less_time_6" id="less_time_1" disabled="true"></td>
+                <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_6" id="stnd_time_1" disabled="true"></td>
+                <td class="table-info" style="min-width: 8rem;" id="qty_by_hr"><input type="text" name="qty_by_hr_6" id="qty_by_hr_1" disabled="true"></td>
             </tr>
             <tr>
                 <th class="table-info">7:00-8:00am</th>
                 <td id="hc" class="table-info">
-                    <input type="number" class="hc" name="hc_7_8" id="hc_2" onkeyup="calculatedQtyByHr(2)" />
+                    <input type="number" class="hc" name="hc_7" id="hc_2" onkeyup="calculatedQtyByHr(2)" />
                 </td>
                 <td>
-                    <input style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(2)" id="input_item_number_2" onchange="getValueSelectedItemNumber(this, 2);" placeholder="Select" type="text" list="pn" name="partno" class="form-control" />
+                    <input style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(2)" id="input_item_number_2" onchange="getValueSelectedItemNumber(this, 2);" placeholder="Select" type="text" list="pn" name="partno_7" class="form-control" />
                     <datalist id="pn"></datalist>
                 </td>
-                <td contenteditable></td>
+                <td>
+                <input type="text" name="wo_number_7" value="">
+                </td>
                 <td id="plan_by_hr">
-                    <input type="text" class="planByHr" onkeyup="calculo(this);" name="plan_by_hr_7_8" />
+                    <input type="text" class="planByHr" onkeyup="calculo(this);" name="plan_by_hr_7" />
                 </td>
                 <td class="table-info" id="cum_plan_2" name="cum_plan">0</td>
                 <td class="table-light">
@@ -112,22 +139,24 @@ require_once "classes/Login.php";
                         <?php endwhile; ?>
                     </select>
                 </td>
-                <td class="table-info" id="less_time"><input type="text" name="less_time_7_8" id="less_time_2" disabled="true"></td>
-                <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_7_8" id="stnd_time_2" disabled="true"></td>
-                <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr_7_8" id="qty_by_hr_2" disabled="true"></td>
+                <td class="table-info" id="less_time"><input type="text" name="less_time_7" id="less_time_2" disabled="true"></td>
+                <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_7" id="stnd_time_2" disabled="true"></td>
+                <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr_7" id="qty_by_hr_2" disabled="true"></td>
             </tr>
             <tr>
                 <th class="table-info">8:00-9:00am</th>
                 <td id="hc" class="table-info">
-                    <input type="number" class="hc" name="hc_8_9" id="hc_3" onkeyup="calculatedQtyByHr(3)" />
+                    <input type="number" class="hc" name="hc_8" id="hc_3" onkeyup="calculatedQtyByHr(3)" />
                 </td>
                 <td>
-                    <input style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(3)" id="input_item_number_3" onchange="getValueSelectedItemNumber(this, 3);" placeholder="Select" type="text" list="pn" name="partno" class="form-control" />
+                    <input style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(3)" id="input_item_number_3" onchange="getValueSelectedItemNumber(this, 3);" placeholder="Select" type="text" list="pn" name="partno_8" class="form-control" />
                     <datalist id="pn"></datalist>
                 </td>
-                <td contenteditable></td>
+                <td>
+                <input type="text" name="wo_number_8" value="">
+                </td>
                 <td id="plan_by_hr">
-                    <input type="text" class="planByHr" onkeyup="calculo(this);" name="plan_by_hr_8_9" />
+                    <input type="text" class="planByHr" onkeyup="calculo(this);" name="plan_by_hr_8" />
                 </td>
                 <td class="table-info" id="cum_plan_3" name="cum_plan">0</td>
                 <td class="table-light">
@@ -142,22 +171,24 @@ require_once "classes/Login.php";
                         <?php endwhile; ?>
                     </select>
                 </td>
-                <td class="table-info" id="less_time"><input type="text" name="less_time_8_9" id="less_time_3" disabled="true"></td>
-                <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_8_9" id="stnd_time_3" disabled="true"></td>
-                <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr_8_9" id="qty_by_hr_3" disabled="true"></td>
+                <td class="table-info" id="less_time"><input type="text" name="less_time_8" id="less_time_3" disabled="true"></td>
+                <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_8" id="stnd_time_3" disabled="true"></td>
+                <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr_8" id="qty_by_hr_3" disabled="true"></td>
             </tr>
             <tr>
                 <th class="table-info">9:00-10:00am</th>
                 <td id="hc" class="table-info">
-                    <input type="number" class="hc" name="hc_9_10" id="hc_4" onkeyup="calculatedQtyByHr(4)" />
+                    <input type="number" class="hc" name="hc_9" id="hc_4" onkeyup="calculatedQtyByHr(4)" />
                 </td>
                 <td>
-                    <input style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(4)" id="input_item_number_4" onchange="getValueSelectedItemNumber(this, 4);" placeholder="Select" type="text" list="pn" name="partno" class="form-control" />
+                    <input style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(4)" id="input_item_number_4" onchange="getValueSelectedItemNumber(this, 4);" placeholder="Select" type="text" list="pn" name="partno_9" class="form-control" />
                     <datalist id="pn"></datalist>
                 </td>
-                <td contenteditable></td>
+                <td>
+                <input type="text" name="wo_number_9" value="">
+                </td>
                 <td id="plan_by_hr">
-                    <input type="text" class="planByHr" onkeyup="calculo(this);" name="plan_by_hr_9_10" />
+                    <input type="text" class="planByHr" onkeyup="calculo(this);" name="plan_by_hr_9" />
                 </td>
                 <td class="table-info" id="cum_plan_4" name="cum_plan">0</td>
                 <td class="table-light">
@@ -172,22 +203,24 @@ require_once "classes/Login.php";
                         <?php endwhile; ?>
                     </select>
                 </td>
-                <td class="table-info" id="less_time"><input type="text" name="less_time_9_10" id="less_time_4" disabled="true"></td>
-                <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_9_10" id="stnd_time_4" disabled="true"></td>
-                <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr_9_10" id="qty_by_hr_4" disabled="true"></td>
+                <td class="table-info" id="less_time"><input type="text" name="less_time_9" id="less_time_4" disabled="true"></td>
+                <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_9" id="stnd_time_4" disabled="true"></td>
+                <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr_9" id="qty_by_hr_4" disabled="true"></td>
             </tr>
             <tr>
                 <th class="table-info">10:00-11:00am</th>
                 <td id="hc" class="table-info">
-                    <input type="number" class="hc" name="hc_10_11" id="hc_5" onkeyup="calculatedQtyByHr(5)" />
+                    <input type="number" class="hc" name="hc_10" id="hc_5" onkeyup="calculatedQtyByHr(5)" />
                 </td>
                 <td>
-                    <input style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(5)" id="input_item_number_5" onchange="getValueSelectedItemNumber(this, 5);" placeholder="Select" type="text" list="pn" name="partno" class="form-control" />
+                    <input style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(5)" id="input_item_number_5" onchange="getValueSelectedItemNumber(this, 5);" placeholder="Select" type="text" list="pn" name="partno_10" class="form-control" />
                     <datalist id="pn"></datalist>
                 </td>
-                <td contenteditable></td>
+                <td>
+                <input type="text" name="wo_number_10" value="">
+                </td>
                 <td id="plan_by_hr">
-                    <input type="text" class="planByHr" onkeyup="calculo(this);" name="plan_by_hr_10_11" />
+                    <input type="text" class="planByHr" onkeyup="calculo(this);" name="plan_by_hr_10" />
                 </td>
                 <td class="table-info" id="cum_plan_4" name="cum_plan">0</td>
                 <td class="table-light">
@@ -202,22 +235,24 @@ require_once "classes/Login.php";
                         <?php endwhile; ?>
                     </select>
                 </td>
-                <td class="table-info" id="less_time"><input type="text" name="less_time_10_11" id="less_time_5" disabled="true"></td>
-                <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_10_11" id="stnd_time_5" disabled="true"></td>
-                <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr_10_11" id="qty_by_hr_5" disabled="true"></td>
+                <td class="table-info" id="less_time"><input type="text" name="less_time_10" id="less_time_5" disabled="true"></td>
+                <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_10" id="stnd_time_5" disabled="true"></td>
+                <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr_10" id="qty_by_hr_5" disabled="true"></td>
             </tr>
             <tr>
                 <th class="table-info">11:00-12:00pm</th>
                 <td id="hc" class="table-info">
-                    <input type="number" class="hc" name="hc_11_12" id="hc_6" onkeyup="calculatedQtyByHr(6)" />
+                    <input type="number" class="hc" name="hc_11" id="hc_6" onkeyup="calculatedQtyByHr(6)" />
                 </td>
                 <td>
-                    <input style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(6)" id="input_item_number_6" onchange="getValueSelectedItemNumber(this, 6);" placeholder="Select" type="text" list="pn" name="partno" class="form-control" />
+                    <input style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(6)" id="input_item_number_6" onchange="getValueSelectedItemNumber(this, 6);" placeholder="Select" type="text" list="pn" name="partno_11" class="form-control" />
                     <datalist id="pn"></datalist>
                 </td>
-                <td contenteditable></td>
+                <td>
+                <input type="text" name="wo_number_11" value="">
+                </td>
                 <td id="plan_by_hr">
-                    <input type="text" class="planByHr" onkeyup="calculo(this);" name="plan_by_hr_11_12" />
+                    <input type="text" class="planByHr" onkeyup="calculo(this);" name="plan_by_hr_11" />
                 </td>
                 <td class="table-info" id="cum_plan_6" name="cum_plan">0</td>
                 <td class="table-light">
@@ -232,22 +267,24 @@ require_once "classes/Login.php";
                         <?php endwhile; ?>
                     </select>
                 </td>
-                <td class="table-info" id="less_time"><input type="text" name="less_time_11_12" id="less_time_6" disabled="true"></td>
-                <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_11_12" id="stnd_time_6" disabled="true"></td>
-                <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr_11_12" id="qty_by_hr_6" disabled="true"></td>
+                <td class="table-info" id="less_time"><input type="text" name="less_time_11" id="less_time_6" disabled="true"></td>
+                <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_11" id="stnd_time_6" disabled="true"></td>
+                <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr_11" id="qty_by_hr_6" disabled="true"></td>
             </tr>
             <tr>
                 <th class="table-info">12:00-13:00pm</th>
                 <td id="hc" class="table-info">
-                    <input type="number" class="hc" name="hc_12_13" id="hc_7" onkeyup="calculatedQtyByHr(7)" />
+                    <input type="number" class="hc" name="hc_12" id="hc_7" onkeyup="calculatedQtyByHr(7)" />
                 </td>
                 <td>
-                    <input style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(7)" id="input_item_number_7" onchange="getValueSelectedItemNumber(this, 7);" placeholder="Select" type="text" list="pn" name="partno" class="form-control" />
+                    <input style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(7)" id="input_item_number_7" onchange="getValueSelectedItemNumber(this, 7);" placeholder="Select" type="text" list="pn" name="partno_12" class="form-control" />
                     <datalist id="pn"></datalist>
                 </td>
-                <td contenteditable></td>
+                <td>
+                <input type="text" name="wo_number_12" value="">
+                </td>
                 <td id="plan_by_hr">
-                    <input type="text" class="planByHr" onkeyup="calculo(this);" name="plan_by_hr_12_13" />
+                    <input type="text" class="planByHr" onkeyup="calculo(this);" name="plan_by_hr_12" />
                 </td>
                 <td class="table-info" id="cum_plan_7" name="cum_plan">0</td>
                 <td class="table-light">
@@ -262,22 +299,24 @@ require_once "classes/Login.php";
                         <?php endwhile; ?>
                     </select>
                 </td>
-                <td class="table-info" id="less_time"><input type="text" name="less_time_12_13" id="less_time_7" disabled="true"></td>
-                <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_12_13" id="stnd_time_7" disabled="true"></td>
-                <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr_12_13" id="qty_by_hr_7" disabled="true"></td>
+                <td class="table-info" id="less_time"><input type="text" name="less_time_12" id="less_time_7" disabled="true"></td>
+                <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_12" id="stnd_time_7" disabled="true"></td>
+                <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr_12" id="qty_by_hr_7" disabled="true"></td>
             </tr>
             <tr>
                 <th class="table-info">13:00-14:00pm</th>
                 <td id="hc" class="table-info">
-                    <input type="number" class="hc" name="hc_13_14" id="hc_8" onkeyup="calculatedQtyByHr(8)" />
+                    <input type="number" class="hc" name="hc_13" id="hc_8" onkeyup="calculatedQtyByHr(8)" />
                 </td>
                 <td>
-                    <input style="min-width: 10rem; border: 0; background-color: transparent;" id="input_item_number_8" onkeyup="calculatedQtyByHr(8)" onchange="getValueSelectedItemNumber(this, 8);" placeholder="Select" type="text" list="pn" name="partno" class="form-control" />
+                    <input style="min-width: 10rem; border: 0; background-color: transparent;" id="input_item_number_8" onkeyup="calculatedQtyByHr(8)" onchange="getValueSelectedItemNumber(this, 8);" placeholder="Select" type="text" list="pn" name="partno_13" class="form-control" />
                     <datalist id="pn"></datalist>
                 </td>
-                <td contenteditable></td>
+                <td>
+                <input type="text" name="wo_number_13" value="">
+                </td>
                 <td id="plan_by_hr">
-                    <input type="text" class="planByHr" onkeyup="calculo(this);" name="plan_by_hr_13_14" />
+                    <input type="text" class="planByHr" onkeyup="calculo(this);" name="plan_by_hr_13" />
                 </td>
                 <td class="table-info" id="cum_plan_8" name="cum_plan">0</td>
                 <td class="table-light">
@@ -292,22 +331,24 @@ require_once "classes/Login.php";
                         <?php endwhile; ?>
                     </select>
                 </td>
-                <td class="table-info" id="less_time"><input type="text" name="less_time_13_14" id="less_time_8" disabled="true"></td>
-                <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_13_14" id="stnd_time_8" disabled="true"></td>
-                <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr_13_14" id="qty_by_hr_8" disabled="true"></td>
+                <td class="table-info" id="less_time"><input type="text" name="less_time_13" id="less_time_8" disabled="true"></td>
+                <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_13" id="stnd_time_8" disabled="true"></td>
+                <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr_13" id="qty_by_hr_8" disabled="true"></td>
             </tr>
             <tr>
                 <th class="table-info">14:00-15:30pm</th>
                 <td id="hc" class="table-info">
-                    <input type="number" class="hc" name="hc_14_15" id="hc_9" onkeyup="calculatedQtyByHr(9)" />
+                    <input type="number" class="hc" name="hc_14" id="hc_9" onkeyup="calculatedQtyByHr(9)" />
                 </td>
                 <td>
-                    <input style="min-width: 10rem; border: 0; background-color: transparent;" id="input_item_number_9" onkeyup="calculatedQtyByHr(9)" onchange="getValueSelectedItemNumber(this, 9);" placeholder="Select" type="text" list="pn" name="partno" class="form-control" />
+                    <input style="min-width: 10rem; border: 0; background-color: transparent;" id="input_item_number_9" onkeyup="calculatedQtyByHr(9)" onchange="getValueSelectedItemNumber(this, 9);" placeholder="Select" type="text" list="pn" name="partno_14" class="form-control" />
                     <datalist id="pn"></datalist>
                 </td>
-                <td contenteditable></td>
+                <td>
+                <input type="text" name="wo_number_14" value="">
+                </td>
                 <td id="plan_by_hr">
-                    <input type="text" class="planByHr" onkeyup="calculo(this);" name="plan_by_hr_14_15" />
+                    <input type="text" class="planByHr" onkeyup="calculo(this);" name="plan_by_hr_14" />
                 </td>
                 <td class="table-info" id="cum_plan_9" name="cum_plan">0</td>
                 <td class="table-light">
@@ -322,9 +363,9 @@ require_once "classes/Login.php";
                         <?php endwhile; ?>
                     </select>
                 </td>
-                <td class="table-info" id="less_time"><input type="text" name="less_time_14_15" id="less_time_9" disabled="true"></td>
-                <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_14_15" id="stnd_time_9" disabled="true"></td>
-                <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr_14_15" id="qty_by_hr_9" disabled="true"></td>
+                <td class="table-info" id="less_time"><input type="text" name="less_time_14" id="less_time_9" disabled="true"></td>
+                <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_14" id="stnd_time_9" disabled="true"></td>
+                <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr_14" id="qty_by_hr_9" disabled="true"></td>
             </tr>
         </tbody>
     </table>
@@ -333,9 +374,6 @@ require_once "classes/Login.php";
     </div>
 </div>
 </form>
-
-
-
 
 <script>
     //ADD HC IN CELLS
@@ -355,9 +393,9 @@ require_once "classes/Login.php";
         var nombre_input = 'input[name="' + nombre + '"]';
 
         //Primer valor del CUM PLAN
-        if (nombre === "plan_by_hr_6_7") {
+        if (nombre === "plan_by_hr_6") {
             first_value = element.value;
-            document.getElementById("cum_plan_1").innerHTML = first_value;
+            document.getElementById("cum_plan_6").innerHTML = first_value;
         };
 
         //Suma de Filas
@@ -381,9 +419,10 @@ require_once "classes/Login.php";
     window.onload = function(element) {
         let find_item = document.querySelector("#pn");
         let stndr_time = document.querySelector("#stnd_time");
-        let url = "http://localhost/development/automation/functions/ItemNumberSelect/item_number_select.php"
+        // let url = "http://localhost/development/automation/functions/ItemNumberSelect/item_number_select.php"
+        let url_magui = "http://localhost/assembly-automation/functions/ItemNumberSelect/item_number_select.php";
 
-        fetch(url, {
+        fetch(url_magui, {
                 method: 'GET',
             })
             .then(res => res.text())
