@@ -15,9 +15,16 @@ if (!empty($page)) {
             include ("views/hr/plan/plan_measurement.php");
         break;
 
-
         case "plan_form":
             include ("views/hr/plan/plan_form.php");
+        break;
+
+        case "plan_form_2":
+            include ("views/hr/plan/plan_form_2.php");
+        break;
+
+        case "plan_form_3":
+            include ("views/hr/plan/plan_form_3.php");
         break;
 
         case "captura_manual":

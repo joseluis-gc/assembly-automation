@@ -80,23 +80,23 @@ require_once "classes/Login.php";
         </thead>
         <tbody>
             <tr>
-                <th style="min-width: 9rem;" class="table-info">6:00-7:00am</th>
+                <th style="min-width: 9rem;" class="table-info">15:30-16:00pm</th>
                 <td id="hc" class="table-info">
-                    <input type="number" class="hc" name="hc_6" id="hc_1" onkeyup="calculatedQtyByHr(1)" />
+                    <input type="number" class="hc" name="hc_15" id="hc_10" onkeyup="calculatedQtyByHr(10)" />
                 </td>
                 <td>
-                    <input style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(1)" id="input_item_number_1" onchange="getValueSelectedItemNumber(this, 1);" placeholder="Select" type="text" list="pn" name="partno_6" class="form-control" />
+                    <input style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(10)" id="input_item_number_10" onchange="getValueSelectedItemNumber(this, 10);" placeholder="Select" type="text" list="pn" name="partno_15" class="form-control" />
                     <datalist id="pn"></datalist>
                 </td>
                 <td>
-                    <input type="text" name="wo_number_6" value="">
+                    <input type="text" name="wo_number_15" value="">
                 </td>
                 <td id="plan_by_hr">
-                    <input type="text" class="planByHr" onkeyup="calculo(this);" name="plan_by_hr_6" />
+                    <input type="text" class="planByHr" onkeyup="calculo(this);" name="plan_by_hr_15" />
                 </td>
-                <td class="table-info" id="cum_plan_1" name="cum_plan">0</td>
+                <td class="table-info" id="cum_plan_10" name="cum_plan">0</td>
                 <td class="table-light">
-                    <select style="min-width: 15rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(1)" onchange="add_Select(this, 1);" class="form-control" required>
+                    <select style="min-width: 15rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(10)" onchange="add_Select(this, 10);" class="form-control" required>
                         <option value="">Select</option>
                         <?php
                         $query = "SELECT * FROM planned_interruptions";
@@ -107,28 +107,28 @@ require_once "classes/Login.php";
                         <?php endwhile; ?>
                     </select>
                 </td>
-                <td class="table-info" id="less_time"><input type="text" name="less_time_6" id="less_time_1" disabled="true"></td>
-                <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_6" id="stnd_time_1" disabled="true"></td>
-                <td class="table-info" style="min-width: 8rem;" id="qty_by_hr"><input type="text" name="qty_by_hr_6" id="qty_by_hr_1" disabled="true"></td>
+                <td class="table-info" id="less_time"><input type="text" name="less_time_15" id="less_time_10" disabled="true"></td>
+                <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_15" id="stnd_time_10" disabled="true"></td>
+                <td class="table-info" style="min-width: 8rem;" id="qty_by_hr"><input type="text" name="qty_by_hr_15" id="qty_by_hr_10" disabled="true"></td>
             </tr>
             <tr>
-                <th class="table-info">7:00-8:00am</th>
+                <th class="table-info">16:00-17:00pm</th>
                 <td id="hc" class="table-info">
-                    <input type="number" class="hc" name="hc_7" id="hc_2" onkeyup="calculatedQtyByHr(2)" />
+                    <input type="number" class="hc" name="hc_16" id="hc_11" onkeyup="calculatedQtyByHr(11)" />
                 </td>
                 <td>
-                    <input style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(2)" id="input_item_number_2" onchange="getValueSelectedItemNumber(this, 2);" placeholder="Select" type="text" list="pn" name="partno_7" class="form-control" />
+                    <input style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(11)" id="input_item_number_11" onchange="getValueSelectedItemNumber(this, 11);" placeholder="Select" type="text" list="pn" name="partno_16" class="form-control" />
                     <datalist id="pn"></datalist>
                 </td>
                 <td>
-                <input type="text" name="wo_number_7" value="">
+                <input type="text" name="wo_number_16" value="">
                 </td>
                 <td id="plan_by_hr">
-                    <input type="text" class="planByHr" onkeyup="calculo(this);" name="plan_by_hr_7" />
+                    <input type="text" class="planByHr" onkeyup="calculo(this);" name="plan_by_hr_16" />
                 </td>
-                <td class="table-info" id="cum_plan_2" name="cum_plan">0</td>
+                <td class="table-info" id="cum_plan_11" name="cum_plan">0</td>
                 <td class="table-light">
-                    <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(3)" onchange="add_Select(this, 2);" class="form-control" required>
+                    <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(11)" onchange="add_Select(this, 11);" class="form-control" required>
                         <option value="">Select</option>
                         <?php
                         $query = "SELECT * FROM planned_interruptions";
@@ -139,28 +139,28 @@ require_once "classes/Login.php";
                         <?php endwhile; ?>
                     </select>
                 </td>
-                <td class="table-info" id="less_time"><input type="text" name="less_time_7" id="less_time_2" disabled="true"></td>
-                <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_7" id="stnd_time_2" disabled="true"></td>
-                <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr_7" id="qty_by_hr_2" disabled="true"></td>
+                <td class="table-info" id="less_time"><input type="text" name="less_time_16" id="less_time_11" disabled="true"></td>
+                <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_16" id="stnd_time_11" disabled="true"></td>
+                <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr_16" id="qty_by_hr_11" disabled="true"></td>
             </tr>
             <tr>
-                <th class="table-info">8:00-9:00am</th>
+                <th class="table-info">17:00-18:00pm</th>
                 <td id="hc" class="table-info">
-                    <input type="number" class="hc" name="hc_8" id="hc_3" onkeyup="calculatedQtyByHr(3)" />
+                    <input type="number" class="hc" name="hc_17" id="hc_12" onkeyup="calculatedQtyByHr(12)" />
                 </td>
                 <td>
-                    <input style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(3)" id="input_item_number_3" onchange="getValueSelectedItemNumber(this, 3);" placeholder="Select" type="text" list="pn" name="partno_8" class="form-control" />
+                    <input style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(12)" id="input_item_number_12" onchange="getValueSelectedItemNumber(this, 12);" placeholder="Select" type="text" list="pn" name="partno_17" class="form-control" />
                     <datalist id="pn"></datalist>
                 </td>
                 <td>
-                <input type="text" name="wo_number_8" value="">
+                <input type="text" name="wo_number_17" value="">
                 </td>
                 <td id="plan_by_hr">
-                    <input type="text" class="planByHr" onkeyup="calculo(this);" name="plan_by_hr_8" />
+                    <input type="text" class="planByHr" onkeyup="calculo(this);" name="plan_by_hr_17" />
                 </td>
-                <td class="table-info" id="cum_plan_3" name="cum_plan">0</td>
+                <td class="table-info" id="cum_plan_12" name="cum_plan">0</td>
                 <td class="table-light">
-                    <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(3)" onchange="add_Select(this, 3);" class="form-control" required>
+                    <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(12)" onchange="add_Select(this, 12);" class="form-control" required>
                         <option value="">Select</option>
                         <?php
                         $query = "SELECT * FROM planned_interruptions";
@@ -171,28 +171,28 @@ require_once "classes/Login.php";
                         <?php endwhile; ?>
                     </select>
                 </td>
-                <td class="table-info" id="less_time"><input type="text" name="less_time_8" id="less_time_3" disabled="true"></td>
-                <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_8" id="stnd_time_3" disabled="true"></td>
-                <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr_8" id="qty_by_hr_3" disabled="true"></td>
+                <td class="table-info" id="less_time"><input type="text" name="less_time_17" id="less_time_12" disabled="true"></td>
+                <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_17" id="stnd_time_12" disabled="true"></td>
+                <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr_17" id="qty_by_hr_12" disabled="true"></td>
             </tr>
             <tr>
-                <th class="table-info">9:00-10:00am</th>
+                <th class="table-info">18:00-19:00pm</th>
                 <td id="hc" class="table-info">
-                    <input type="number" class="hc" name="hc_9" id="hc_4" onkeyup="calculatedQtyByHr(4)" />
+                    <input type="number" class="hc" name="hc_18" id="hc_13" onkeyup="calculatedQtyByHr(13)" />
                 </td>
                 <td>
-                    <input style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(4)" id="input_item_number_4" onchange="getValueSelectedItemNumber(this, 4);" placeholder="Select" type="text" list="pn" name="partno_9" class="form-control" />
+                    <input style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(13)" id="input_item_number_13" onchange="getValueSelectedItemNumber(this, 13);" placeholder="Select" type="text" list="pn" name="partno_18" class="form-control" />
                     <datalist id="pn"></datalist>
                 </td>
                 <td>
-                <input type="text" name="wo_number_9" value="">
+                <input type="text" name="wo_number_18" value="">
                 </td>
                 <td id="plan_by_hr">
-                    <input type="text" class="planByHr" onkeyup="calculo(this);" name="plan_by_hr_9" />
+                    <input type="text" class="planByHr" onkeyup="calculo(this);" name="plan_by_hr_18" />
                 </td>
-                <td class="table-info" id="cum_plan_4" name="cum_plan">0</td>
+                <td class="table-info" id="cum_plan_13" name="cum_plan">0</td>
                 <td class="table-light">
-                    <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(4)" onchange="add_Select(this, 4);" class="form-control" required>
+                    <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(13)" onchange="add_Select(this, 13);" class="form-control" required>
                         <option value="">Select</option>
                         <?php
                         $query = "SELECT * FROM planned_interruptions";
@@ -203,28 +203,28 @@ require_once "classes/Login.php";
                         <?php endwhile; ?>
                     </select>
                 </td>
-                <td class="table-info" id="less_time"><input type="text" name="less_time_9" id="less_time_4" disabled="true"></td>
-                <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_9" id="stnd_time_4" disabled="true"></td>
-                <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr_9" id="qty_by_hr_4" disabled="true"></td>
+                <td class="table-info" id="less_time"><input type="text" name="less_time_18" id="less_time_13" disabled="true"></td>
+                <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_18" id="stnd_time_13" disabled="true"></td>
+                <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr_18" id="qty_by_hr_13" disabled="true"></td>
             </tr>
             <tr>
-                <th class="table-info">10:00-11:00am</th>
+                <th class="table-info">19:00-20:00pm</th>
                 <td id="hc" class="table-info">
-                    <input type="number" class="hc" name="hc_10" id="hc_5" onkeyup="calculatedQtyByHr(5)" />
+                    <input type="number" class="hc" name="hc_19" id="hc_14" onkeyup="calculatedQtyByHr(14)" />
                 </td>
                 <td>
-                    <input style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(5)" id="input_item_number_5" onchange="getValueSelectedItemNumber(this, 5);" placeholder="Select" type="text" list="pn" name="partno_10" class="form-control" />
+                    <input style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(14)" id="input_item_number_14" onchange="getValueSelectedItemNumber(this, 14);" placeholder="Select" type="text" list="pn" name="partno_19" class="form-control" />
                     <datalist id="pn"></datalist>
                 </td>
                 <td>
-                <input type="text" name="wo_number_10" value="">
+                <input type="text" name="wo_number_19" value="">
                 </td>
                 <td id="plan_by_hr">
-                    <input type="text" class="planByHr" onkeyup="calculo(this);" name="plan_by_hr_10" />
+                    <input type="text" class="planByHr" onkeyup="calculo(this);" name="plan_by_hr_19" />
                 </td>
-                <td class="table-info" id="cum_plan_5" name="cum_plan">0</td>
+                <td class="table-info" id="cum_plan_14" name="cum_plan">0</td>
                 <td class="table-light">
-                    <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(5)" onchange="add_Select(this, 5);" class="form-control" required>
+                    <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(14)" onchange="add_Select(this, 14);" class="form-control" required>
                         <option value="">Select</option>
                         <?php
                         $query = "SELECT * FROM planned_interruptions";
@@ -235,28 +235,28 @@ require_once "classes/Login.php";
                         <?php endwhile; ?>
                     </select>
                 </td>
-                <td class="table-info" id="less_time"><input type="text" name="less_time_10" id="less_time_5" disabled="true"></td>
-                <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_10" id="stnd_time_5" disabled="true"></td>
-                <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr_10" id="qty_by_hr_5" disabled="true"></td>
+                <td class="table-info" id="less_time"><input type="text" name="less_time_19" id="less_time_14" disabled="true"></td>
+                <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_19" id="stnd_time_14" disabled="true"></td>
+                <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr_19" id="qty_by_hr_14" disabled="true"></td>
             </tr>
             <tr>
-                <th class="table-info">11:00-12:00pm</th>
+                <th class="table-info">20:00-21:00pm</th>
                 <td id="hc" class="table-info">
-                    <input type="number" class="hc" name="hc_11" id="hc_6" onkeyup="calculatedQtyByHr(6)" />
+                    <input type="number" class="hc" name="hc_20" id="hc_15" onkeyup="calculatedQtyByHr(15)" />
                 </td>
                 <td>
-                    <input style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(6)" id="input_item_number_6" onchange="getValueSelectedItemNumber(this, 6);" placeholder="Select" type="text" list="pn" name="partno_11" class="form-control" />
+                    <input style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(15)" id="input_item_number_15" onchange="getValueSelectedItemNumber(this, 15);" placeholder="Select" type="text" list="pn" name="partno_20" class="form-control" />
                     <datalist id="pn"></datalist>
                 </td>
                 <td>
-                <input type="text" name="wo_number_11" value="">
+                <input type="text" name="wo_number_20" value="">
                 </td>
                 <td id="plan_by_hr">
-                    <input type="text" class="planByHr" onkeyup="calculo(this);" name="plan_by_hr_11" />
+                    <input type="text" class="planByHr" onkeyup="calculo(this);" name="plan_by_hr_20" />
                 </td>
-                <td class="table-info" id="cum_plan_6" name="cum_plan">0</td>
+                <td class="table-info" id="cum_plan_15" name="cum_plan">0</td>
                 <td class="table-light">
-                    <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(6)" onchange="add_Select(this, 6);" class="form-control" required>
+                    <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(15)" onchange="add_Select(this, 15);" class="form-control" required>
                         <option value="">Select</option>
                         <?php
                         $query = "SELECT * FROM planned_interruptions";
@@ -267,28 +267,28 @@ require_once "classes/Login.php";
                         <?php endwhile; ?>
                     </select>
                 </td>
-                <td class="table-info" id="less_time"><input type="text" name="less_time_11" id="less_time_6" disabled="true"></td>
-                <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_11" id="stnd_time_6" disabled="true"></td>
-                <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr_11" id="qty_by_hr_6" disabled="true"></td>
+                <td class="table-info" id="less_time"><input type="text" name="less_time_20" id="less_time_15" disabled="true"></td>
+                <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_20" id="stnd_time_15" disabled="true"></td>
+                <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr_20" id="qty_by_hr_15" disabled="true"></td>
             </tr>
             <tr>
-                <th class="table-info">12:00-13:00pm</th>
+                <th class="table-info">21:00-22:00pm</th>
                 <td id="hc" class="table-info">
-                    <input type="number" class="hc" name="hc_12" id="hc_7" onkeyup="calculatedQtyByHr(7)" />
+                    <input type="number" class="hc" name="hc_21" id="hc_16" onkeyup="calculatedQtyByHr(16)" />
                 </td>
                 <td>
-                    <input style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(7)" id="input_item_number_7" onchange="getValueSelectedItemNumber(this, 7);" placeholder="Select" type="text" list="pn" name="partno_12" class="form-control" />
+                    <input style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(16)" id="input_item_number_16" onchange="getValueSelectedItemNumber(this, 16);" placeholder="Select" type="text" list="pn" name="partno_21" class="form-control" />
                     <datalist id="pn"></datalist>
                 </td>
                 <td>
-                <input type="text" name="wo_number_12" value="">
+                <input type="text" name="wo_number_21" value="">
                 </td>
                 <td id="plan_by_hr">
-                    <input type="text" class="planByHr" onkeyup="calculo(this);" name="plan_by_hr_12" />
+                    <input type="text" class="planByHr" onkeyup="calculo(this);" name="plan_by_hr_21" />
                 </td>
-                <td class="table-info" id="cum_plan_7" name="cum_plan">0</td>
+                <td class="table-info" id="cum_plan_16" name="cum_plan">0</td>
                 <td class="table-light">
-                    <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(7)" onchange="add_Select(this, 7);" class="form-control" required>
+                    <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(16)" onchange="add_Select(this, 16);" class="form-control" required>
                         <option value="">Select</option>
                         <?php
                         $query = "SELECT * FROM planned_interruptions";
@@ -299,28 +299,28 @@ require_once "classes/Login.php";
                         <?php endwhile; ?>
                     </select>
                 </td>
-                <td class="table-info" id="less_time"><input type="text" name="less_time_12" id="less_time_7" disabled="true"></td>
-                <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_12" id="stnd_time_7" disabled="true"></td>
-                <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr_12" id="qty_by_hr_7" disabled="true"></td>
+                <td class="table-info" id="less_time"><input type="text" name="less_time_21" id="less_time_16" disabled="true"></td>
+                <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_21" id="stnd_time_16" disabled="true"></td>
+                <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr_21" id="qty_by_hr_16" disabled="true"></td>
             </tr>
             <tr>
-                <th class="table-info">13:00-14:00pm</th>
+                <th class="table-info">22:00-23:00pm</th>
                 <td id="hc" class="table-info">
-                    <input type="number" class="hc" name="hc_13" id="hc_8" onkeyup="calculatedQtyByHr(8)" />
+                    <input type="number" class="hc" name="hc_22" id="hc_17" onkeyup="calculatedQtyByHr(17)" />
                 </td>
                 <td>
-                    <input style="min-width: 10rem; border: 0; background-color: transparent;" id="input_item_number_8" onkeyup="calculatedQtyByHr(8)" onchange="getValueSelectedItemNumber(this, 8);" placeholder="Select" type="text" list="pn" name="partno_13" class="form-control" />
+                    <input style="min-width: 10rem; border: 0; background-color: transparent;" id="input_item_number_17" onkeyup="calculatedQtyByHr(17)" onchange="getValueSelectedItemNumber(this, 17);" placeholder="Select" type="text" list="pn" name="partno_22" class="form-control" />
                     <datalist id="pn"></datalist>
                 </td>
                 <td>
-                <input type="text" name="wo_number_13" value="">
+                <input type="text" name="wo_number_22" value="">
                 </td>
                 <td id="plan_by_hr">
-                    <input type="text" class="planByHr" onkeyup="calculo(this);" name="plan_by_hr_13" />
+                    <input type="text" class="planByHr" onkeyup="calculo(this);" name="plan_by_hr_22" />
                 </td>
-                <td class="table-info" id="cum_plan_8" name="cum_plan">0</td>
+                <td class="table-info" id="cum_plan_17" name="cum_plan">0</td>
                 <td class="table-light">
-                    <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(8)" onchange="add_Select(this, 8);" class="form-control" required>
+                    <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(17)" onchange="add_Select(this, 17);" class="form-control" required>
                         <option value="">Select</option>
                         <?php
                         $query = "SELECT * FROM planned_interruptions";
@@ -331,28 +331,28 @@ require_once "classes/Login.php";
                         <?php endwhile; ?>
                     </select>
                 </td>
-                <td class="table-info" id="less_time"><input type="text" name="less_time_13" id="less_time_8" disabled="true"></td>
-                <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_13" id="stnd_time_8" disabled="true"></td>
-                <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr_13" id="qty_by_hr_8" disabled="true"></td>
+                <td class="table-info" id="less_time"><input type="text" name="less_time_22" id="less_time_17" disabled="true"></td>
+                <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_22" id="stnd_time_17" disabled="true"></td>
+                <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr_22" id="qty_by_hr_17" disabled="true"></td>
             </tr>
             <tr>
-                <th class="table-info">14:00-15:30pm</th>
+                <th class="table-info">23:00-00:00am</th>
                 <td id="hc" class="table-info">
-                    <input type="number" class="hc" name="hc_14" id="hc_9" onkeyup="calculatedQtyByHr(9)" />
+                    <input type="number" class="hc" name="hc_23" id="hc_18" onkeyup="calculatedQtyByHr(18)" />
                 </td>
                 <td>
-                    <input style="min-width: 10rem; border: 0; background-color: transparent;" id="input_item_number_9" onkeyup="calculatedQtyByHr(9)" onchange="getValueSelectedItemNumber(this, 9);" placeholder="Select" type="text" list="pn" name="partno_14" class="form-control" />
+                    <input style="min-width: 10rem; border: 0; background-color: transparent;" id="input_item_number_18" onkeyup="calculatedQtyByHr(18)" onchange="getValueSelectedItemNumber(this, 18);" placeholder="Select" type="text" list="pn" name="partno_23" class="form-control" />
                     <datalist id="pn"></datalist>
                 </td>
                 <td>
-                <input type="text" name="wo_number_14" value="">
+                <input type="text" name="wo_number_23" value="">
                 </td>
                 <td id="plan_by_hr">
-                    <input type="text" class="planByHr" onkeyup="calculo(this);" name="plan_by_hr_14" />
+                    <input type="text" class="planByHr" onkeyup="calculo(this);" name="plan_by_hr_23" />
                 </td>
-                <td class="table-info" id="cum_plan_9" name="cum_plan">0</td>
+                <td class="table-info" id="cum_plan_18" name="cum_plan">0</td>
                 <td class="table-light">
-                    <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(9)" onchange="add_Select(this, 9);" class="form-control" required>
+                    <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(18)" onchange="add_Select(this, 18);" class="form-control" required>
                         <option value="">Select</option>
                         <?php
                         $query = "SELECT * FROM planned_interruptions";
@@ -363,9 +363,9 @@ require_once "classes/Login.php";
                         <?php endwhile; ?>
                     </select>
                 </td>
-                <td class="table-info" id="less_time"><input type="text" name="less_time_14" id="less_time_9" disabled="true"></td>
-                <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_14" id="stnd_time_9" disabled="true"></td>
-                <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr_14" id="qty_by_hr_9" disabled="true"></td>
+                <td class="table-info" id="less_time"><input type="text" name="less_time_23" id="less_time_18" disabled="true"></td>
+                <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_23" id="stnd_time_18" disabled="true"></td>
+                <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr_23" id="qty_by_hr_18" disabled="true"></td>
             </tr>
         </tbody>
     </table>
