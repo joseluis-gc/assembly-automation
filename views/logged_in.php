@@ -30,6 +30,10 @@ if (!empty($page)) {
         case "captura_manual":
             include ("views/hr/plan/captura_manual.php");
         break;
+
+        case "andon":
+            include ("views/andon/dashboard.php");
+        break;
         default:
             include ("views/home/home.php");
         break;

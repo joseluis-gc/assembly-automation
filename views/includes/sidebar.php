@@ -22,7 +22,7 @@
                     <!-- Drawer section heading (Interface)-->
                     <div class="drawer-menu-heading">Andon App</div>
                     <!-- Drawer link (Overview)-->
-                    <a class="nav-link" href="index.html">
+                    <a class="nav-link" href="index.php?page=andon">
                         <div class="nav-link-icon"><i class="material-icons">language</i></div>
                         Andon
                     </a>
@@ -158,33 +158,27 @@
 
 
 
-                    <!-- Divider-->
-                    <div class="drawer-menu-divider"></div>
-                    <!-- Drawer section heading (Plugins)-->
+                  
+                    <!-- <div class="drawer-menu-divider"></div>
                     <div class="drawer-menu-heading">Configuración</div>
-                    <!-- Drawer link (Charts)-->
                     <a class="nav-link" href="plugins-charts.html">
                         <div class="nav-link-icon"><i class="material-icons">bar_chart</i></div>
                         Charts
                     </a>
-                    <!-- Drawer link (Code Blocks)-->
                     <a class="nav-link" href="plugins-code-blocks.html">
                         <div class="nav-link-icon"><i class="material-icons">code</i></div>
                         Code Blocks
                     </a>
-                    <!-- Drawer link (Data Tables)-->
                     <a class="nav-link" href="plugins-data-tables.html">
                         <div class="nav-link-icon"><i class="material-icons">filter_alt</i></div>
                         Data Tables
                     </a>
-                    <!-- Drawer link (Date Picker)-->
                     <a class="nav-link" href="plugins-date-picker.html">
                         <div class="nav-link-icon"><i class="material-icons">date_range</i></div>
                         Date Picker
-                    </a>
+                    </a> -->
                 </div>
             </div>
-            <!-- Drawer footer        -->
             <div class="drawer-footer border-top">
                 <div class="d-flex align-items-center">
                     <i class="material-icons text-muted">account_circle</i>

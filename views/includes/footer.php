@@ -31,5 +31,15 @@
 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
 <script src="views/_assets/js/datatables/datatables-simple-demo.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Load Chart.js via CDN-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.0.0-beta.10/chart.min.js" crossorigin="anonymous"></script>
+<!-- Load Chart.js customized defaults-->
+<script src="views/_assets/js/charts/chart-defaults.js"></script>
+<!-- Load demo bar charts-->
+<!-- <script src="views/_assets/js/charts/demos/chart-bar-demo.js"></script>
+<script src="views/_assets/js/charts/demos/chart-bar-grouped-demo.js"></script>
+<script src="views/_assets/js/charts/demos/chart-bar-horizontal-demo.js"></script>
+<script src="views/_assets/js/charts/demos/chart-bar-grouped-horizontal-demo.js"></script> -->
 </body>
+
 </html>
