@@ -18,19 +18,33 @@ else
 {
     die("Invalid Parameter.");
 }
-require_once "classes/Login.php";
+
+require_once "classes/Plan.php";
+$response = new Plan();
+if (isset($response)) {
+    if ($response->errors) {
+        foreach ($response->errors as $error) {
+            echo $error;
+        }
+    }
+    if ($response->messages) {
+        foreach ($response->messages as $message) {
+            echo $message;
+        }
+    }
+}
 ?>
-<form method="POST">
- <input type="hidden" name="plant_id" value="<?php echo $row['plant_id']?>">   
- <input type="hidden" name="site_id" value="<?php echo $row['site_id']?>"> 
- <input type="hidden" name="asset_id" value="<?php echo $row['asset_id']?>"> 
+<form method="POST" enctype="multipart/form-data">
+ <input type="hidden" name="plant_id" value="<?php echo $row['plant_id']?>">
+ <input type="hidden" name="site_id" value="<?php echo $row['site_id']?>">
+ <input type="hidden" name="asset_id" value="<?php echo $row['asset_id']?>">
 
 <table class="table container text-center table-info table-bordered mb-0 mt-3">
     <thead>
         <tr>
             <th scope="col" class="fw-bold"><small>PLANT:</small></th>
             <th scope="col" class="table-light" >
-            <input type="text" name="plant_id" value="<?php echo $row['plant_name'] ?>">     
+            <input type="text" name="plant_name" value="<?php echo $row['plant_name'] ?>">
             </th>
             <th scope="col" class="fw-bold"><small>AREA:</small></th>
             <th scope="col" class="table-light">
@@ -96,7 +110,7 @@ require_once "classes/Login.php";
                 </td>
                 <td class="table-info" id="cum_plan_1" name="cum_plan">0</td>
                 <td class="table-light">
-                    <select style="min-width: 15rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(1)" onchange="add_Select(this, 1);" class="form-control" required>
+                    <select style="min-width: 15rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(1)" onchange="add_Select(this, 1);" class="form-control" >
                         <option value="">Select</option>
                         <?php
                         $query = "SELECT * FROM planned_interruptions";
@@ -128,7 +142,7 @@ require_once "classes/Login.php";
                 </td>
                 <td class="table-info" id="cum_plan_2" name="cum_plan">0</td>
                 <td class="table-light">
-                    <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(3)" onchange="add_Select(this, 2);" class="form-control" required>
+                    <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(3)" onchange="add_Select(this, 2);" class="form-control" >
                         <option value="">Select</option>
                         <?php
                         $query = "SELECT * FROM planned_interruptions";
@@ -160,7 +174,7 @@ require_once "classes/Login.php";
                 </td>
                 <td class="table-info" id="cum_plan_3" name="cum_plan">0</td>
                 <td class="table-light">
-                    <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(3)" onchange="add_Select(this, 3);" class="form-control" required>
+                    <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(3)" onchange="add_Select(this, 3);" class="form-control" >
                         <option value="">Select</option>
                         <?php
                         $query = "SELECT * FROM planned_interruptions";
@@ -192,7 +206,7 @@ require_once "classes/Login.php";
                 </td>
                 <td class="table-info" id="cum_plan_4" name="cum_plan">0</td>
                 <td class="table-light">
-                    <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(4)" onchange="add_Select(this, 4);" class="form-control" required>
+                    <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(4)" onchange="add_Select(this, 4);" class="form-control" >
                         <option value="">Select</option>
                         <?php
                         $query = "SELECT * FROM planned_interruptions";
@@ -224,7 +238,7 @@ require_once "classes/Login.php";
                 </td>
                 <td class="table-info" id="cum_plan_5" name="cum_plan">0</td>
                 <td class="table-light">
-                    <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(5)" onchange="add_Select(this, 5);" class="form-control" required>
+                    <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(5)" onchange="add_Select(this, 5);" class="form-control" >
                         <option value="">Select</option>
                         <?php
                         $query = "SELECT * FROM planned_interruptions";
@@ -256,7 +270,7 @@ require_once "classes/Login.php";
                 </td>
                 <td class="table-info" id="cum_plan_6" name="cum_plan">0</td>
                 <td class="table-light">
-                    <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(6)" onchange="add_Select(this, 6);" class="form-control" required>
+                    <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(6)" onchange="add_Select(this, 6);" class="form-control" >
                         <option value="">Select</option>
                         <?php
                         $query = "SELECT * FROM planned_interruptions";
@@ -288,7 +302,7 @@ require_once "classes/Login.php";
                 </td>
                 <td class="table-info" id="cum_plan_7" name="cum_plan">0</td>
                 <td class="table-light">
-                    <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(7)" onchange="add_Select(this, 7);" class="form-control" required>
+                    <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(7)" onchange="add_Select(this, 7);" class="form-control" >
                         <option value="">Select</option>
                         <?php
                         $query = "SELECT * FROM planned_interruptions";
@@ -320,7 +334,7 @@ require_once "classes/Login.php";
                 </td>
                 <td class="table-info" id="cum_plan_8" name="cum_plan">0</td>
                 <td class="table-light">
-                    <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(8)" onchange="add_Select(this, 8);" class="form-control" required>
+                    <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(8)" onchange="add_Select(this, 8);" class="form-control" >
                         <option value="">Select</option>
                         <?php
                         $query = "SELECT * FROM planned_interruptions";
@@ -352,7 +366,7 @@ require_once "classes/Login.php";
                 </td>
                 <td class="table-info" id="cum_plan_9" name="cum_plan">0</td>
                 <td class="table-light">
-                    <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(9)" onchange="add_Select(this, 9);" class="form-control" required>
+                    <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(9)" onchange="add_Select(this, 9);" class="form-control" >
                         <option value="">Select</option>
                         <?php
                         $query = "SELECT * FROM planned_interruptions";
@@ -370,7 +384,7 @@ require_once "classes/Login.php";
         </tbody>
     </table>
     <div class="mt-5 d-flex justify-content-end p-5">
-        <button onclick="" class="btn btn-primary">SAVE CHANGES</button>
+        <button type="submit" name="register_plan" class="btn btn-primary">SAVE CHANGES</button>
     </div>
 </div>
 </form>
@@ -419,10 +433,10 @@ require_once "classes/Login.php";
     window.onload = function(element) {
         let find_item = document.querySelector("#pn");
         let stndr_time = document.querySelector("#stnd_time");
-        // let url = "http://localhost/development/automation/functions/ItemNumberSelect/item_number_select.php"
-        let url_magui = "http://localhost/assembly-automation/functions/ItemNumberSelect/item_number_select.php";
+        let url = "http://localhost/development/automation/functions/ItemNumberSelect/item_number_select.php"
+        //let url_magui = "http://localhost/assembly-automation/functions/ItemNumberSelect/item_number_select.php";
 
-        fetch(url_magui, {
+        fetch(url, {
                 method: 'GET',
             })
             .then(res => res.text())
