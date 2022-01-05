@@ -468,6 +468,18 @@ if (isset($response)) {
 
         //OPERACIONES
         result = ((hc.value - less_time.value) / (stnd_time.value));
+
+        if (less_time.value === "" || less_time.value === null || less_time.value === "undefined" || isNaN(less_time.value) || less_time.value < 0) {
+            return getQtyByHr.value = 0
+        };
+
+        if (stnd_time.value === "" || stnd_time.value === null || stnd_time.value === "undefined" || isNaN(stnd_time.value) || stnd_time.value < 0) {
+            return getQtyByHr.value = 0
+        };
+
+        if (result === "" || result === null || result === "undefined" || isNaN(result) || result < 0 || result === Infinity) {
+            return getQtyByHr.value = 0;
+        };
         getQtyByHr.value = result || 0;
     };
 
