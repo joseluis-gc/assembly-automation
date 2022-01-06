@@ -36,10 +36,6 @@
 <!-- Load Chart.js customized defaults-->
 <script src="views/_assets/js/charts/chart-defaults.js"></script>
 <!-- Load demo bar charts-->
-<!-- <script src="views/_assets/js/charts/demos/chart-bar-demo.js"></script>
-<script src="views/_assets/js/charts/demos/chart-bar-grouped-demo.js"></script>
-<script src="views/_assets/js/charts/demos/chart-bar-horizontal-demo.js"></script>
-<script src="views/_assets/js/charts/demos/chart-bar-grouped-horizontal-demo.js"></script> -->
+<script src="views/_assets/js/charts/andon-charts.js"></script>
 </body>
-
 </html>

@@ -34,6 +34,18 @@ if (!empty($page)) {
         case "andon":
             include ("views/andon/dashboard.php");
         break;
+
+        case "areas":
+            include ("views/andon/areas.php");
+        break;
+
+        case "plants":
+            include ("views/andon/plants.php");
+        break;
+
+        case "machines":
+            include ("views/andon/machines.php");
+        break;
         default:
             include ("views/home/home.php");
         break;
