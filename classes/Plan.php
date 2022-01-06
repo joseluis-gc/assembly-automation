@@ -243,8 +243,8 @@ class Plan
 
 
 
-                if(isset($_POST['partno_6'])&& $_POST['partno_6'] != 0) { $partno_6=$_POST['partno_6']; } else { $partno_6 = 0; }
-                if(isset($_POST['partno_7'])&& $_POST['partno_7'] != 0) { $partno_7=$_POST['partno_7']; } else { $partno_7 = 0; }
+                if(isset($_POST['partno_6'])&& $_POST['partno_6'] != "") { $partno_6=$_POST['partno_6']; } else { $partno_6 = 0; }
+                if(isset($_POST['partno_7'])&& $_POST['partno_7'] != "") { $partno_7=$_POST['partno_7']; } else { $partno_7 = 0; }
                 if(isset($_POST['partno_8'])&& $_POST['partno_8'] != 0) { $partno_8=$_POST['partno_8']; } else { $partno_8 = 0; }
                 if(isset($_POST['partno_9'])&& $_POST['partno_9'] != 0) { $partno_9=$_POST['partno_9']; } else { $partno_9 = 0; }
                 if(isset($_POST['partno_10'])&& $_POST['partno_10'] != 0) { $partno_10=$_POST['partno_10']; } else { $partno_10 = 0; }

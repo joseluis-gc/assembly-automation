@@ -1,3 +1,16 @@
+<?php
+$today = Today();
+$shift = getShift();
+echo $query = "SELECT * FROM plan_hrxhr WHERE plan_asset = {$_GET['asset_id']} AND date = '$today' AND shift = $shift ";
+$result = mysqli_query($connection, $query);
+if(!$result){
+    die("Query error");
+}
+if(mysqli_num_rows($result) == 0){
+    die("No hay un plan para este punto de captura." . "<a href='index.php?page=menu'>Volver</a>");
+}
+$row = mysqli_fetch_array($result)
+?>
 <main class="container margin_form">
     <div class="row justify-content-center text-center">
         <div class="col-xxl-7 col-xl-10">
@@ -6,7 +19,7 @@
                     <div class="w-100 m-auto d-block">
                         <p class="mb-0">ITEM NUMBER</p>
                         <h1 class="display-3 mb-0">
-                            <strong>AC1005HF</strong>
+                            <strong><?php echo $row[''] ?></strong>
                         </h1>
                         <div class="input-group d-flex justify-content-center mt-5 mb-3">
                             <div class="input-group-prepend" id="button-addon3">

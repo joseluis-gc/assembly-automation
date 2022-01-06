@@ -22,4 +22,17 @@ function getShift(){
     return $shift;
 }
 
+function Now(){
+   return date("Y-m-d H:i:s");
+}
+
+function Today(){
+   return date("Y-m-d");
+}
+
+function nowTime(){
+    return date("H:i:s");
+}
+
+
 

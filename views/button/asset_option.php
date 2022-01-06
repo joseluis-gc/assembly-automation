@@ -25,7 +25,7 @@ if(isset($_GET['plan_site']) && is_numeric($_GET['plan_site'])) {
 
                 <div class="col">
                     <!-- Collapsible card (users)-->
-                    <a style="text-decoration: none;" href="index.php?page=plan_form&asset_id=<?php echo $row['asset_id']; ?>">
+                    <a style="text-decoration: none;" href="index.php?page=button&asset_id=<?php echo $row['asset_id']; ?>">
                         <div class="card card-raised card-collapsible mb-5" id="usersCollapse">
                             <div class="card-header bg-transparent" data-bs-toggle="collapse" data-bs-target="#usersCollapseContent" aria-expanded="true" aria-controls="usersCollapseContent">
                                 <div class="d-flex align-items-center">
