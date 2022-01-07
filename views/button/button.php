@@ -14,6 +14,7 @@ $row = mysqli_fetch_array($result)
 
 ?>
 <form method="post">
+<input type="hidden" name="plan_id" value="<?php echo $row['plan_id'] ?>">
 <main class="container margin_form">
     <div class="row justify-content-center text-center">
         <div class="col-xxl-7 col-xl-10">
@@ -45,7 +46,7 @@ $row = mysqli_fetch_array($result)
                         </div>
                     </div>
                     <div class="d-grid gap-2">
-                        <button onclick="getSnackbar();" class="btn btn-raised-primary shadow-5 ripple-info btn-xl btn-lg" type="button">
+                        <button onclick="getSnackbar();" name="submit" class="btn btn-raised-primary shadow-5 ripple-info btn-xl btn-lg" type="submit">
                                 <span style="width: 100%; display: block; margin: auto;">
                                     Capturar
                                 </span>
@@ -67,3 +68,9 @@ $row = mysqli_fetch_array($result)
     </mwc-snackbar>
 </main>
 </form>
+
+<?php
+if(isset($_POST['submit'])){
+
+}
+?>
