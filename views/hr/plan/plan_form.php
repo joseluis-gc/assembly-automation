@@ -70,6 +70,11 @@ if (isset($response)) {
             </tr>
         </thead>
     </table>
+    <div class="form-check mt-3 mb-3 d-flex justify-content-end px-5">
+            <input class="form-check-input mt-2" style="width: 1.5rem; height: 1.5rem;" id="flexCheckDefault" onchange="document.getElementById('factor_multiplicador').disabled = !this.checked;" type="checkbox" value="">
+            <label class="form-check-label px-3 mt-2" for="flexCheckDefault">Factor multiplicador</label>
+            <input class="form-control" style="width: 10rem;" type="text" name="factor_multiplicador" disabled id="factor_multiplicador" placeholder="Factor multiplicador">
+        </div>
     <div>
         <table class="table container text-center table-bordered mb-0 mt-4">
             <thead>
