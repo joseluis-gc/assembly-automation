@@ -431,8 +431,8 @@ if (isset($response)) {
         let find_item = document.querySelector("#pn");
         let stndr_time = document.querySelector("#stnd_time");
 
-        // let url = "http://localhost/development/auto8mation/functions/ItemNumberSelect/item_number_select.php"
-        let url_magui = "http://localhost/assembly-automation/functions/ItemNumberSelect/item_number_select.php";
+        let url = "http://localhost/development/automation/functions/ItemNumberSelect/item_number_select.php"
+        //let url_magui = "http://localhost/assembly-automation/functions/ItemNumberSelect/item_number_select.php";
 
 
         fetch(url_magui, {

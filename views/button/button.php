@@ -1,7 +1,8 @@
 <?php
 $today = Today();
 $shift = getShift();
-echo $query = "SELECT * FROM plan_hrxhr WHERE plan_asset = {$_GET['asset_id']} AND date = '$today' AND shift = $shift ";
+echo $hour = nowHour();
+$query = "SELECT * FROM plan_hrxhr WHERE plan_asset = {$_GET['asset_id']} AND date = '$today' AND shift = $shift";
 $result = mysqli_query($connection, $query);
 if(!$result){
     die("Query error");
@@ -10,7 +11,9 @@ if(mysqli_num_rows($result) == 0){
     die("No hay un plan para este punto de captura." . "<a href='index.php?page=menu'>Volver</a>");
 }
 $row = mysqli_fetch_array($result)
+
 ?>
+<form method="post">
 <main class="container margin_form">
     <div class="row justify-content-center text-center">
         <div class="col-xxl-7 col-xl-10">
@@ -19,7 +22,7 @@ $row = mysqli_fetch_array($result)
                     <div class="w-100 m-auto d-block">
                         <p class="mb-0">ITEM NUMBER</p>
                         <h1 class="display-3 mb-0">
-                            <strong><?php echo $row[''] ?></strong>
+                            <strong><?php echo $row['pn_'.$hour] ?></strong>
                         </h1>
                         <div class="input-group d-flex justify-content-center mt-5 mb-3">
                             <div class="input-group-prepend" id="button-addon3">
@@ -30,7 +33,7 @@ $row = mysqli_fetch_array($result)
                                 </button>
                             </div>
                             <div class="">
-                                <span class="h3" id="click">0</span><span class="h3">/10,000</span>
+                                <span class="h3" id="click"><input name="input_hr" style="font-size: 28px; width: 100px;" type="number" value=""></span><span class="h3">/<?php echo number_format($row[$hour]) ?></span>
                             </div>
                             <div class="input-group-prepend" id="button-addon3">
                                 <button onclick="getSnackbar();" style="right:-13rem !important;" class="btn btn-raised-dark" type="button">
@@ -63,4 +66,4 @@ $row = mysqli_fetch_array($result)
         <mwc-icon-button icon="close" slot="dismiss"></mwc-icon-button>
     </mwc-snackbar>
 </main>
-
+</form>

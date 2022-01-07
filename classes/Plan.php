@@ -34,6 +34,9 @@ class Plan
         echo "<h1 style='font-size: 65px'>Works1</h1>";
         $hc_op = 1;
         $partno_op = 1;
+        //echo "<h1 style='font-size: 65px'>{$_POST['partno_6']}</h1>";
+
+
 
         if (empty($_POST['plant_id']))
         {
@@ -97,29 +100,29 @@ class Plan
 
 
 
-                if(isset($_POST['partno_6'])&& $_POST['partno_6'] != 0) { $partno_6=$_POST['partno_6']; } else { $partno_6 = 0; }
-                if(isset($_POST['partno_7'])&& $_POST['partno_7'] != 0) { $partno_7=$_POST['partno_7']; } else { $partno_7 = 0; }
-                if(isset($_POST['partno_8'])&& $_POST['partno_8'] != 0) { $partno_8=$_POST['partno_8']; } else { $partno_8 = 0; }
-                if(isset($_POST['partno_9'])&& $_POST['partno_9'] != 0) { $partno_9=$_POST['partno_9']; } else { $partno_9 = 0; }
-                if(isset($_POST['partno_10'])&& $_POST['partno_10'] != 0) { $partno_10=$_POST['partno_10']; } else { $partno_10 = 0; }
-                if(isset($_POST['partno_11'])&& $_POST['partno_11'] != 0) { $partno_11=$_POST['partno_11']; } else { $partno_11 = 0; }
-                if(isset($_POST['partno_12'])&& $_POST['partno_12'] != 0) { $partno_12=$_POST['partno_12']; } else { $partno_12 = 0; }
-                if(isset($_POST['partno_13'])&& $_POST['partno_13'] != 0) { $partno_13=$_POST['partno_13']; } else { $partno_13 = 0; }
-                if(isset($_POST['partno_14'])&& $_POST['partno_14'] != 0) { $partno_14=$_POST['partno_14']; } else { $partno_14 = 0; }
-                if(isset($_POST['partno_15'])&& $_POST['partno_15'] != 0) { $partno_15=$_POST['partno_15']; } else { $partno_15 = 0; }
+                if(isset($_POST['partno_6'])&& $_POST['partno_6'] != "") { $partno_6= $_POST['partno_6']; } else { $partno_6 = "N/A";}
+                if(isset($_POST['partno_7'])&& $_POST['partno_7'] != "") { $partno_7=$_POST['partno_7']; } else { $partno_7 = "N/A"; }
+                if(isset($_POST['partno_8'])&& $_POST['partno_8'] != "") { $partno_8=$_POST['partno_8']; } else { $partno_8 = "N/A"; }
+                if(isset($_POST['partno_9'])&& $_POST['partno_9'] != "") { $partno_9=$_POST['partno_9']; } else { $partno_9 = "N/A"; }
+                if(isset($_POST['partno_10'])&& $_POST['partno_10'] != "") { $partno_10=$_POST['partno_10']; } else { $partno_10 = "N/A"; }
+                if(isset($_POST['partno_11'])&& $_POST['partno_11'] != "") { $partno_11=$_POST['partno_11']; } else { $partno_11 = "N/A"; }
+                if(isset($_POST['partno_12'])&& $_POST['partno_12'] != "") { $partno_12=$_POST['partno_12']; } else { $partno_12 = "N/A"; }
+                if(isset($_POST['partno_13'])&& $_POST['partno_13'] != "") { $partno_13=$_POST['partno_13']; } else { $partno_13 = "N/A"; }
+                if(isset($_POST['partno_14'])&& $_POST['partno_14'] != "") { $partno_14=$_POST['partno_14']; } else { $partno_14 = "N/A"; }
+                if(isset($_POST['partno_15'])&& $_POST['partno_15'] != "") { $partno_15=$_POST['partno_15']; } else { $partno_15 = "N/A"; }
 
 
 
-                if(isset($_POST['wo_number_6'])&& $_POST['wo_number_6'] != 0) { $wo_number_6=$_POST['wo_number_6']; } else { $wo_number_6 = 0; }
-                if(isset($_POST['wo_number_7'])&& $_POST['wo_number_7'] != 0) { $wo_number_7=$_POST['wo_number_7']; } else { $wo_number_7 = 0; }
-                if(isset($_POST['wo_number_8'])&& $_POST['wo_number_8'] != 0) { $wo_number_8=$_POST['wo_number_8']; } else { $wo_number_8 = 0; }
-                if(isset($_POST['wo_number_9'])&& $_POST['wo_number_9'] != 0) { $wo_number_9=$_POST['wo_number_9']; } else { $wo_number_9 = 0; }
-                if(isset($_POST['wo_number_10'])&& $_POST['wo_number_10'] != 0) { $wo_number_10=$_POST['wo_number_10']; } else { $wo_number_10 = 0; }
-                if(isset($_POST['wo_number_11'])&& $_POST['wo_number_11'] != 0) { $wo_number_11=$_POST['wo_number_11']; } else { $wo_number_11 = 0; }
-                if(isset($_POST['wo_number_12'])&& $_POST['wo_number_12'] != 0) { $wo_number_12=$_POST['wo_number_12']; } else { $wo_number_12 = 0; }
-                if(isset($_POST['wo_number_13'])&& $_POST['wo_number_13'] != 0) { $wo_number_13=$_POST['wo_number_13']; } else { $wo_number_13 = 0; }
-                if(isset($_POST['wo_number_14'])&& $_POST['wo_number_14'] != 0) { $wo_number_14=$_POST['wo_number_14']; } else { $wo_number_14 = 0; }
-                if(isset($_POST['wo_number_15'])&& $_POST['wo_number_15'] != 0) { $wo_number_15=$_POST['wo_number_15']; } else { $wo_number_15 = 0; }
+                if(isset($_POST['wo_number_6'])&& $_POST['wo_number_6'] != "") { $wo_number_6=$_POST['wo_number_6']; } else { $wo_number_6 = "N/A"; }
+                if(isset($_POST['wo_number_7'])&& $_POST['wo_number_7'] != "") { $wo_number_7=$_POST['wo_number_7']; } else { $wo_number_7 = "N/A"; }
+                if(isset($_POST['wo_number_8'])&& $_POST['wo_number_8'] != "") { $wo_number_8=$_POST['wo_number_8']; } else { $wo_number_8 = "N/A"; }
+                if(isset($_POST['wo_number_9'])&& $_POST['wo_number_9'] != "") { $wo_number_9=$_POST['wo_number_9']; } else { $wo_number_9 = "N/A"; }
+                if(isset($_POST['wo_number_10'])&& $_POST['wo_number_10'] != "") { $wo_number_10=$_POST['wo_number_10']; } else { $wo_number_10 = "N/A"; }
+                if(isset($_POST['wo_number_11'])&& $_POST['wo_number_11'] != "") { $wo_number_11=$_POST['wo_number_11']; } else { $wo_number_11 = "N/A"; }
+                if(isset($_POST['wo_number_12'])&& $_POST['wo_number_12'] != "") { $wo_number_12=$_POST['wo_number_12']; } else { $wo_number_12 = "N/A"; }
+                if(isset($_POST['wo_number_13'])&& $_POST['wo_number_13'] != "") { $wo_number_13=$_POST['wo_number_13']; } else { $wo_number_13 = "N/A"; }
+                if(isset($_POST['wo_number_14'])&& $_POST['wo_number_14'] != "") { $wo_number_14=$_POST['wo_number_14']; } else { $wo_number_14 = "N/A"; }
+                if(isset($_POST['wo_number_15'])&& $_POST['wo_number_15'] != "") { $wo_number_15=$_POST['wo_number_15']; } else { $wo_number_15 = "N/A"; }
 
 
                 if(isset($_POST['plan_by_hr_6'])&& $_POST['plan_by_hr_6'] != 0) { $plan_by_hr_6 = $_POST['plan_by_hr_6']; } else { $plan_by_hr_6 = 0; }
@@ -158,16 +161,23 @@ class Plan
                     $query_new_plan_insert = $this->db_connection->query($sql);
 
                     // if user has been added successfully
-                    if ($query_new_plan_insert) {
+                    if ($query_new_plan_insert)
+                    {
                         $this->messages[] = "Se ha creado un plan para este punto de captura.";
-                    } else {
+                    }
+                    else
+                    {
                         $this->errors[] = "Lo sentimos , el registro fallo $sql.";
                     }
                 }
-            } else {
+            }
+            else
+            {
                 $this->errors[] = "Lo sentimos, no hay conexion con la base de datos.";
             }
-        } else {
+        }
+        else
+        {
             $this->errors[] = "Ocurrio un error de validacion.";
         }
     }
@@ -180,6 +190,7 @@ class Plan
         echo "<h1 style='font-size: 65px'>Works1</h1>";
         $hc_op = 1;
         $partno_op = 1;
+        echo "POST: <h2>{$_POST['partno_6']}</h2>";
 
         if (empty($_POST['plant_id']))
         {
@@ -243,7 +254,7 @@ class Plan
 
 
 
-                if(isset($_POST['partno_6'])&& $_POST['partno_6'] != "") { $partno_6=$_POST['partno_6']; } else { $partno_6 = 0; }
+                if(isset($_POST['partno_6'])) { $partno_6 = $_POST['partno_6']; } else { $partno_6 = 0; }
                 if(isset($_POST['partno_7'])&& $_POST['partno_7'] != "") { $partno_7=$_POST['partno_7']; } else { $partno_7 = 0; }
                 if(isset($_POST['partno_8'])&& $_POST['partno_8'] != 0) { $partno_8=$_POST['partno_8']; } else { $partno_8 = 0; }
                 if(isset($_POST['partno_9'])&& $_POST['partno_9'] != 0) { $partno_9=$_POST['partno_9']; } else { $partno_9 = 0; }

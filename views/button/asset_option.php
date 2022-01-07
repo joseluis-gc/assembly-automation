@@ -13,7 +13,7 @@ if(isset($_GET['plan_site']) && is_numeric($_GET['plan_site'])) {
     <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 gx-5">
 
         <?php
-        $query = "SELECT * FROM assets WHERE asset_site = $plan_site AND pom = 1";
+        $query = "SELECT * FROM assets INNER JOIN plan_hrxhr ON plan_asset = asset_id WHERE asset_site = $plan_site AND pom = 1";
         $result = mysqli_query($connection,$query);
         if(!$result):
             die("Query Error");
@@ -32,7 +32,7 @@ if(isset($_GET['plan_site']) && is_numeric($_GET['plan_site'])) {
                                     <i class="material-icons text-primary">person</i>
                                     <div class="ms-3">
                                         <div class="fs-6 mb-1 fw-500"><?php echo $row['asset_name'] ?></div>
-                                        <div class="small">Elige una celda</div>
+                                        <div class="small">Eligir punto de captura</div>
                                     </div>
                                 </div>
                                 <i class="material-icons card-header-icon">expand_less</i>
