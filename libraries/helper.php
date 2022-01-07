@@ -14,8 +14,13 @@ function getShift(){
     elseif($now >= new DateTime("15:36:00") && $now < new DateTime("23:59:59") ){
         $shift = 2;
     }
-
+    /*
     elseif($now >= new DateTime("23:59:59") && $now < new DateTime("06:00:00") ){
+        $shift = 3;
+    }
+    */
+
+    else{
         $shift = 3;
     }
 
@@ -32,6 +37,10 @@ function Today(){
 
 function nowTime(){
     return date("H:i:s");
+}
+
+function nowHour(){
+    return date("H");
 }
 
 
