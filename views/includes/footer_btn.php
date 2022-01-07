@@ -1,4 +1,5 @@
 <script type="module" src="views/_assets/js/material.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     var click = 0;
     url = "localhost";
@@ -25,20 +26,22 @@
             }
         });
     };
+    $(document).ready(function() {
+        edit();
+    });
 
-    function buttonMinus() {
-        click--;
+    function edit(element) {
+        $("input[name*='input_check_edit']").on('change', function(e) {
+            e.preventDefault();
+            var inputChecked = document.getElementById("input_value");
+            var buttonSave = document.getElementById("button_save");
 
-        if (click < 0) {
-            click = 0;
-        }
-
-        let getClick = document.getElementById("click");
-        let buttonMinus = document.getElementById("buttonMinus");
-        getClick.innerHTML = click;
-        let snackbar = document.querySelector('#snackbarAlert');
-        snackbar.labelText = "has been captured" + " " + click + " " + "parts";
-    };
+            inputChecked.disabled = !this.checked;
+            !this.checked ? inputChecked.style.backgroundColor = "transparent" : inputChecked.style.backgroundColor = "#E7F2F8";
+            !this.checked ? inputChecked.style.color = "black" : inputChecked.style.color = "green";
+            buttonSave.disabled = !this.checked;
+        });
+    }
 </script>
 </body>
 
