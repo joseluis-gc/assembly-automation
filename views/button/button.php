@@ -1,8 +1,9 @@
 <?php
 $today = Today();
-$shift = getShift();
+echo $shift = getShift();
 echo $hour = nowHour();
-$query = "SELECT * FROM plan_hrxhr WHERE plan_asset = {$_GET['asset_id']} AND date = '$today' AND shift = $shift";
+$hour = str_replace("0", "", $hour);
+echo $query = "SELECT * FROM plan_hrxhr WHERE plan_asset = {$_GET['asset_id']} AND date = '$today' AND shift = $shift";
 $result = mysqli_query($connection, $query);
 if(!$result){
     die("Query error");
@@ -70,7 +71,10 @@ $row = mysqli_fetch_array($result)
 </form>
 
 <?php
+/*
 if(isset($_POST['submit'])){
+    $input = $_POST['input_hr'];
 
 }
+*/
 ?>

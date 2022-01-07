@@ -52,16 +52,16 @@ class Input
                 $plan_id    = $this->db_connection->real_escape_string(strip_tags($_POST['plan_id'], ENT_QUOTES));
                 $time_block = date("Y");
                 $now        = date("Y-m-d H:i:s");
-
+                //if(isset($_))
 
                 $sql = "INSERT INTO hour_registry(reg_qty, reg_time_block, reg_real_time, reg_order_id, source) 
-                VALUES ()
-                $query_new_plan_insert = $this->db_connection->query($sql);
+                VALUES ($qty,'$time_block','$now',$plan_id,'btn')";
+                $query_new_input = $this->db_connection->query($sql);
 
                 // if user has been added successfully
-                if ($query_new_plan_insert)
+                if ($query_new_input)
                 {
-                    $this->messages[] = "Se ha creado un plan para este punto de captura.";
+                    $this->messages[] = "Se registraron $qty piezas.";
                 }
                 else
                 {
