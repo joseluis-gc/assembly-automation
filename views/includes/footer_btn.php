@@ -35,11 +35,13 @@
             e.preventDefault();
             var inputChecked = document.getElementById("input_value");
             var buttonSave = document.getElementById("button_save");
+            var getAlert = document.getElementById("alert_container");
 
             inputChecked.disabled = !this.checked;
             !this.checked ? inputChecked.style.backgroundColor = "transparent" : inputChecked.style.backgroundColor = "#E7F2F8";
             !this.checked ? inputChecked.style.color = "black" : inputChecked.style.color = "green";
             buttonSave.disabled = !this.checked;
+            this.checked ? getAlert.style.display = 'block' : getAlert.style.display = 'none'; 
         });
     }
 </script>

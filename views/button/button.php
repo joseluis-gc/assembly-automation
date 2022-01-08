@@ -26,10 +26,16 @@ $row = mysqli_fetch_array($result)
                             <h1 class="display-3 mb-0">
                                 <strong><?php echo $row['pn_' . $hour] ?></strong>
                             </h1>
+                           <div id="alert_container" style="display: none;">
+                           <div class="alert alert-info alert-dismissible fade show mt-3" id="alert_id" role="alert">
+                                <strong>Agrega nueva captura en el campo color verde!</strong>
+                                No olvides guardar la nueva captura agregada.
+                            </div>
+                           </div>
                             <div class="input-group d-flex justify-content-center mt-5 mb-3">
                                 <div>
                                     <span class="h3" id="click">
-                                        <input disabled id="input_value" value="0" name="input_hr" style="font-size: 28px; width: 100px;" type="number" value="">
+                                        <input disabled id="input_value" value="0" name="input_hr" style="font-size: 28px; width: 80px;" type="number" value="">
                                     </span><span class="h3">/<?php echo number_format($row[$hour]) ?></span>
                                 </div>
                             </div>
