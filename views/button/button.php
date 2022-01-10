@@ -11,7 +11,28 @@ if (!$result) {
 if (mysqli_num_rows($result) == 0) {
     die("No hay un plan para este punto de captura." . "<a href='index.php?page=menu'>Volver</a>");
 }
-$row = mysqli_fetch_array($result)
+$row = mysqli_fetch_array($result);
+
+//geting number of pz
+$pz_query = "SELECT SUM(reg_qty) AS suma FROM hour_registry WHERE reg_order_id = {$row['plan_id']}";
+$run_pz_query = mysqli_query($connection, $pz_query);
+$row_pz = mysqli_fetch_array($run_pz_query);
+
+
+require_once "classes/Input.php";
+$response = new Input();
+if (isset($response)) {
+    if ($response->errors) {
+        foreach ($response->errors as $error) {
+            echo $error;
+        }
+    }
+    if ($response->messages) {
+        foreach ($response->messages as $message) {
+            echo $message;
+        }
+    }
+}
 
 ?>
 <form method="post">
@@ -35,7 +56,7 @@ $row = mysqli_fetch_array($result)
                             <div class="input-group d-flex justify-content-center mt-5 mb-3">
                                 <div>
                                     <span class="h3" id="click">
-                                        <input disabled id="input_value" value="0" name="input_hr" style="font-size: 28px; width: 80px;" type="number" value="">
+                                        <input disabled id="input_value" value="<?php echo $row_pz[0] ?>" name="input_hr" style="font-size: 28px; width: 80px;" type="number" value="">
                                     </span><span class="h3">/<?php echo number_format($row[$hour]) ?></span>
                                 </div>
                             </div>
@@ -51,7 +72,7 @@ $row = mysqli_fetch_array($result)
                                     <input name="input_check_edit" class="form-check-input mx-0" onchange="edit(this);" type="checkbox" />
                                     <label class="form-check-label" for="flexSwitchCheckDefault">Modificar captura</label>
                                     <div class="row">
-                                        <button class="btn btn-raised-info btn-sm mt-2 text-light" id="button_save" disabled type="button">
+                                        <button name="save_correction" class="btn btn-raised-info btn-sm mt-2 text-light" id="button_save" disabled type="submit">
                                             Guardar nueva captura
                                         </button>
                                     </div>
