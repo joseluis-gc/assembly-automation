@@ -8,10 +8,10 @@
         <!-- Navbar items-->
         <div class="d-flex align-items-center mx-3 me-lg-0">
             <!-- Navbar-->
-            <ul class="navbar-nav d-none d-lg-flex">
+            <!-- <ul class="navbar-nav d-none d-lg-flex">
                 <li class="nav-item"><a class="nav-link" href="index.html">Overview</a></li>
                 <li class="nav-item"><a class="nav-link" href="https://docs.startbootstrap.com/material-admin-pro" target="_blank">Documentation</a></li>
-            </ul>
+            </ul> -->
             <!-- Navbar buttons-->
             <div class="d-flex">
                 <!-- Messages dropdown-->
@@ -127,7 +127,7 @@
                         </li>
                         <li><hr class="dropdown-divider" /></li>
                         <li>
-                            <a class="dropdown-item" href="#!">
+                            <a class="dropdown-item" href="index.php?logout">
                                 <i class="material-icons leading-icon">logout</i>
                                 <div class="me-3">Logout</div>
                             </a>
