@@ -18,6 +18,18 @@ $pz_query = "SELECT SUM(reg_qty) AS suma FROM hour_registry WHERE reg_order_id =
 $run_pz_query = mysqli_query($connection, $pz_query);
 $row_pz = mysqli_fetch_array($run_pz_query);
 
+$query_hrs = "SELECT * FROM plan_hrxhr WHERE plan_asset = {$_GET['asset_id']}";
+$result_hrs = mysqli_query($connection, $query_hrs);
+if (!$result_hrs) {
+    die("Query error");
+}
+if (mysqli_num_rows($result_hrs) == 0) {
+    die("Nothing worked");
+}
+$row = mysqli_fetch_array($result_hrs);
+echo "<br/><br/>RESULT: ";
+echo $row[1] + $row[2] + $row[3] + $row[4] + $row[5] + $row[6] + $row[7] + $row[8] +$row[9] + $row[10] + $row[11] + $row[12] +$row[13] + $row[14] + $row[15] + $row[16] +$row[17] + $row[18] + $row[19] + $row[20] + $row[21] + $row[22] + $row[23] + $row[24];
+echo "<br/><br/><br/><br/>";
 
 require_once "classes/Input.php";
 $response = new Input();
@@ -47,12 +59,12 @@ if (isset($response)) {
                             <h1 class="display-3 mb-0">
                                 <strong><?php echo $row['pn_' . $hour] ?></strong>
                             </h1>
-                           <div id="alert_container" style="display: none;">
-                           <div class="alert alert-info alert-dismissible fade show mt-3" id="alert_id" role="alert">
-                                <strong>Agrega nueva captura en el campo color verde!</strong>
-                                No olvides guardar la nueva captura agregada.
+                            <div id="alert_container" style="display: none;">
+                                <div class="alert alert-info alert-dismissible fade show mt-3" id="alert_id" role="alert">
+                                    <strong>Agrega nueva captura en el campo color verde!</strong>
+                                    No olvides guardar la nueva captura agregada.
+                                </div>
                             </div>
-                           </div>
                             <div class="input-group d-flex justify-content-center mt-5 mb-3">
                                 <div>
                                     <span class="h3" id="click">
