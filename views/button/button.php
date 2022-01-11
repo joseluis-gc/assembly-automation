@@ -27,9 +27,8 @@ if (mysqli_num_rows($result_hrs) == 0) {
     die("Nothing worked");
 }
 $row = mysqli_fetch_array($result_hrs);
-echo "<br/><br/>RESULT: ";
+echo "<br/>RESULTADO SUMA: ";
 echo $row[1] + $row[2] + $row[3] + $row[4] + $row[5] + $row[6] + $row[7] + $row[8] +$row[9] + $row[10] + $row[11] + $row[12] +$row[13] + $row[14] + $row[15] + $row[16] +$row[17] + $row[18] + $row[19] + $row[20] + $row[21] + $row[22] + $row[23] + $row[24];
-echo "<br/><br/><br/><br/>";
 
 require_once "classes/Input.php";
 $response = new Input();
