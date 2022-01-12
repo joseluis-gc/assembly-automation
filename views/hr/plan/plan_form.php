@@ -440,7 +440,7 @@ if (isset($response)) {
         //let url_magui = "http://localhost/assembly-automation/functions/ItemNumberSelect/item_number_select.php";
 
 
-        fetch(url_magui, {
+        fetch(url, {
                 method: 'GET',
             })
             .then(res => res.text())

@@ -27,6 +27,21 @@ function getShift(){
     return $shift;
 }
 
+
+function shiftString(){
+    $shift = getShift();
+    if($shift == 1)
+        $turno = "1er";
+    elseif ($shift == 2)
+        $turno = "2do";
+    else
+        $turno = "3er";
+
+    return $turno;
+}
+
+
+
 function Now(){
    return date("Y-m-d H:i:s");
 }
