@@ -33,7 +33,7 @@ if(isset($_GET['plan_site']) && is_numeric($_GET['plan_site'])) {
                                 <i class="material-icons text-primary">person</i>
                                 <div class="ms-3">
                                     <div class="fs-6 mb-1 fw-500"><?php echo $row['asset_name'] ?></div>
-                                    <div class="small">Elige una celda</div>
+                                    <div class="small">Seleccionar este punto</div>
                                 </div>
                             </div>
                             <i class="material-icons card-header-icon">expand_less</i>

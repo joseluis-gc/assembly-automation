@@ -15,6 +15,10 @@ if (!empty($page)) {
             include ("views/hr/plan/plan_measurement.php");
         break;
 
+        case "plan_shift_selector":
+            include ("views/hr/plan/plan_shift_selector.php");
+        break;
+
         case "plan_form":
             include ("views/hr/plan/plan_form.php");
         break;

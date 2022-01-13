@@ -41,6 +41,31 @@ function shiftString(){
 }
 
 
+function check_parameter($parameter){
+    if (is_numeric($parameter)){
+        $p = $parameter;
+    }else{
+        die("invalid parameter");
+    }
+    return $p;
+}
+
+function getPlanForm($parameter){
+    $shift = getShift();
+    if (!is_numeric($parameter)) {
+        die("Invalid parameter");
+    }
+    if($shift == 1){
+        header("Location: index.php?page=plan_form&asset_id=$parameter");
+    }
+    elseif ($shift == 2){
+        header("Location: index.php?page=plan_form_2&asset_id=$parameter");
+    }
+    else{
+        header("Location: index.php?page=plan3_form&asset_id=$parameter");
+    }
+
+}
 
 function Now(){
    return date("Y-m-d H:i:s");

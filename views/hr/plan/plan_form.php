@@ -5,14 +5,19 @@
     }
 </style>
 <?php
-if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])) {
+
+getPlanForm($_GET['asset_id']);
+
+if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id']))
+{
     $query = "SELECT * FROM assets 
     LEFT JOIN site ON asset_site = site_id 
     LEFT JOIN plant ON plant.plant_id = site.plant_id 
     WHERE asset_id = {$_GET['asset_id']}";
     $result = mysqli_query($connection, $query);
     $row = mysqli_fetch_array($result);
-} else {
+} else
+{
     die("Invalid Parameter.");
 }
 
