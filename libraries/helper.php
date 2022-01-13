@@ -55,6 +55,11 @@ function getPlanForm($parameter){
     if (!is_numeric($parameter)) {
         die("Invalid parameter");
     }
+    //echo $shift;
+    /*$shift = 2;
+
+    $shift = intval($shift);
+
     if($shift == 1){
         header("Location: index.php?page=plan_form&asset_id=$parameter");
     }
@@ -64,6 +69,8 @@ function getPlanForm($parameter){
     else{
         header("Location: index.php?page=plan3_form&asset_id=$parameter");
     }
+    */
+    return $shift;
 
 }
 

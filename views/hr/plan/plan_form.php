@@ -6,7 +6,6 @@
 </style>
 <?php
 
-getPlanForm($_GET['asset_id']);
 
 if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id']))
 {
