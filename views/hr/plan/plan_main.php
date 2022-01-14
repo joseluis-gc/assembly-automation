@@ -49,7 +49,8 @@
                         $query_sites = "SELECT * FROM site WHERE plant_id = {$row['plant_id']}";
                         $result_sites = mysqli_query($connection, $query_sites);
                         while($row_site = mysqli_fetch_array($result_sites)):
-                            $query_assets = "SELECT * FROM plan_hrxhr WHERE site_id = {$row_site['site_id']}";
+
+                            $query_assets = "SELECT * FROM assets WHERE asset_site = {$row_site['site_id']} AND pom = 1";
                             $run_query_assets = mysqli_query($connection, $query_assets);
                             $num = mysqli_num_rows($run_query_assets);
                             if($num == 0){
