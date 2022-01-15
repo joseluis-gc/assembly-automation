@@ -1,5 +1,6 @@
 <?php
 include_once ("includes/header_btn.php");
+include_once ("includes/header_trigger.php");
 
 if (!empty($page)) {
     switch ($page){
@@ -13,9 +14,16 @@ if (!empty($page)) {
             break;
 
         case "button":
-            include ("views/button/button.php");
+            include ("views/trigger/trigger.php");
             break;
 
+        case "trigger":
+            include ("views/trigger/trigger.php");
+            break;
+            
+        case "report":
+            include ("views/trigger/trigger_report.php");
+            break;
 
         default:
             include ("views/auth/login.php");
@@ -27,3 +35,5 @@ if (!empty($page)) {
 
 
 include_once ("includes/footer_btn.php");
+include_once ("includes/footer_trigger.php");
+
