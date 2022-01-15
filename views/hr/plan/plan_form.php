@@ -5,10 +5,7 @@
     }
 </style>
 <?php
-
-
-if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id']))
-{
+if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])){
     $query = "SELECT * FROM assets 
     LEFT JOIN site ON asset_site = site_id 
     LEFT JOIN plant ON plant.plant_id = site.plant_id 
@@ -383,8 +380,8 @@ if (isset($response)) {
                             <?php endwhile; ?>
                         </select>
                     </td>
-                    <td class="table-info" id="less_time"><input type="text" name="less_time_14" id="less_time_9" disabled="true" value="0"></td>
-                    <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_14" id="stnd_time_9" disabled="true" value=""></td>
+                    <td class="table-info" id="less_time"><input type="text" name="less_time_14" id="less_time_9" disabled="true"></td>
+                    <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_14" id="stnd_time_9" disabled="true"></td>
                     <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr_14" id="qty_by_hr_9" disabled="true"></td>
                 </tr>
             </tbody>
@@ -440,11 +437,11 @@ if (isset($response)) {
         let find_item = document.querySelector("#pn");
         let stndr_time = document.querySelector("#stnd_time");
 
-        let url = "http://localhost/development/automation/functions/ItemNumberSelect/item_number_select.php"
-        //let url_magui = "http://localhost/assembly-automation/functions/ItemNumberSelect/item_number_select.php";
+        // let url = "http://localhost/development/automation/functions/ItemNumberSelect/item_number_select.php"
+        let url_magui = "http://localhost/assembly-automation/functions/ItemNumberSelect/item_number_select.php";
 
 
-        fetch(url, {
+        fetch(url_magui, {
                 method: 'GET',
             })
             .then(res => res.text())
