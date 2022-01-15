@@ -21,11 +21,12 @@
                      Divider-->
                     <!-- Drawer section heading (Interface)-->
                     <div class="drawer-menu-heading">Andon App</div>
-                    <!-- Drawer link (Overview)-->
+                    <!-- Drawer link (Overview)
                     <a class="nav-link" href="index.php?page=andon">
                         <div class="nav-link-icon"><i class="material-icons">language</i></div>
                         Andon
                     </a>
+                    -->
                     <!-- Drawer link (Dashboards)-->
                     <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseDashboards" aria-expanded="false" aria-controls="collapseDashboards">
                         <div class="nav-link-icon"><i class="material-icons">dashboard</i></div>
@@ -89,7 +90,7 @@
                     <!-- Drawer link (Pages)-->
                     <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseHr" aria-expanded="false" aria-controls="collapsePages">
                         <div class="nav-link-icon"><i class="material-icons">layers</i></div>
-                        Hora x Hora
+                        Administrar por Planta
                         <div class="drawer-collapse-arrow"><i class="material-icons">expand_more</i></div>
                     </a>
 
@@ -137,7 +138,7 @@
 
                     <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseOptions" aria-expanded="false" aria-controls="collapseLayouts">
                         <div class="nav-link-icon"><i class="material-icons">view_compact</i></div>
-                        Plan
+                        Plan de producción
                         <div class="drawer-collapse-arrow"><i class="material-icons">expand_more</i></div>
                     </a>
                     <!-- Nested drawer nav (Layouts)-->
@@ -177,8 +178,30 @@
                         <div class="nav-link-icon"><i class="material-icons">date_range</i></div>
                         Date Picker
                     </a> -->
+
+                    <!-- Drawer link (Layouts)-->
+                    <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseReports2" aria-expanded="false" aria-controls="collapseLayouts">
+                        <div class="nav-link-icon"><i class="material-icons">view_compact</i></div>
+                        Reportes
+                        <div class="drawer-collapse-arrow"><i class="material-icons">expand_more</i></div>
+                    </a>
+                    <!-- Nested drawer nav (Layouts)-->
+                    <div class="collapse" id="collapseReports2" aria-labelledby="headingOne" data-bs-parent="#drawerAccordion">
+                        <nav class="drawer-menu-nested nav">
+                            <a class="nav-link" href="layout-dark.html">Reporte Diario</a>
+                            <a class="nav-link" href="layout-light.html">Reporte Personalizado</a>
+                        </nav>
+                    </div>
+
+
+
+
                 </div>
             </div>
+
+
+
+
             <div class="drawer-footer border-top">
                 <div class="d-flex align-items-center">
                     <i class="material-icons text-muted">account_circle</i>

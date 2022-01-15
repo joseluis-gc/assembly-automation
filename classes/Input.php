@@ -23,6 +23,9 @@ class Input
         if (isset($_POST["save_correction"])) {
             $this->inputItemCorrection();
         }
+        if (isset($_POST["finish"])) {
+            $this->finishOrder();
+        }
     }
 
 
@@ -84,8 +87,6 @@ class Input
             $this->errors[] = "Ocurrio un error de validacion.";
         }
     }
-
-
 
 
 
@@ -152,5 +153,54 @@ class Input
 
 
 
+    private function finishOrder()
+    {
+
+        if (empty($_GET['asset_id']))
+        {
+            $this->errors[] = "Punto de captura no reconocido";
+        }
+
+        elseif(empty($_POST['plan_id'])){
+            $this->errors[] = "No hay un plan";
+        }
+        elseif (!empty($_GET['asset_id']) &&  !empty($_POST['plan_id']))
+        {
+            // create a database connection
+            $this->db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+            if (!$this->db_connection->set_charset("utf8")) {
+                $this->errors[] = $this->db_connection->error;
+            }
+
+            if (!$this->db_connection->connect_errno) {
+
+                $plan_id    = $this->db_connection->real_escape_string(strip_tags($_POST['plan_id'], ENT_QUOTES));
+                $time_block = date("H");
+                $now        = date("Y-m-d H:i:s");
+
+
+                $sql = "UPDATE plan_hrxhr SET status = 2 WHERE plant_id = $plan_id";
+                $query_new_input = $this->db_connection->query($sql);
+
+                // if user has been added successfully
+                if ($query_new_input)
+                {
+                    $this->messages[] = "Se ha terminado la captura de este numero de parte.";
+                }
+                else
+                {
+                    $this->errors[] = "Lo sentimos , el registro fallo $sql.";
+                }
+            }
+            else
+            {
+                $this->errors[] = "Lo sentimos, no hay conexion con la base de datos.";
+            }
+        }
+        else
+        {
+            $this->errors[] = "Ocurrio un error de validacion.";
+        }
+    }
 
 }
