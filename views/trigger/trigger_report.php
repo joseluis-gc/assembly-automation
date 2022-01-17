@@ -16,23 +16,21 @@
                     <div class="form-floating mt-4">
                         <select class="form-control" id="plant_id" aria-label="Floating label select example">
                             <option id="plant" selected>Seleccione planta</option>
-                            <?php getPlants();?>
+                            <?php getPlants(); ?>
                         </select>
                         <label for="plant">Planta</label>
                     </div>
                     <div class="form-floating mt-4">
                         <select class="form-select" id="site_id" aria-label="Floating label select example">
                             <option id="site" selected>Seleccione Departamento</option>
-                            <?php getSite(); ?>
                         </select>
                         <label for="site">Departamento</label>
                     </div>
                     <div class="form-floating mt-4">
                         <select class="form-select" id="machine_id" aria-label="Floating label select example">
-                            <option id="machine" selected>Seleccione Maquina</option>
-                            <?php getAssets(); ?>
+                            <option id="machine" selected>Seleccione Máquina</option>
                         </select>
-                        <label for="machine">Maquina</label>
+                        <label for="machine">Máquina</label>
                     </div>
                     <div class="form-floating mt-4">
                         <select class="form-select" id="capture_id" aria-label="Floating label select example">
@@ -43,11 +41,11 @@
                     </div>
                     <div class="row mt-4">
                         <div class="col-md-6">
-                            <label class="form-label" for="formControlInput_1">Numero de parte</label>
+                            <label class="form-label" for="formControlInput_1">Número de parte</label>
                             <input class="form-control" id="formControlInput_1" type="text">
                         </div>
                         <div class="col-md-6">
-                            <label class="form-label" for="formControlInput_2">Numero de orden</label>
+                            <label class="form-label" for="formControlInput_2">Número de orden</label>
                             <input class="form-control" id="formControlInput_2" type="text">
                         </div>
                     </div>
@@ -67,39 +65,39 @@
     </div>
 </div>
 <script>
+    var siteID;
+    var plantaID;
     window.onload = function() {
-        document.querySelector('#plant_id').addEventListener('click', function() {
-            var plantaID = $(this).val();
+        document.querySelector('#plant_id').addEventListener('change', function() {
+            plantaID = $(this).val();
             if (plantaID) {
-                console.log('http://localhost/assembly-automation/views/trigger/trigger_form.php?plant_id='+plantaID)
                 $.ajax({
                     type: 'POST',
-                    url: 'http://localhost/assembly-automation/views/trigger/trigger_form.php?plant_id='+plantaID,
+                    url: 'http://localhost/assembly-automation/views/trigger/trigger_form.php?plant_id=' + plantaID,
                     data: 'plant_id=' + plantaID,
                     success: function(html) {
                         $('#site_id').html(html);
-                        $('#machine_id').html('<option value="">Selecciona un departamento primero [1]</option>');
                     }
                 });
             } else {
-                $('#site_id').html('<option value="">Selecciona una planta primero [2]</option>');
-                $('#machine_id').html('<option value="">Seleccione un departamento [3]</option>');
+                $('#site_id').html('<option value="">Seleccione planta primero</option>');
+                $('#machine_id').html('<option value="">Seleccione departamento</option>');
             }
         });
-        document.querySelector('#site_id').addEventListener('click', function() {
-            var siteID = $(this).val();
-            console.log({siteID});
+        document.querySelector('#site_id').addEventListener('change', function() {
+            siteID = $(this).val();
             if (siteID) {
                 $.ajax({
                     type: 'POST',
-                    url: 'http://localhost/assembly-automation/views/trigger/trigger_form.php?site_id='+siteID,
+                    url: 'http://localhost/assembly-automation/views/trigger/trigger_form.php?site_id=' + siteID,
                     data: 'site_id=' + siteID,
                     success: function(html) {
-                        $('#machine').html(html);
+                        console.log(html)
+                        $('#machine_id').html(html);
                     }
                 });
             } else {
-                $('#machine_id').html('<option value="">Selecciona un departamento primero[4]</option>');
+                $('#machine_id').html('<option value="">Seleccione departamento primero</option>');
             }
         });
     };

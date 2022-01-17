@@ -30,7 +30,7 @@ function getAssets()
 {
     global $connection;
 
-    $query = "SELECT * FROM assets WHERE asset_id = 10";
+    $query = "SELECT * FROM assets";
     $result = mysqli_query($connection, $query);
     if (!$result) {
         die("Query error");
@@ -70,7 +70,7 @@ function getSite()
 {
     global $connection;
 
-    $query = "SELECT * FROM site WHERE plant_id = 8";
+    $query = "SELECT * FROM site"; 
     $result = mysqli_query($connection, $query);
     if (!$result) {
         die("Query error");
