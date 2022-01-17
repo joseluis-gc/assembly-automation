@@ -144,7 +144,7 @@ if (isset($response)) {
                     </td>
                     <td class="table-info" id="cum_plan_11" name="cum_plan">0</td>
                     <td class="table-light">
-                        <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(11)" onchange="add_Select(this, 11);" class="form-control" required>
+                        <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(11)" onchange="add_Select(this, 11);" class="form-control">
                             <option value="">Select</option>
                             <?php
                             $query = "SELECT * FROM planned_interruptions";
@@ -176,7 +176,7 @@ if (isset($response)) {
                     </td>
                     <td class="table-info" id="cum_plan_12" name="cum_plan">0</td>
                     <td class="table-light">
-                        <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(12)" onchange="add_Select(this, 12);" class="form-control" required>
+                        <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(12)" onchange="add_Select(this, 12);" class="form-control">
                             <option value="">Select</option>
                             <?php
                             $query = "SELECT * FROM planned_interruptions";
@@ -208,7 +208,7 @@ if (isset($response)) {
                     </td>
                     <td class="table-info" id="cum_plan_13" name="cum_plan">0</td>
                     <td class="table-light">
-                        <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(13)" onchange="add_Select(this, 13);" class="form-control" required>
+                        <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(13)" onchange="add_Select(this, 13);" class="form-control">
                             <option value="">Select</option>
                             <?php
                             $query = "SELECT * FROM planned_interruptions";
@@ -240,7 +240,7 @@ if (isset($response)) {
                     </td>
                     <td class="table-info" id="cum_plan_14" name="cum_plan">0</td>
                     <td class="table-light">
-                        <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(14)" onchange="add_Select(this, 14);" class="form-control" required>
+                        <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(14)" onchange="add_Select(this, 14);" class="form-control">
                             <option value="">Select</option>
                             <?php
                             $query = "SELECT * FROM planned_interruptions";
@@ -272,7 +272,7 @@ if (isset($response)) {
                     </td>
                     <td class="table-info" id="cum_plan_15" name="cum_plan">0</td>
                     <td class="table-light">
-                        <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(15)" onchange="add_Select(this, 15);" class="form-control" required>
+                        <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(15)" onchange="add_Select(this, 15);" class="form-control">
                             <option value="">Select</option>
                             <?php
                             $query = "SELECT * FROM planned_interruptions";
@@ -304,7 +304,7 @@ if (isset($response)) {
                     </td>
                     <td class="table-info" id="cum_plan_16" name="cum_plan">0</td>
                     <td class="table-light">
-                        <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(16)" onchange="add_Select(this, 16);" class="form-control" required>
+                        <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(16)" onchange="add_Select(this, 16);" class="form-control">
                             <option value="">Select</option>
                             <?php
                             $query = "SELECT * FROM planned_interruptions";

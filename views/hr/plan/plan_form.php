@@ -113,7 +113,7 @@ if (isset($response)) {
                     </td>
                     <td class="table-info" id="cum_plan_1" name="cum_plan">0</td>
                     <td class="table-light">
-                        <select style="min-width: 15rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(1)" onchange="add_Select(this, 1);" class="form-control">
+                        <select style="min-width: 15rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(1)" onchange="add_Select(this, 1);" class="form-control" required>
                             <option value="">Select</option>
                             <?php
                             $query = "SELECT * FROM planned_interruptions";
