@@ -39,6 +39,18 @@ if (!empty($page)) {
 
         break;
 
+        case"plan_form_update":
+            if($form == 1){
+                include("views/hr/plan/plan_form_update.php");
+            }
+            if($form == 2){
+                include("views/hr/plan/plan_form_update_2.php");
+            }
+            if($form == 3){
+                include("views/hr/plan/plan_form_update_3.php");
+            }
+        break;
+
        /*
         case "plan_form_2":
             include("views/hr/plan/plan_form_2.php");

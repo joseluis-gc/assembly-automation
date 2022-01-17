@@ -24,8 +24,9 @@ if(isset($_GET['plan_site']) && is_numeric($_GET['plan_site'])) {
             die("Query Error");
 
         else:
+            $today = Today();
             while($row = mysqli_fetch_array($result)):
-            $get_plan = "SELECT * FROM plan_hrxhr WHERE plan_asset = {$row['asset_id']} AND shift = $shift ";
+            $get_plan = "SELECT * FROM plan_hrxhr WHERE plan_asset = {$row['asset_id']} AND shift = $shift AND date =  '$today' ";
             $run_get_plan = mysqli_query($connection, $get_plan);
             if(mysqli_num_rows($run_get_plan)>0){
                 $warning_test = "Ya existe un plan para este dia.";

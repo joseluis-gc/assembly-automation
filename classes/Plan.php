@@ -237,7 +237,7 @@ class Plan
 
                 $get_shift = getShift();
 
-                $sql = "SELECT * FROM plan_hrxhr WHERE date = '$date' AND shift = $get_shift;";
+                $sql = "SELECT * FROM plan_hrxhr WHERE date = '$date' AND shift = $get_shift AND plan_asset = $asset_id;";
                 $query_check_date = $this->db_connection->query($sql);
 
                 if ($query_check_date->num_rows == 1)
