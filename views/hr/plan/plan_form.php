@@ -485,7 +485,7 @@ if (isset($response)) {
         //OPERACIONES
         result = ((hc.value - less_time.value) / (stnd_time.value));
 
-        if (result === "" || result === null || result === "undefined" || isNaN(result) || result < 0 || result === Infinity) {
+        if (result === "" || result === null || result === "undefined" || isNaN(result) || result === Infinity) {
             return getQtyByHr.value = 0;
         };
         getQtyByHr.value = result || 0;
