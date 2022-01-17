@@ -110,3 +110,23 @@ function addInput($name, $id, $label)
     DELEMETER;
     echo $input;
 };
+
+function getAlertChild()
+{
+    global $connection;
+
+    $query = "SELECT * FROM alert_child  WHERE alert_id = " . escape_string($_GET['alert_id']) . "";
+    $result = mysqli_query($connection, $query);
+    if (!$result) {
+        die("Query error");
+    }
+    if (mysqli_num_rows($result) == 0) {
+        die("Nothing worked");
+    }
+    while ($row = mysqli_fetch_assoc($result)) {
+        $alert_child = <<<DELIMETER
+        <option value='{$row['child_id']}'>{$row['child_name']}</option>
+        DELIMETER;
+        echo $alert_child;
+    };
+}

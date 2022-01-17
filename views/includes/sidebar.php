@@ -21,58 +21,24 @@
                      Divider-->
                     <!-- Drawer section heading (Interface)-->
                     <div class="drawer-menu-heading">Andon App</div>
-                    <!-- Drawer link (Overview)
                     <a class="nav-link" href="index.php?page=andon">
-                        <div class="nav-link-icon"><i class="material-icons">language</i></div>
-                        Andon
-                    </a>
-                    -->
-                    <!-- Drawer link (Dashboards)-->
-                    <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseDashboards" aria-expanded="false" aria-controls="collapseDashboards">
                         <div class="nav-link-icon"><i class="material-icons">dashboard</i></div>
-                        Alertas
-                        <div class="drawer-collapse-arrow"><i class="material-icons">expand_more</i></div>
+                        Dashboard
                     </a>
-                    <!-- Nested drawer nav (Dashboards)-->
-                    <div class="collapse" id="collapseDashboards" aria-labelledby="headingOne" data-bs-parent="#drawerAccordion">
-                        <nav class="drawer-menu-nested nav">
-                            <a class="nav-link" href="app-dashboard-default.html">Lista de alertas</a>
-                            <a class="nav-link" href="app-dashboard-minimal.html">Crear Alertas</a>
-                        </nav>
-                    </div>
-
-
-
-                    <!-- Drawer link (Layouts)-->
-                    <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                        <div class="nav-link-icon"><i class="material-icons">view_compact</i></div>
-                        Perfiles
-                        <div class="drawer-collapse-arrow"><i class="material-icons">expand_more</i></div>
+                    <a class="nav-link" href="index.php?page=areas">
+                        <div class="nav-link-icon"><i class="material-icons">space_dashboard</i></div>
+                        Areas
                     </a>
-                    <!-- Nested drawer nav (Layouts)-->
-                    <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#drawerAccordion">
-                        <nav class="drawer-menu-nested nav">
-                            <a class="nav-link" href="layout-dark.html">Lista de perfiles</a>
-                            <a class="nav-link" href="layout-light.html">Crear Perfiles</a>
-                            <a class="nav-link" href="layout-static.html">Asignar Perfiles</a>
-                        </nav>
-                    </div>
-
-
-                    <!-- Drawer link (Layouts)-->
-                    <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseReports" aria-expanded="false" aria-controls="collapseLayouts">
-                        <div class="nav-link-icon"><i class="material-icons">view_compact</i></div>
-                        Reportes
-                        <div class="drawer-collapse-arrow"><i class="material-icons">expand_more</i></div>
+                    <a class="nav-link" href="index.php?page=machines">
+                        <div class="nav-link-icon"><i class="material-icons">precision_manufacturing</i></div>
+                        Máquinas
                     </a>
-                    <!-- Nested drawer nav (Layouts)-->
-                    <div class="collapse" id="collapseReports" aria-labelledby="headingOne" data-bs-parent="#drawerAccordion">
-                        <nav class="drawer-menu-nested nav">
-                            <a class="nav-link" href="layout-dark.html">Reporte Diario</a>
-                            <a class="nav-link" href="layout-light.html">Reporte Personalizado</a>
-                        </nav>
-                    </div>
-
+                    <a class="nav-link" href="index.php?page=plants">
+                        <div class="nav-link-icon"><i class="material-icons">factory</i></div>
+                        Plantas
+                    </a>
+                
+                
 
 
 
@@ -89,7 +55,7 @@
                     <!-- Drawer link (Components)-->
                     <!-- Drawer link (Pages)-->
                     <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseHr" aria-expanded="false" aria-controls="collapsePages">
-                        <div class="nav-link-icon"><i class="material-icons">layers</i></div>
+                        <div class="nav-link-icon"><i class="material-icons">factory</i></div>
                         Administrar por Planta
                         <div class="drawer-collapse-arrow"><i class="material-icons">expand_more</i></div>
                     </a>
@@ -137,7 +103,7 @@
 
 
                     <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseOptions" aria-expanded="false" aria-controls="collapseLayouts">
-                        <div class="nav-link-icon"><i class="material-icons">view_compact</i></div>
+                        <div class="nav-link-icon"><i class="material-icons">table_chart</i></div>
                         Plan de producción
                         <div class="drawer-collapse-arrow"><i class="material-icons">expand_more</i></div>
                     </a>
@@ -181,7 +147,7 @@
 
                     <!-- Drawer link (Layouts)-->
                     <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseReports2" aria-expanded="false" aria-controls="collapseLayouts">
-                        <div class="nav-link-icon"><i class="material-icons">view_compact</i></div>
+                        <div class="nav-link-icon"><i class="material-icons">leaderboard</i></div>
                         Reportes
                         <div class="drawer-collapse-arrow"><i class="material-icons">expand_more</i></div>
                     </a>

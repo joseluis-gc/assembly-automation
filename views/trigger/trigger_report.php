@@ -34,6 +34,13 @@
                     </div>
                     <div class="form-floating mt-4">
                         <select class="form-select" id="capture_id" aria-label="Floating label select example">
+                            <option id="capture" selected>Problema</option>
+                            <?php getAlertChild(); ?>
+                        </select>
+                        <label for="capture">Problema</label>
+                    </div>
+                    <div class="form-floating mt-4">
+                        <select class="form-select" id="capture_id" aria-label="Floating label select example">
                             <option id="capture" selected>Capturado por</option>
                             <?php getCapture(); ?>
                         </select>
@@ -92,7 +99,6 @@
                     url: 'http://localhost/assembly-automation/views/trigger/trigger_form.php?site_id=' + siteID,
                     data: 'site_id=' + siteID,
                     success: function(html) {
-                        console.log(html)
                         $('#machine_id').html(html);
                     }
                 });

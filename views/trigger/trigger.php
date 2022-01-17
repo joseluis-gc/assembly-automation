@@ -9,10 +9,10 @@
                         </div>
                         <div class="col-auto text-end d-lg-block">
                             <div class="d-flex">
-                                <button class="btn btn-primary mx-2" type="button">
+                                <a href="index.php?page=andon" class="btn btn-primary mx-2" type="button">
                                     <i class="material-icons mx-2">build</i>
                                     Atención de errores
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>

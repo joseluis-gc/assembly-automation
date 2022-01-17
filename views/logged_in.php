@@ -5,7 +5,6 @@ include_once ("includes/sidebar.php");
 
 
 if (!empty($page)) {
-
     if(isset($_GET['asset_id'])){
         $form = getPlanForm($_GET['asset_id']);
     }else{
@@ -13,7 +12,6 @@ if (!empty($page)) {
     }
 
     switch ($page){
-
         case "plan_main":
             include ("views/hr/plan/plan_main.php");
         break;
@@ -36,19 +34,7 @@ if (!empty($page)) {
             if($form == 3){
                 include("views/hr/plan/plan_form_3.php");
             }
-
         break;
-
-       /*
-        case "plan_form_2":
-            include("views/hr/plan/plan_form_2.php");
-        break;
-
-        case "plan_form_3":
-            include("views/hr/plan/plan_form_3.php");
-        break;
-
-        */
 
         case "captura_manual":
             include ("views/hr/plan/captura_manual.php");
@@ -70,7 +56,12 @@ if (!empty($page)) {
             include ("views/andon/machines.php");
         break;
         default:
-            include ("views/home/home.php");
+        if($_SESSION['']){
+            include("pages/home/home.php");
+        }
+        else{
+            include("andon/dashboard.php");
+        }        
         break;
     }
 }else{
