@@ -55,24 +55,40 @@ function getPlanForm($parameter){
     if (!is_numeric($parameter)) {
         die("Invalid parameter");
     }
-    //echo $shift;
-    /*$shift = 2;
-
-    $shift = intval($shift);
-
-    if($shift == 1){
-        header("Location: index.php?page=plan_form&asset_id=$parameter");
-    }
-    elseif ($shift == 2){
-        header("Location: index.php?page=plan_form_2&asset_id=$parameter");
-    }
-    else{
-        header("Location: index.php?page=plan3_form&asset_id=$parameter");
-    }
-    */
     return $shift;
-
 }
+
+function swalMessage($title,$message,$icon){
+    echo
+    "
+    <script>
+        Swal.fire(
+          '$title',
+          '$message',
+          '$icon'
+        )
+    </script>
+    ";
+}
+
+function swalMessageRedirect($title,$message,$icon,$url,$param1,$param2){
+    echo
+    "
+    <script type='text/javascript'>
+            document.addEventListener('DOMContentLoaded', function(event) {            
+                swal.fire({
+                    title: '$title',
+                    icon: '$icon',
+                    text: '$message'
+                }).then(function() {
+                    window.location = 'index.php?page=$url&$param1&$param2';
+                });
+            });
+    </script>
+    ";
+}
+
+
 
 function Now(){
    return date("Y-m-d H:i:s");

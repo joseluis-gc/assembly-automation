@@ -22,12 +22,20 @@ $response = new Plan();
 if (isset($response)) {
     if ($response->errors) {
         foreach ($response->errors as $error) {
-            echo $error;
+
+            $asset_id  = implode(',',$response->assets);
+            $action    = implode(',',$response->action);
+            if($action=='update'){
+                swalMessageRedirect('Error',"$error", 'error', 'update_form', "$asset_id", '');
+            }else{
+                swalMessage('Error', "$error",'error');
+            }
         }
     }
     if ($response->messages) {
         foreach ($response->messages as $message) {
             echo $message;
+            swalMessageRedirect('Plan Agregado!','El plan fue agregado con exito','success','success','','');
         }
     }
 }

@@ -21,6 +21,12 @@ class Plan
     public $assets = array();
 
     /**
+     * @var array site site
+     */
+    public $sites = array();
+
+
+    /**
      * @var array $action action to go back to update or insert
      */
     public $action = array();
@@ -239,6 +245,7 @@ class Plan
                     $this->errors[] = "Ya existe un plan con esta fecha debe editarlo.";
                     $this->assets[] = $asset_id;
                     $this->action[] = "update";
+                    $this->sites[]  = $site_id;
                 }
                 else
                 {
