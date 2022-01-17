@@ -19,5 +19,7 @@
     <!-- Load main stylesheet-->
     <link href="views/_assets/css/styles.css" rel="stylesheet" />
     <link rel="stylesheet" href="views/_assets/css/input.css">
+    <!--sweet alert-->
+    <script src="views/_assets/js/swal/swal.js"></script>
 </head>
 <body class="nav-fixed bg-light">

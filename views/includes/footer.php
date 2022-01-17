@@ -37,5 +37,6 @@
 <script src="views/_assets/js/charts/chart-defaults.js"></script>
 <!-- Load demo bar charts-->
 <script src="views/_assets/js/charts/andon-charts.js"></script>
+
 </body>
 </html>

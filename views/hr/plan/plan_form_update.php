@@ -6,10 +6,13 @@
 </style>
 <?php
 if (isset($_GET['asset_id']) && is_numeric($_GET['asset_id'])){
-    $query = "SELECT * FROM assets 
+    /*$query = "SELECT * FROM assets
     LEFT JOIN site ON asset_site = site_id 
     LEFT JOIN plant ON plant.plant_id = site.plant_id 
-    WHERE asset_id = {$_GET['asset_id']}";
+    WHERE asset_id = {$_GET['asset_id']}";*/
+
+    $query = "SELECT * FROM plan_hrxhr WHERE plan_asset = {$_GET['asset_id']} AND ";
+
     $result = mysqli_query($connection, $query);
     $row = mysqli_fetch_array($result);
 } else
@@ -26,7 +29,7 @@ if (isset($response)) {
             $asset_id  = implode(',',$response->assets);
             $action    = implode(',',$response->action);
             if($action=='update'){
-                swalMessageRedirect('Error',"$error", 'error', 'plan_form_update', "asset_id=$asset_id", '');
+                swalMessageRedirect('Error',"$error", 'error', 'update_form', "asset_id=$asset_id", '');
             }else{
                 swalMessage('Error', "$error",'error');
             }
@@ -445,11 +448,11 @@ if (isset($response)) {
         let find_item = document.querySelector("#pn");
         let stndr_time = document.querySelector("#stnd_time");
 
-        //let url = "http://localhost/development/automation/functions/ItemNumberSelect/item_number_select.php"
-        let url_magui = "http://localhost/assembly-automation/functions/ItemNumberSelect/item_number_select.php";
+        let url = "http://localhost/development/automation/functions/ItemNumberSelect/item_number_select.php"
+        //let url_magui = "http://localhost/assembly-automation/functions/ItemNumberSelect/item_number_select.php";
 
 
-        fetch(url_magui, {
+        fetch(url, {
                 method: 'GET',
             })
             .then(res => res.text())
@@ -484,6 +487,14 @@ if (isset($response)) {
 
         //OPERACIONES
         result = ((hc.value - less_time.value) / (stnd_time.value));
+
+        if (less_time.value === "" || less_time.value === null || less_time.value === "undefined" || isNaN(less_time.value) || less_time.value < 0) {
+            return getQtyByHr.value = 0
+        };
+
+        if (stnd_time.value === "" || stnd_time.value === null || stnd_time.value === "undefined" || isNaN(stnd_time.value) || stnd_time.value < 0) {
+            return getQtyByHr.value = 0
+        };
 
         if (result === "" || result === null || result === "undefined" || isNaN(result) || result < 0 || result === Infinity) {
             return getQtyByHr.value = 0;

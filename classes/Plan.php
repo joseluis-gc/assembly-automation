@@ -21,6 +21,12 @@ class Plan
     public $assets = array();
 
     /**
+     * @var array site site
+     */
+    public $sites = array();
+
+
+    /**
      * @var array $action action to go back to update or insert
      */
     public $action = array();
@@ -231,7 +237,7 @@ class Plan
 
                 $get_shift = getShift();
 
-                $sql = "SELECT * FROM plan_hrxhr WHERE date = '$date' AND shift = $get_shift;";
+                $sql = "SELECT * FROM plan_hrxhr WHERE date = '$date' AND shift = $get_shift AND plan_asset = $asset_id;";
                 $query_check_date = $this->db_connection->query($sql);
 
                 if ($query_check_date->num_rows == 1)
@@ -239,6 +245,7 @@ class Plan
                     $this->errors[] = "Ya existe un plan con esta fecha debe editarlo.";
                     $this->assets[] = $asset_id;
                     $this->action[] = "update";
+                    $this->sites[]  = $site_id;
                 }
                 else
                 {
