@@ -124,8 +124,8 @@ if (isset($response)) {
                             <?php endwhile; ?>
                         </select>
                     </td>
-                    <td class="table-info" id="less_time"><input type="text" name="less_time_6" id="less_time_1" disabled="true" value="0"></td>
-                    <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_6" id="stnd_time_1" disabled="true" value=""></td>
+                    <td class="table-info" id="less_time"><input type="text" name="less_time_6" id="less_time_1" disabled="true"></td>
+                    <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_6" id="stnd_time_1" disabled="true"></td>
                     <td class="table-info" style="min-width: 8rem;" id="qty_by_hr"><input type="text" name="qty_by_hr_6" id="qty_by_hr_1" disabled="true"></td>
                 </tr>
                 <tr>
@@ -156,8 +156,8 @@ if (isset($response)) {
                             <?php endwhile; ?>
                         </select>
                     </td>
-                    <td class="table-info" id="less_time"><input type="text" name="less_time_7" id="less_time_2" disabled="true" value="0"></td>
-                    <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_7" id="stnd_time_2" disabled="true" value=""></td>
+                    <td class="table-info" id="less_time"><input type="text" name="less_time_7" id="less_time_2" disabled="true"></td>
+                    <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_7" id="stnd_time_2" disabled="true"></td>
                     <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr_7" id="qty_by_hr_2" disabled="true"></td>
                 </tr>
                 <tr>
@@ -188,8 +188,8 @@ if (isset($response)) {
                             <?php endwhile; ?>
                         </select>
                     </td>
-                    <td class="table-info" id="less_time"><input type="text" name="less_time_8" id="less_time_3" disabled="true" value="0"></td>
-                    <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_8" id="stnd_time_3" disabled="true" value=""></td>
+                    <td class="table-info" id="less_time"><input type="text" name="less_time_8" id="less_time_3" disabled="true"></td>
+                    <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_8" id="stnd_time_3" disabled="true"></td>
                     <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr_8" id="qty_by_hr_3" disabled="true"></td>
                 </tr>
                 <tr>
@@ -220,8 +220,8 @@ if (isset($response)) {
                             <?php endwhile; ?>
                         </select>
                     </td>
-                    <td class="table-info" id="less_time"><input type="text" name="less_time_9" id="less_time_4" disabled="true" value="0"></td>
-                    <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_9" id="stnd_time_4" disabled="true" value=""></td>
+                    <td class="table-info" id="less_time"><input type="text" name="less_time_9" id="less_time_4" disabled="true"></td>
+                    <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_9" id="stnd_time_4" disabled="true"></td>
                     <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr_9" id="qty_by_hr_4" disabled="true"></td>
                 </tr>
                 <tr>
@@ -252,8 +252,8 @@ if (isset($response)) {
                             <?php endwhile; ?>
                         </select>
                     </td>
-                    <td class="table-info" id="less_time"><input type="text" name="less_time_10" id="less_time_5" disabled="true" value="0"></td>
-                    <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_10" id="stnd_time_5" disabled="true" value=""></td>
+                    <td class="table-info" id="less_time"><input type="text" name="less_time_10" id="less_time_5" disabled="true"></td>
+                    <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_10" id="stnd_time_5" disabled="true"></td>
                     <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr_10" id="qty_by_hr_5" disabled="true"></td>
                 </tr>
                 <tr>
@@ -284,8 +284,8 @@ if (isset($response)) {
                             <?php endwhile; ?>
                         </select>
                     </td>
-                    <td class="table-info" id="less_time"><input type="text" name="less_time_11" id="less_time_6" disabled="true" value="0"></td>
-                    <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_11" id="stnd_time_6" disabled="true" value=""></td>
+                    <td class="table-info" id="less_time"><input type="text" name="less_time_11" id="less_time_6" disabled="true"></td>
+                    <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_11" id="stnd_time_6" disabled="true"></td>
                     <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr_11" id="qty_by_hr_6" disabled="true"></td>
                 </tr>
                 <tr>
@@ -316,8 +316,8 @@ if (isset($response)) {
                             <?php endwhile; ?>
                         </select>
                     </td>
-                    <td class="table-info" id="less_time"><input type="text" name="less_time_12" id="less_time_7" disabled="true" value="0"></td>
-                    <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_12" id="stnd_time_7" disabled="true" value=""></td>
+                    <td class="table-info" id="less_time"><input type="text" name="less_time_12" id="less_time_7" disabled="true"></td>
+                    <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_12" id="stnd_time_7" disabled="true"></td>
                     <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr_12" id="qty_by_hr_7" disabled="true"></td>
                 </tr>
                 <tr>
@@ -348,8 +348,8 @@ if (isset($response)) {
                             <?php endwhile; ?>
                         </select>
                     </td>
-                    <td class="table-info" id="less_time"><input type="text" name="less_time_13" id="less_time_8" disabled="true" value="0"></td>
-                    <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_13" id="stnd_time_8" disabled="true" value=""></td>
+                    <td class="table-info" id="less_time"><input type="text" name="less_time_13" id="less_time_8" disabled="true"></td>
+                    <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_13" id="stnd_time_8" disabled="true"></td>
                     <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr_13" id="qty_by_hr_8" disabled="true"></td>
                 </tr>
                 <tr>
