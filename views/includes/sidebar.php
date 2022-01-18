@@ -83,8 +83,8 @@
                             <div class="collapse" id="pagesCollapseAccount<?php echo $cont ?>" aria-labelledby="headingOne" data-bs-parent="#drawerAccordionPages">
                                 <nav class="drawer-menu-nested nav">
                                     <a class="nav-link" href="index.php?page=plan_main&plant_id=<?php echo $row['plant_id']; ?>">Cargar Plan</a>
-                                    <a class="nav-link" href="app-account-notifications.html">Captura Manual</a>
-                                    <a class="nav-link" href="app-account-profile.html">Puntos de medicion</a>
+                                    <a class="nav-link" href="index.php?page=captura_manual&plant_id=<?php echo $row['plant_id']; ?>">Captura Manual</a>
+                                    <a class="nav-link" href="#">Puntos de medicion</a>
                                 </nav>
                             </div>
                             <?php
