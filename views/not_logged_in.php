@@ -20,6 +20,10 @@ if (!empty($page)) {
         case "trigger":
             include ("views/trigger/trigger.php");
             break;
+
+        case "response_form":
+            include ("views/trigger/response_form.php");
+            break;
             
         case "report":
             include ("views/trigger/trigger_report.php");

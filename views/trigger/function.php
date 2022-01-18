@@ -60,7 +60,7 @@ function getCapture()
     }
     while ($row = mysqli_fetch_assoc($result)) {
         $capture = <<<DELIMETER
-        <option value='{$row['asset_id']}'>{$row['user_firstname']} {$row['user_lastname']}</option>
+        <option value='{$row['user_id']}'>{$row['user_firstname']} {$row['user_lastname']}</option>
         DELIMETER;
         echo $capture;
     };
