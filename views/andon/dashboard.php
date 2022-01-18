@@ -1,3 +1,7 @@
+<?php
+$dashdoard = 'dashboard';
+$_SESSION['newsession'] = $dashdoard; 
+?>
 <div class="container">
     <div class="row gx-5 mt-5">
         <div class="col-lg-4 col-md-6 mb-5">

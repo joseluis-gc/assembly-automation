@@ -3,6 +3,8 @@ include_once("includes/header.php");
 include_once("includes/topbar.php");
 include_once("includes/sidebar.php");
 
+$value = 'trigger';
+$dashboard = 'dashboard';
 
 if (!empty($page)) {
     if (isset($_GET['asset_id'])) {
@@ -34,7 +36,6 @@ if (!empty($page)) {
             if ($form == 3) {
                 include("views/hr/plan/plan_form_3.php");
             }
-
             break;
 
         case "plan_form_update":
@@ -76,13 +77,19 @@ if (!empty($page)) {
         case "machines":
             include("views/andon/machines.php");
             break;
+
         default:
-            include("pages/home/home.php");
+            include("views/home/home.php");
             break;
     }
+} elseif (isset($_SESSION['newsession'])) {
+    $_SESSION['newsession'] = $value;
+    include("views/andon/dashboard.php");
+} elseif (!isset($_SESSION['newsession'])) {
+    $_SESSION['newsession'] = $dashboard;
+    include("views/home/home.php");
 } else {
     include("views/home/home.php");
 }
-
 
 include_once("includes/footer.php");
