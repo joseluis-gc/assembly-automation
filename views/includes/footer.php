@@ -48,6 +48,11 @@
         //var hr_output = $(this).closest("td.hourcell").find("div.hr_output").html();
 
         var div_id = $(this).closest('td').find('.hr_output').attr('id');
+        var div_id2 = $(this).closest('td').find('.hr_output2').attr('id');
+
+        var div_id3 = $(this).closest('td').find('.pn_now').attr('id');
+
+
 
 
         //update db
@@ -80,22 +85,13 @@
                     "hr" : hora
                 }),
             }).done(function(responseData) {
-
                 console.log(responseData);
-
                 alert(responseData);
                 $('#'+div_id).html(responseData);
-
-
 
             }).fail(function() {
                 console.log('Failed');
             });
-
-
-
-
-
             /**read ajax method end */
 
 
