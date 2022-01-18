@@ -53,7 +53,7 @@
         //update db
         $.ajax({
             type: 'POST',
-            url: 'functions/ajax/horaxhora/update.php',
+            url: 'functions/horaxhora/update.php',
             data: ({
                 "maquina" : maquina,
                 "hr" : hora,
@@ -73,7 +73,7 @@
             //read db
             $.ajax({
                 type: 'POST',
-                url: 'functions/ajax/horaxhora/read.php',
+                url: 'functions/horaxhora/read.php',
                 data: ({
                     "maquina" : maquina,
                     //              "hr_output" : hr_output,

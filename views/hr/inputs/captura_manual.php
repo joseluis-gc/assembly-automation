@@ -63,16 +63,21 @@
                     </div>
                 </td>
                 <td class="hourcell">
-                    <input id="inputValue_1" class="form-control hr_input" type="number" value="0" style="min-width: 8rem;" />
+                    <input id="inputValue_1" class="form-control hr_input" type="number" name="value" style="min-width: 8rem;" />
                     <button onclick="getSnackbar(this, 1);"  data-maquina="<?php echo $row['asset_id']; ?>" data-hr="6" type="button" id="6s"   class="tablahrxhr btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
-                    <span id="<?php echo "col_h6".$cont; ?>" class="hr_output"><?php echo $row['6'] ?></span>
-                    <span class="text-primary">/</span>
+
                     <?php
                     $get_current_num = "SELECT SUM(reg_qty) AS quantity FROM hour_registry WHERE reg_order_id = {$row['plan_id']} AND reg_time_block = 6";
                     $run_current_num = mysqli_query($connection, $get_current_num);
                     $row_current = mysqli_fetch_array($run_current_num);
-                    echo $row_current['quantity'];
+                    //echo $row_current['quantity'];
                     ?>
+                    <span id="<?php echo "col_h6".$cont; ?>" class="hr_output"><?php echo $row_current['quantity']; ?></span>
+
+                    <span class="text-primary">/</span>
+
+                    <?php echo $row['6'] ?>
+
                 </td>
                 <td>
                     <input id="inputValue_2" class="form-control" type="number" value="0" style="min-width: 8rem;" />
