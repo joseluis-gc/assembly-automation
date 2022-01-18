@@ -325,18 +325,18 @@ if (isset($response)) {
                         <input type="number" class="hc" name="hc_22" id="hc_17" onkeyup="calculatedQtyByHr(17)" />
                     </td>
                     <td>
-                        <input style="min-width: 10rem; border: 0; background-color: transparent;" id="input_item_number_8" onkeyup="calculatedQtyByHr(8)" onchange="getValueSelectedItemNumber(this, 8);" placeholder="Select" type="text" list="pn" name="partno_13" class="form-control" />
+                        <input style="min-width: 10rem; border: 0; background-color: transparent;" id="input_item_number_17" onkeyup="calculatedQtyByHr(17)" onchange="getValueSelectedItemNumber(this, 17);" placeholder="Select" type="text" list="pn" name="partno_22" class="form-control" />
                         <datalist id="pn"></datalist>
                     </td>
                     <td>
-                        <input type="text" name="wo_number_13" value="">
+                        <input type="text" name="wo_number_22" value="">
                     </td>
                     <td id="plan_by_hr">
-                        <input type="text" class="planByHr" onkeyup="calculo(this);" name="plan_by_hr_13" />
+                        <input type="text" class="planByHr" onkeyup="calculo(this);" name="plan_by_hr_22" />
                     </td>
-                    <td class="table-info" id="cum_plan_8" name="cum_plan">0</td>
+                    <td class="table-info" id="cum_plan_17" name="cum_plan">0</td>
                     <td class="table-light">
-                        <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(8)" onchange="add_Select(this, 8);" class="form-control">
+                        <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(17)" onchange="add_Select(this, 17);" class="form-control">
                             <option value="">Select</option>
                             <?php
                             $query = "SELECT * FROM planned_interruptions";
@@ -352,23 +352,23 @@ if (isset($response)) {
                     <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr_22" id="qty_by_hr_17" disabled="true"></td>
                 </tr>
                 <tr>
-                    <th class="table-info">14:00-15:30pm</th>
+                    <th class="table-info">23:00-00:00pm</th>
                     <td id="hc" class="table-info">
-                        <input type="number" class="hc" name="hc_14" id="hc_9" onkeyup="calculatedQtyByHr(9)" />
+                        <input type="number" class="hc" name="hc_23" id="hc_18" onkeyup="calculatedQtyByHr(18)" />
                     </td>
                     <td>
-                        <input style="min-width: 10rem; border: 0; background-color: transparent;" id="input_item_number_9" onkeyup="calculatedQtyByHr(9)" onchange="getValueSelectedItemNumber(this, 9);" placeholder="Select" type="text" list="pn" name="partno_14" class="form-control" />
+                        <input style="min-width: 10rem; border: 0; background-color: transparent;" id="input_item_number_18" onkeyup="calculatedQtyByHr(18)" onchange="getValueSelectedItemNumber(this, 18);" placeholder="Select" type="text" list="pn" name="partno_23" class="form-control" />
                         <datalist id="pn"></datalist>
                     </td>
                     <td>
-                        <input type="text" name="wo_number_14" value="">
+                        <input type="text" name="wo_number_23" value="">
                     </td>
                     <td id="plan_by_hr">
-                        <input type="text" class="planByHr" onkeyup="calculo(this);" name="plan_by_hr_14" />
+                        <input type="text" class="planByHr" onkeyup="calculo(this);" name="plan_by_hr_23" />
                     </td>
-                    <td class="table-info" id="cum_plan_9" name="cum_plan">0</td>
+                    <td class="table-info" id="cum_plan_18" name="cum_plan">0</td>
                     <td class="table-light">
-                        <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(9)" onchange="add_Select(this, 9);" class="form-control">
+                        <select style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(18)" onchange="add_Select(this, 18);" class="form-control">
                             <option value="">Select</option>
                             <?php
                             $query = "SELECT * FROM planned_interruptions";
@@ -379,9 +379,9 @@ if (isset($response)) {
                             <?php endwhile; ?>
                         </select>
                     </td>
-                    <td class="table-info" id="less_time"><input type="text" name="less_time_14" id="less_time_9" disabled="true"></td>
-                    <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_14" id="stnd_time_9" disabled="true"></td>
-                    <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr_14" id="qty_by_hr_9" disabled="true"></td>
+                    <td class="table-info" id="less_time"><input type="text" name="less_time_23" id="less_time_18" disabled="true"></td>
+                    <td class="table-info" id="stnd_time"><input type="text" name="stnd_time_23" id="stnd_time_18" disabled="true"></td>
+                    <td class="table-info" id="qty_by_hr"><input type="text" name="qty_by_hr_23" id="qty_by_hr_18" disabled="true"></td>
                 </tr>
             </tbody>
         </table>
@@ -472,22 +472,14 @@ if (isset($response)) {
         var less_time = document.getElementById("less_time_" + id);
         var getQtyByHr = document.getElementById("qty_by_hr_" + id);
 
-        //OPERACIONES
-        result = ((hc.value - less_time.value) / (stnd_time.value));
+    //OPERACIONES
+    result = ((hc.value - less_time.value) / (stnd_time.value));
 
-        if (less_time.value === "" || less_time.value === null || less_time.value === "undefined" || isNaN(less_time.value) || less_time.value < 0) {
-            return getQtyByHr.value = 0
-        };
-
-        if (stnd_time.value === "" || stnd_time.value === null || stnd_time.value === "undefined" || isNaN(stnd_time.value) || stnd_time.value < 0) {
-            return getQtyByHr.value = 0
-        };
-
-        if (result === "" || result === null || result === "undefined" || isNaN(result) || result < 0 || result === Infinity) {
+        if (result === "" || result === null || result === "undefined" || isNaN(result) || result === Infinity) {
             return getQtyByHr.value = 0;
         };
         getQtyByHr.value = result || 0;
-    };
+        };
 
     //GET LESS TIME
     function add_Select(element, id) {
