@@ -1,3 +1,7 @@
+<?php
+$value = 'trigger';
+$_SESSION["newsession"] = $value;
+?>
 <div class="container-xl p-5">
     <div class="row gx-5 justify-content-center">
         <div class="col-lg-9 col-xl-10 col-xxl-9">
@@ -9,7 +13,7 @@
                         </div>
                         <div class="col-auto text-end d-lg-block">
                             <div class="d-flex">
-                                <a href="index.php?page=andon" class="btn btn-primary mx-2" type="button">
+                                <a href="index.php" class="btn btn-primary mx-2" type="button">
                                     <i class="material-icons mx-2">build</i>
                                     Atención de errores
                                 </a>
