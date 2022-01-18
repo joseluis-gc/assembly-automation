@@ -33,116 +33,171 @@
         <tbody class="text-center">
             <?php
                 $cont = 0;
+                $today = Today();
                 $query_stations = "SELECT * FROM assets 
                 LEFT JOIN site ON asset_site = site_id 
                 LEFT JOIN plant ON site.plant_id = plant.plant_id 
                 LEFT JOIN plan_hrxhr ON plan_hrxhr.plan_asset = asset_id 
-                WHERE plan_hrxhr.site_id = {$_GET['site_id']} AND (plan_hrxhr.status = 0 OR plan_hrxhr.status = 1);";
+                WHERE plan_hrxhr.plant_id = {$_GET['plant_id']}  
+                AND plan_hrxhr.date = '$today' 
+                AND (plan_hrxhr.status = 0 OR plan_hrxhr.status = 1);";
+
+                $result = mysqli_query($connection, $query_stations);
+                if(!$result){
+                    echo "Query failed" . $query_stations;
+                    die();
+                }
+                while ($row = mysqli_fetch_array($result)):
+                    $cont++
             ?>
             <tr>
-                <td>
+                <td class="datacell">
                     <div>
-                        <p>TIP32</p>
-                        <p>AC1004HFC</p>
+                        <p><?php echo $row['asset_name'] ?></p>
+                        <p class="text-primary">
+                            <?php
+                            $hour = nowHour();
+                            echo $row['pn_'.$hour];
+                            ?>
+                        </p>
                     </div>
                 </td>
-                <td>
-                    <input id="inputValue_1" class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button onclick="getSnackbar(this, 1);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+
+                <td class="hourcell">
+                    <span id="pnl_6"<?php echo $cont ?> class="pn_now"><?php echo $row['pn_6'] ?></span>
+                    <input id="inputValue_1" class="form-control hr_input" type="number" name="value" style="min-width: 8rem;" />
+                    <button onclick="getSnackbar(this, 1);"  data-maquina="<?php echo $row['asset_id']; ?>" data-hr="6" type="button" id="6s"   class="tablahrxhr btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+
+                    <?php
+                    $get_current_num = "SELECT SUM(reg_qty) AS quantity FROM hour_registry WHERE reg_order_id = {$row['plan_id']} AND reg_time_block = 6";
+                    $run_current_num = mysqli_query($connection, $get_current_num);
+                    $row_current = mysqli_fetch_array($run_current_num);
+                    //echo $row_current['quantity'];
+                    ?>
+                    <span id="<?php echo "col_h6".$cont; ?>" class="hr_output"><?php echo $row_current['quantity']; ?></span>
+
+                    <span class="text-primary">/</span>
+
+                    <span id="<?php echo "col_hf6".$cont; ?>"  class="hr_output2"><?php echo $row['6'] ?></span>
+
                 </td>
                 <td>
+                    <?php echo $row['pn_7'] ?>
                     <input id="inputValue_2" class="form-control" type="number" value="0" style="min-width: 8rem;" />
                     <button onclick="getSnackbar(this, 2);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
                 </td>
                 <td>
+                    <?php echo $row['pn_8'] ?>
                     <input id="inputValue_3" class="form-control" type="number" value="0" style="min-width: 8rem;" />
                     <button onclick="getSnackbar(this, 3);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
                 </td>
                 <td>
+                    <?php echo $row['pn_9'] ?>
                     <input id="inputValue_4" class="form-control" type="number" value="0" style="min-width: 8rem;" />
                     <button onclick="getSnackbar(this, 4);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
                 </td>
                 <td>
+                    <?php echo $row['pn_10'] ?>
                     <input id="inputValue_5" class="form-control" type="number" value="0" style="min-width: 8rem;" />
                     <button onclick="getSnackbar(this, 5);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
                 </td>
                 <td>
+                    <?php echo $row['pn_11'] ?>
                     <input id="inputValue_6" class="form-control" type="number" value="0" style="min-width: 8rem;" />
                     <button onclick="getSnackbar(this, 6);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
                 </td>
                 <td>
+                    <?php echo $row['pn_12'] ?>
                     <input id="inputValue_7" class="form-control" type="number" value="0" style="min-width: 8rem;" />
                     <button onclick="getSnackbar(this, 7);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
                 </td>
                 <td>
+                    <?php echo $row['pn_13'] ?>
                     <input id="inputValue_8" class="form-control" type="number" value="0" style="min-width: 8rem;" />
                     <button onclick="getSnackbar(this, 8);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
                 </td>
                 <td>
+                    <?php echo $row['pn_14'] ?>
                     <input id="inputValue_9" class="form-control" type="number" value="0" style="min-width: 8rem;" />
                     <button onclick="getSnackbar(this, 9);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
                 </td>
                 <td>
+                    <?php echo $row['pn_15'] ?>
                     <input id="inputValue_10" class="form-control" type="number" value="0" style="min-width: 8rem;" />
                     <button onclick="getSnackbar(this, 10);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
                 </td>
                 <td>
+                    <?php echo $row['pn_16'] ?>
                     <input id="inputValue_11" class="form-control" type="number" value="0" style="min-width: 8rem;" />
                     <button onclick="getSnackbar(this, 11);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
                 </td>
                 <td>
+                    <?php echo $row['pn_17'] ?>
                     <input id="inputValue_12" class="form-control" type="number" value="0" style="min-width: 8rem;" />
                     <button onclick="getSnackbar(this, 12);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
                 </td>
                 <td>
+                    <?php echo $row['pn_18'] ?>
                     <input id="inputValue_13" class="form-control" type="number" value="0" style="min-width: 8rem;" />
                     <button onclick="getSnackbar(this, 13);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
                 </td>
                 <td>
+                    <?php echo $row['pn_19'] ?>
                     <input id="inputValue_14" class="form-control" type="number" value="0" style="min-width: 8rem;" />
                     <button onclick="getSnackbar(this, 14);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
                 </td>
                 <td>
+                    <?php echo $row['pn_20'] ?>
                     <input id="inputValue_15" class="form-control" type="number" value="0" style="min-width: 8rem;" />
                     <button onclick="getSnackbar(this, 15);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
                 </td>
                 <td>
+                    <?php echo $row['pn_21'] ?>
                     <input id="inputValue_16" class="form-control" type="number" value="0" style="min-width: 8rem;" />
                     <button onclick="getSnackbar(this, 16);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
                 </td>
                 <td>
+                    <?php echo $row['pn_22'] ?>
                     <input id="inputValue_17" class="form-control" type="number" value="0" style="min-width: 8rem;" />
                     <button onclick="getSnackbar(this, 17);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
                 </td>
                 <td>
+                    <?php echo $row['pn_23'] ?>
                     <input id="inputValue_18" class="form-control" type="number" value="0" style="min-width: 8rem;" />
                     <button onclick="getSnackbar(this, 18);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
                 </td>
                 <td>
+                    <?php echo $row['pn_24'] ?>
                     <input id="inputValue_19" class="form-control" type="number" value="0" style="min-width: 8rem;" />
                     <button onclick="getSnackbar(this, 19);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
                 </td>
                 <td>
+                    <?php echo $row['pn_1'] ?>
                     <input id="inputValue_20" class="form-control" type="number" value="0" style="min-width: 8rem;" />
                     <button onclick="getSnackbar(this, 20);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
                 </td>
                 <td>
+                    <?php echo $row['pn_2'] ?>
                     <input id="inputValue_21" class="form-control" type="number" value="0" style="min-width: 8rem;" />
                     <button onclick="getSnackbar(this, 21);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
                 </td>
                 <td>
+                    <?php echo $row['pn_3'] ?>
                     <input id="inputValue_22" class="form-control" type="number" value="0" style="min-width: 8rem;" />
                     <button onclick="getSnackbar(this, 22);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
                 </td>
                 <td>
+                    <?php echo $row['pn_4'] ?>
                     <input id="inputValue_23" class="form-control" type="number" value="0" style="min-width: 8rem;" />
                     <button onclick="getSnackbar(this, 23);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
                 </td>
                 <td>
+                    <?php echo $row['pn_5'] ?>
                     <input id="inputValue_24" class="form-control" type="number" value="0" style="min-width: 8rem;" />
                     <button onclick="getSnackbar(this, 24);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
                 </td>
             </tr>
+        <?php endwhile; ?>
         </tbody>
     </table>
     <mwc-snackbar id="snackbarAlert" labeltext="">
@@ -154,7 +209,7 @@
     function getSnackbar(element, id) {
         let dataValue = document.querySelector('#inputValue_' + id).value;
         let snackbar = document.querySelector('#snackbarAlert');
-        snackbar.labelText = "has been captured" + " " + dataValue + " " + "parts";
+        snackbar.labelText = dataValue + " items have been added";
         snackbar.show();
     };
 
@@ -235,4 +290,8 @@
             $('#th_25').css("background-color", "#E0CCFB");
         }
     };
+</script>
+
+<script>
+
 </script>

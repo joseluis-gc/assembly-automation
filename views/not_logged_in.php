@@ -14,7 +14,7 @@ if (!empty($page)) {
             break;
 
         case "button":
-            include ("views/trigger/trigger.php");
+            include ("views/button/button.php");
             break;
 
         case "trigger":

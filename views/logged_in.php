@@ -59,7 +59,7 @@ if (!empty($page)) {
             break;
 
         case "captura_manual":
-            include("views/hr/plan/captura_manual.php");
+            include("views/hr/inputs/captura_manual.php");
             break;
 
         case "andon":

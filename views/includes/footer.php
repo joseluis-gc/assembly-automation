@@ -38,5 +38,77 @@
 <!-- Load demo bar charts-->
 <script src="views/_assets/js/charts/andon-charts.js"></script>
 
+
+<script>
+    $(".tablahrxhr").click(function postinput(){
+
+        var maquina = $(this).data("maquina");
+        var hora = $(this).data("hr");
+        var value = $(this).closest("td.hourcell").find("input[name='value']").val();
+        //var hr_output = $(this).closest("td.hourcell").find("div.hr_output").html();
+
+        var div_id = $(this).closest('td').find('.hr_output').attr('id');
+        var div_id2 = $(this).closest('td').find('.hr_output2').attr('id');
+
+        var div_id3 = $(this).closest('td').find('.pn_now').attr('id');
+
+
+
+
+        //update db
+        $.ajax({
+            type: 'POST',
+            url: 'functions/horaxhora/update.php',
+            data: ({
+                "maquina" : maquina,
+                "hr" : hora,
+                "value" : value
+            }),
+        }).done(function(responseData) {
+            console.log(responseData);
+
+            //alert("maquina"+maquina+"hora"+hora+"value"+value);
+            alert("Se insertaron " + value + " Piezas")
+            $('.hourcell').find("input[name='value']").val('');
+
+
+            /**read ajax method */
+            alert(div_id);
+
+            //read db
+            $.ajax({
+                type: 'POST',
+                url: 'functions/horaxhora/read.php',
+                data: ({
+                    "maquina" : maquina,
+                    //              "hr_output" : hr_output,
+                    "hr" : hora
+                }),
+            }).done(function(responseData) {
+                console.log(responseData);
+                alert(responseData);
+                $('#'+div_id).html(responseData);
+
+            }).fail(function() {
+                console.log('Failed');
+            });
+            /**read ajax method end */
+
+
+
+
+        }).fail(function() {
+            console.log('Failed');
+        });
+
+
+
+
+    });
+
+</script>
+
+
+
 </body>
 </html>
