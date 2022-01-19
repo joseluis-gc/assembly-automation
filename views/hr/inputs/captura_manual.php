@@ -48,15 +48,16 @@
                     die();
                 }
                 while ($row = mysqli_fetch_array($result)):
-                    $cont++
+                    $cont++;
             ?>
             <tr>
                 <td class="datacell">
                     <div>
                         <p><?php echo $row['asset_name'] ?></p>
                         <p class="text-primary">
-                            <?php
+                            <?php 
                             $hour = nowHour();
+                            echo $hour;
                             echo $row['pn_'.$hour];
                             ?>
                         </p>
@@ -64,6 +65,7 @@
                 </td>
 
                 <td class="hourcell">
+                    <?php echo $cont;?>
                     <span id="pnl_6"<?php echo $cont ?> class="pn_now"><?php echo $row['pn_6'] ?></span>
                     <input id="inputValue_1" class="form-control hr_input" type="number" name="value" style="min-width: 8rem;" />
                     <button onclick="getSnackbar(this, 1);"  data-maquina="<?php echo $row['asset_id']; ?>" data-hr="6" type="button" id="6s"   class="tablahrxhr btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
@@ -72,7 +74,6 @@
                     $get_current_num = "SELECT SUM(reg_qty) AS quantity FROM hour_registry WHERE reg_order_id = {$row['plan_id']} AND reg_time_block = 6";
                     $run_current_num = mysqli_query($connection, $get_current_num);
                     $row_current = mysqli_fetch_array($run_current_num);
-                    //echo $row_current['quantity'];
                     ?>
                     <span id="<?php echo "col_h6".$cont; ?>" class="hr_output"><?php echo $row_current['quantity']; ?></span>
 
@@ -85,41 +86,128 @@
                     <?php echo $row['pn_7'] ?>
                     <input id="inputValue_2" class="form-control" type="number" value="0" style="min-width: 8rem;" />
                     <button onclick="getSnackbar(this, 2);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                    <?php
+                    $get_current_num = "SELECT SUM(reg_qty) AS quantity FROM hour_registry WHERE reg_order_id = {$row['plan_id']} AND reg_time_block = 7";
+                    $run_current_num = mysqli_query($connection, $get_current_num);
+                    $row_current = mysqli_fetch_array($run_current_num);
+                    ?>
+                    <span id="<?php echo "col_h7".$cont; ?>" class="hr_output"><?php echo $row_current['quantity']; ?></span>
+
+                    <span class="text-primary">/</span>
+
+                    <span id="<?php echo "col_hf7".$cont; ?>"  class="hr_output2"><?php echo $row['7'] ?></span>
+
                 </td>
                 <td>
                     <?php echo $row['pn_8'] ?>
                     <input id="inputValue_3" class="form-control" type="number" value="0" style="min-width: 8rem;" />
                     <button onclick="getSnackbar(this, 3);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                    <?php
+                    $get_current_num = "SELECT SUM(reg_qty) AS quantity FROM hour_registry WHERE reg_order_id = {$row['plan_id']} AND reg_time_block = 8";
+                    $run_current_num = mysqli_query($connection, $get_current_num);
+                    $row_current = mysqli_fetch_array($run_current_num);
+                    ?>
+                    <span id="<?php echo "col_h8".$cont; ?>" class="hr_output"><?php echo $row_current['quantity']; ?></span>
+
+                    <span class="text-primary">/</span>
+
+                    <span id="<?php echo "col_hf6".$cont; ?>"  class="hr_output2"><?php echo $row['8'] ?></span>8
                 </td>
                 <td>
                     <?php echo $row['pn_9'] ?>
                     <input id="inputValue_4" class="form-control" type="number" value="0" style="min-width: 8rem;" />
                     <button onclick="getSnackbar(this, 4);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                    <?php
+                    $get_current_num = "SELECT SUM(reg_qty) AS quantity FROM hour_registry WHERE reg_order_id = {$row['plan_id']} AND reg_time_block = 9";
+                    $run_current_num = mysqli_query($connection, $get_current_num);
+                    $row_current = mysqli_fetch_array($run_current_num);
+                    ?>
+                    <span id="<?php echo "col_h9".$cont; ?>" class="hr_output"><?php echo $row_current['quantity']; ?></span>
+
+                    <span class="text-primary">/</span>
+
+                    <span id="<?php echo "col_hf9".$cont; ?>"  class="hr_output2"><?php echo $row['9'] ?></span>
+
                 </td>
                 <td>
                     <?php echo $row['pn_10'] ?>
                     <input id="inputValue_5" class="form-control" type="number" value="0" style="min-width: 8rem;" />
                     <button onclick="getSnackbar(this, 5);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                    <?php
+                    $get_current_num = "SELECT SUM(reg_qty) AS quantity FROM hour_registry WHERE reg_order_id = {$row['plan_id']} AND reg_time_block = 10";
+                    $run_current_num = mysqli_query($connection, $get_current_num);
+                    $row_current = mysqli_fetch_array($run_current_num);
+                    ?>
+                    <span id="<?php echo "col_h10".$cont; ?>" class="hr_output"><?php echo $row_current['quantity']; ?></span>
+
+                    <span class="text-primary">/</span>
+
+                    <span id="<?php echo "col_hf10".$cont; ?>"  class="hr_output2"><?php echo $row['10'] ?></span>
+
                 </td>
                 <td>
                     <?php echo $row['pn_11'] ?>
                     <input id="inputValue_6" class="form-control" type="number" value="0" style="min-width: 8rem;" />
                     <button onclick="getSnackbar(this, 6);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                    <?php
+                    $get_current_num = "SELECT SUM(reg_qty) AS quantity FROM hour_registry WHERE reg_order_id = {$row['plan_id']} AND reg_time_block = 11";
+                    $run_current_num = mysqli_query($connection, $get_current_num);
+                    $row_current = mysqli_fetch_array($run_current_num);
+                    ?>
+                    <span id="<?php echo "col_h11".$cont; ?>" class="hr_output"><?php echo $row_current['quantity']; ?></span>
+
+                    <span class="text-primary">/</span>
+
+                    <span id="<?php echo "col_hf11".$cont; ?>"  class="hr_output2"><?php echo $row['11'] ?></span>
+
                 </td>
                 <td>
                     <?php echo $row['pn_12'] ?>
                     <input id="inputValue_7" class="form-control" type="number" value="0" style="min-width: 8rem;" />
                     <button onclick="getSnackbar(this, 7);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                    <?php
+                    $get_current_num = "SELECT SUM(reg_qty) AS quantity FROM hour_registry WHERE reg_order_id = {$row['plan_id']} AND reg_time_block = 12";
+                    $run_current_num = mysqli_query($connection, $get_current_num);
+                    $row_current = mysqli_fetch_array($run_current_num);
+                    ?>
+                    <span id="<?php echo "col_h12".$cont; ?>" class="hr_output"><?php echo $row_current['quantity']; ?></span>
+
+                    <span class="text-primary">/</span>
+
+                    <span id="<?php echo "col_hf12".$cont; ?>"  class="hr_output2"><?php echo $row['12'] ?></span>
+
                 </td>
                 <td>
                     <?php echo $row['pn_13'] ?>
                     <input id="inputValue_8" class="form-control" type="number" value="0" style="min-width: 8rem;" />
                     <button onclick="getSnackbar(this, 8);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                    <?php
+                    $get_current_num = "SELECT SUM(reg_qty) AS quantity FROM hour_registry WHERE reg_order_id = {$row['plan_id']} AND reg_time_block = 14";
+                    $run_current_num = mysqli_query($connection, $get_current_num);
+                    $row_current = mysqli_fetch_array($run_current_num);
+                    ?>
+                    <span id="<?php echo "col_h12".$cont; ?>" class="hr_output"><?php echo $row_current['quantity']; ?></span>
+
+                    <span class="text-primary">/</span>
+
+                    <span id="<?php echo "col_hf12".$cont; ?>"  class="hr_output2"><?php echo $row['12'] ?></span>
+
                 </td>
                 <td>
                     <?php echo $row['pn_14'] ?>
                     <input id="inputValue_9" class="form-control" type="number" value="0" style="min-width: 8rem;" />
                     <button onclick="getSnackbar(this, 9);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                    <?php
+                    $get_current_num = "SELECT SUM(reg_qty) AS quantity FROM hour_registry WHERE reg_order_id = {$row['plan_id']} AND reg_time_block = 13";
+                    $run_current_num = mysqli_query($connection, $get_current_num);
+                    $row_current = mysqli_fetch_array($run_current_num);
+                    ?>
+                    <span id="<?php echo "col_h13".$cont; ?>" class="hr_output"><?php echo $row_current['quantity']; ?></span>
+
+                    <span class="text-primary">/</span>
+
+                    <span id="<?php echo "col_hf13".$cont; ?>"  class="hr_output2"><?php echo $row['13'] ?></span>
+
                 </td>
                 <td>
                     <?php echo $row['pn_15'] ?>
@@ -291,7 +379,5 @@
         }
     };
 </script>
-
 <script>
-
 </script>

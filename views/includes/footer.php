@@ -45,15 +45,12 @@
         var maquina = $(this).data("maquina");
         var hora = $(this).data("hr");
         var value = $(this).closest("td.hourcell").find("input[name='value']").val();
-        //var hr_output = $(this).closest("td.hourcell").find("div.hr_output").html();
-
+        var hr_output = $(this).closest("td.hourcell").find("div.hr_output").html();
         var div_id = $(this).closest('td').find('.hr_output').attr('id');
-
         var div_id2 = $(this).closest('td').find('.hr_output2').attr('id');
         var div_id3 = $(this).closest('td').find('.pn_now').attr('id');
 
-
-
+        console.log("hr_output", hr_output)
 
         //update db
         $.ajax({
@@ -81,7 +78,7 @@
                 url: 'functions/horaxhora/read.php',
                 data: ({
                     "maquina" : maquina,
-                    //              "hr_output" : hr_output,
+                    "hr_output" : hr_output,
                     "hr" : hora
                 }),
             }).done(function(responseData) {

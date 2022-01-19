@@ -103,7 +103,7 @@ function nowTime(){
 }
 
 function nowHour(){
-    return date("H");
+    return date("G");
 }
 
 
