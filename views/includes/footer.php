@@ -20,8 +20,7 @@
 <!-- Load global scripts-->
 <script type="module" src="views/_assets/js/material.js"></script>
 <script src="views/_assets/js/scripts.js"></script>
-<!--  Load Chart.js via CDN-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.0.0-beta.10/chart.min.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!--  Load Chart.js customized defaults-->
 <script src="views/_assets/js/charts/chart-defaults.js"></script>
 <!--  Load chart demos for this page-->
@@ -30,7 +29,6 @@
 <!-- Load Simple DataTables Scripts-->
 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
 <script src="views/_assets/js/datatables/datatables-simple-demo.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- Load Chart.js via CDN-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.0.0-beta.10/chart.min.js" crossorigin="anonymous"></script>
 <!-- Load Chart.js customized defaults-->
@@ -40,72 +38,67 @@
 
 
 <script>
-    $(".tablahrxhr").click(function postinput(){
+    $(".tablahrxhr").click(function postinput(id) {
+        console.log(this.id)
 
+        var pn = document.getElementsByClassName('pn_now');
+        var number_item = $(this).data("item");
         var maquina = $(this).data("maquina");
         var hora = $(this).data("hr");
         var value = $(this).closest("td.hourcell").find("input[name='value']").val();
-        var hr_output = $(this).closest("td.hourcell").find("div.hr_output").html();
         var div_id = $(this).closest('td').find('.hr_output').attr('id');
         var div_id2 = $(this).closest('td').find('.hr_output2').attr('id');
-        var div_id3 = $(this).closest('td').find('.pn_now').attr('id');
+        var id_item = $(this).closest('td').find('.pn_now').attr('id');
+        var data = document.querySelector(".pn_now").innerHTML;
 
-        console.log("hr_output", hr_output)
+        console.log({div_id2})
 
-        //update db
         $.ajax({
             type: 'POST',
             url: 'functions/horaxhora/update.php',
             data: ({
-                "maquina" : maquina,
-                "hr" : hora,
-                "value" : value
+                "maquina": maquina,
+                "hr": hora,
+                "value": value,
+                "id": id_item,
+                "number_item": number_item
             }),
         }).done(function(responseData) {
-            console.log(responseData);
-
-            //alert("maquina"+maquina+"hora"+hora+"value"+value);
-            alert("Se insertaron " + value + " Piezas")
             $('.hourcell').find("input[name='value']").val('');
-
-
-            /**read ajax method */
-            alert(div_id);
-
-            //read db
             $.ajax({
                 type: 'POST',
                 url: 'functions/horaxhora/read.php',
                 data: ({
-                    "maquina" : maquina,
-                    "hr_output" : hr_output,
-                    "hr" : hora
+                    "maquina": maquina,
+                    "hr": hora,
+                    "id": id_item,
+                    "number_item": number_item
                 }),
             }).done(function(responseData) {
-                console.log(responseData);
-                alert(responseData);
-                $('#'+div_id).html(responseData);
+                $('#' + div_id).html(responseData);
 
             }).fail(function() {
                 console.log('Failed');
             });
-            /**read ajax method end */
-
-
-
-
         }).fail(function() {
             console.log('Failed');
-        });
-
-
-
-
-    });
-
+        }).done(function() {
+            $.ajax({
+                type: 'POST',
+                url: 'functions/horaxhora/update_item.php',
+                data: ({
+                    "maquina": maquina,
+                    "id": id_item,
+                    "number_item": number_item
+                }),
+            }).done(function(data) {
+                $('#' + id_item).html(data);
+            }).fail(function() {
+                console.log('Failed');
+            });
+        })
+    });  
 </script>
-
-
-
 </body>
+
 </html>

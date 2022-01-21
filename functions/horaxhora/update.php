@@ -5,6 +5,8 @@ $maquina = $_POST['maquina'];
 $hr      = $_POST['hr'];
 $value   = $_POST['value'];
 $date    = date("Y-m-d H:i:s");
+$id = $_POST['id'];
+$number_item = $_POST['number_item'];
 
 //$query_order = "SELECT * FROM hr_plan WHERE plan_asset = '".$maquina."' AND status = 1";
 $query_order = "SELECT * FROM plan_hrxhr WHERE plan_asset = '".$maquina."' AND (status = 0 OR status = 1)";
@@ -22,3 +24,10 @@ if(!$result)
 {
     die("Failed $query");
 }
+
+$query_item_number = "UPDATE plan_hrxhr SET $id";
+$result_item_number = mysqli_query($connection, $query_item_number);
+if(!$result_item_number){
+    die("Failed $query");
+}
+$row = mysqli_fetch_array($result_item_number); 

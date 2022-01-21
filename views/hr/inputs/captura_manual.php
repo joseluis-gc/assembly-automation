@@ -1,4 +1,4 @@
-<div class="container table-responsive">
+<div class="container-fluid table-responsive">
     <table class="table text-center">
         <thead>
             <tr>
@@ -32,9 +32,9 @@
         </thead>
         <tbody class="text-center">
             <?php
-                $cont = 0;
-                $today = Today();
-                $query_stations = "SELECT * FROM assets 
+            $cont = 0;
+            $today = Today();
+            $query_stations = "SELECT * FROM assets 
                 LEFT JOIN site ON asset_site = site_id 
                 LEFT JOIN plant ON site.plant_id = plant.plant_id 
                 LEFT JOIN plan_hrxhr ON plan_hrxhr.plan_asset = asset_id 
@@ -42,250 +42,343 @@
                 AND plan_hrxhr.date = '$today' 
                 AND (plan_hrxhr.status = 0 OR plan_hrxhr.status = 1);";
 
-                $result = mysqli_query($connection, $query_stations);
-                if(!$result){
-                    echo "Query failed" . $query_stations;
-                    die();
-                }
-                while ($row = mysqli_fetch_array($result)):
-                    $cont++;
+            $result = mysqli_query($connection, $query_stations);
+            if (!$result) {
+                echo "Query failed" . $query_stations;
+                die();
+            }
+            while ($row = mysqli_fetch_array($result)) :
+                $cont++;
+                echo $cont;
+                echo $cont, "<br>";
             ?>
-            <tr>
-                <td class="datacell">
-                    <div>
-                        <p><?php echo $row['asset_name'] ?></p>
-                        <p class="text-primary">
-                            <?php 
-                            $hour = nowHour();
-                            echo $hour;
-                            echo $row['pn_'.$hour];
-                            ?>
-                        </p>
-                    </div>
-                </td>
+                <tr>
+                    <td class="datacell">
+                        <div>
+                            <p><?php echo $row['asset_name'] ?></p>
+                            <p class="text-primary fw-bold">
+                                <?php
+                                $hour = nowHour();
+                                echo $row['pn_' . $hour];
+                                ?>
+                            </p>
+                        </div>
+                    </td>
 
-                <td class="hourcell">
-                    <?php echo $cont;?>
-                    <span id="pnl_6"<?php echo $cont ?> class="pn_now"><?php echo $row['pn_6'] ?></span>
-                    <input id="inputValue_1" class="form-control hr_input" type="number" name="value" style="min-width: 8rem;" />
-                    <button onclick="getSnackbar(this, 1);"  data-maquina="<?php echo $row['asset_id']; ?>" data-hr="6" type="button" id="6s"   class="tablahrxhr btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
-
-                    <?php
-                    $get_current_num = "SELECT SUM(reg_qty) AS quantity FROM hour_registry WHERE reg_order_id = {$row['plan_id']} AND reg_time_block = 6";
-                    $run_current_num = mysqli_query($connection, $get_current_num);
-                    $row_current = mysqli_fetch_array($run_current_num);
-                    ?>
-                    <span id="<?php echo "col_h6".$cont; ?>" class="hr_output"><?php echo $row_current['quantity']; ?></span>
-
-                    <span class="text-primary">/</span>
-
-                    <span id="<?php echo "col_hf6".$cont; ?>"  class="hr_output2"><?php echo $row['6'] ?></span>
-
-                </td>
-                <td>
-                    <?php echo $row['pn_7'] ?>
-                    <input id="inputValue_2" class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button onclick="getSnackbar(this, 2);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
-                    <?php
-                    $get_current_num = "SELECT SUM(reg_qty) AS quantity FROM hour_registry WHERE reg_order_id = {$row['plan_id']} AND reg_time_block = 7";
-                    $run_current_num = mysqli_query($connection, $get_current_num);
-                    $row_current = mysqli_fetch_array($run_current_num);
-                    ?>
-                    <span id="<?php echo "col_h7".$cont; ?>" class="hr_output"><?php echo $row_current['quantity']; ?></span>
-
-                    <span class="text-primary">/</span>
-
-                    <span id="<?php echo "col_hf7".$cont; ?>"  class="hr_output2"><?php echo $row['7'] ?></span>
-
-                </td>
-                <td>
-                    <?php echo $row['pn_8'] ?>
-                    <input id="inputValue_3" class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button onclick="getSnackbar(this, 3);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
-                    <?php
-                    $get_current_num = "SELECT SUM(reg_qty) AS quantity FROM hour_registry WHERE reg_order_id = {$row['plan_id']} AND reg_time_block = 8";
-                    $run_current_num = mysqli_query($connection, $get_current_num);
-                    $row_current = mysqli_fetch_array($run_current_num);
-                    ?>
-                    <span id="<?php echo "col_h8".$cont; ?>" class="hr_output"><?php echo $row_current['quantity']; ?></span>
-
-                    <span class="text-primary">/</span>
-
-                    <span id="<?php echo "col_hf6".$cont; ?>"  class="hr_output2"><?php echo $row['8'] ?></span>8
-                </td>
-                <td>
-                    <?php echo $row['pn_9'] ?>
-                    <input id="inputValue_4" class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button onclick="getSnackbar(this, 4);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
-                    <?php
-                    $get_current_num = "SELECT SUM(reg_qty) AS quantity FROM hour_registry WHERE reg_order_id = {$row['plan_id']} AND reg_time_block = 9";
-                    $run_current_num = mysqli_query($connection, $get_current_num);
-                    $row_current = mysqli_fetch_array($run_current_num);
-                    ?>
-                    <span id="<?php echo "col_h9".$cont; ?>" class="hr_output"><?php echo $row_current['quantity']; ?></span>
-
-                    <span class="text-primary">/</span>
-
-                    <span id="<?php echo "col_hf9".$cont; ?>"  class="hr_output2"><?php echo $row['9'] ?></span>
-
-                </td>
-                <td>
-                    <?php echo $row['pn_10'] ?>
-                    <input id="inputValue_5" class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button onclick="getSnackbar(this, 5);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
-                    <?php
-                    $get_current_num = "SELECT SUM(reg_qty) AS quantity FROM hour_registry WHERE reg_order_id = {$row['plan_id']} AND reg_time_block = 10";
-                    $run_current_num = mysqli_query($connection, $get_current_num);
-                    $row_current = mysqli_fetch_array($run_current_num);
-                    ?>
-                    <span id="<?php echo "col_h10".$cont; ?>" class="hr_output"><?php echo $row_current['quantity']; ?></span>
-
-                    <span class="text-primary">/</span>
-
-                    <span id="<?php echo "col_hf10".$cont; ?>"  class="hr_output2"><?php echo $row['10'] ?></span>
-
-                </td>
-                <td>
-                    <?php echo $row['pn_11'] ?>
-                    <input id="inputValue_6" class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button onclick="getSnackbar(this, 6);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
-                    <?php
-                    $get_current_num = "SELECT SUM(reg_qty) AS quantity FROM hour_registry WHERE reg_order_id = {$row['plan_id']} AND reg_time_block = 11";
-                    $run_current_num = mysqli_query($connection, $get_current_num);
-                    $row_current = mysqli_fetch_array($run_current_num);
-                    ?>
-                    <span id="<?php echo "col_h11".$cont; ?>" class="hr_output"><?php echo $row_current['quantity']; ?></span>
-
-                    <span class="text-primary">/</span>
-
-                    <span id="<?php echo "col_hf11".$cont; ?>"  class="hr_output2"><?php echo $row['11'] ?></span>
-
-                </td>
-                <td>
-                    <?php echo $row['pn_12'] ?>
-                    <input id="inputValue_7" class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button onclick="getSnackbar(this, 7);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
-                    <?php
-                    $get_current_num = "SELECT SUM(reg_qty) AS quantity FROM hour_registry WHERE reg_order_id = {$row['plan_id']} AND reg_time_block = 12";
-                    $run_current_num = mysqli_query($connection, $get_current_num);
-                    $row_current = mysqli_fetch_array($run_current_num);
-                    ?>
-                    <span id="<?php echo "col_h12".$cont; ?>" class="hr_output"><?php echo $row_current['quantity']; ?></span>
-
-                    <span class="text-primary">/</span>
-
-                    <span id="<?php echo "col_hf12".$cont; ?>"  class="hr_output2"><?php echo $row['12'] ?></span>
-
-                </td>
-                <td>
-                    <?php echo $row['pn_13'] ?>
-                    <input id="inputValue_8" class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button onclick="getSnackbar(this, 8);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
-                    <?php
-                    $get_current_num = "SELECT SUM(reg_qty) AS quantity FROM hour_registry WHERE reg_order_id = {$row['plan_id']} AND reg_time_block = 14";
-                    $run_current_num = mysqli_query($connection, $get_current_num);
-                    $row_current = mysqli_fetch_array($run_current_num);
-                    ?>
-                    <span id="<?php echo "col_h12".$cont; ?>" class="hr_output"><?php echo $row_current['quantity']; ?></span>
-
-                    <span class="text-primary">/</span>
-
-                    <span id="<?php echo "col_hf12".$cont; ?>"  class="hr_output2"><?php echo $row['12'] ?></span>
-
-                </td>
-                <td>
-                    <?php echo $row['pn_14'] ?>
-                    <input id="inputValue_9" class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button onclick="getSnackbar(this, 9);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
-                    <?php
-                    $get_current_num = "SELECT SUM(reg_qty) AS quantity FROM hour_registry WHERE reg_order_id = {$row['plan_id']} AND reg_time_block = 13";
-                    $run_current_num = mysqli_query($connection, $get_current_num);
-                    $row_current = mysqli_fetch_array($run_current_num);
-                    ?>
-                    <span id="<?php echo "col_h13".$cont; ?>" class="hr_output"><?php echo $row_current['quantity']; ?></span>
-
-                    <span class="text-primary">/</span>
-
-                    <span id="<?php echo "col_hf13".$cont; ?>"  class="hr_output2"><?php echo $row['13'] ?></span>
-
-                </td>
-                <td>
-                    <?php echo $row['pn_15'] ?>
-                    <input id="inputValue_10" class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button onclick="getSnackbar(this, 10);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
-                </td>
-                <td>
-                    <?php echo $row['pn_16'] ?>
-                    <input id="inputValue_11" class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button onclick="getSnackbar(this, 11);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
-                </td>
-                <td>
-                    <?php echo $row['pn_17'] ?>
-                    <input id="inputValue_12" class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button onclick="getSnackbar(this, 12);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
-                </td>
-                <td>
-                    <?php echo $row['pn_18'] ?>
-                    <input id="inputValue_13" class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button onclick="getSnackbar(this, 13);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
-                </td>
-                <td>
-                    <?php echo $row['pn_19'] ?>
-                    <input id="inputValue_14" class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button onclick="getSnackbar(this, 14);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
-                </td>
-                <td>
-                    <?php echo $row['pn_20'] ?>
-                    <input id="inputValue_15" class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button onclick="getSnackbar(this, 15);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
-                </td>
-                <td>
-                    <?php echo $row['pn_21'] ?>
-                    <input id="inputValue_16" class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button onclick="getSnackbar(this, 16);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
-                </td>
-                <td>
-                    <?php echo $row['pn_22'] ?>
-                    <input id="inputValue_17" class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button onclick="getSnackbar(this, 17);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
-                </td>
-                <td>
-                    <?php echo $row['pn_23'] ?>
-                    <input id="inputValue_18" class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button onclick="getSnackbar(this, 18);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
-                </td>
-                <td>
-                    <?php echo $row['pn_24'] ?>
-                    <input id="inputValue_19" class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button onclick="getSnackbar(this, 19);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
-                </td>
-                <td>
-                    <?php echo $row['pn_1'] ?>
-                    <input id="inputValue_20" class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button onclick="getSnackbar(this, 20);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
-                </td>
-                <td>
-                    <?php echo $row['pn_2'] ?>
-                    <input id="inputValue_21" class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button onclick="getSnackbar(this, 21);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
-                </td>
-                <td>
-                    <?php echo $row['pn_3'] ?>
-                    <input id="inputValue_22" class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button onclick="getSnackbar(this, 22);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
-                </td>
-                <td>
-                    <?php echo $row['pn_4'] ?>
-                    <input id="inputValue_23" class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button onclick="getSnackbar(this, 23);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
-                </td>
-                <td>
-                    <?php echo $row['pn_5'] ?>
-                    <input id="inputValue_24" class="form-control" type="number" value="0" style="min-width: 8rem;" />
-                    <button onclick="getSnackbar(this, 24);" class="btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
-                </td>
-            </tr>
-        <?php endwhile; ?>
+                    <td class="hourcell">
+                        <span id='pn_6' class="pn_now"><?php echo $row['pn_6'] ?></span>
+                        <input id="inputValue_1" class="form-control hr_input" type="number" name="value" style="min-width: 8rem;" />
+                        <button onclick="getSnackbar(this, 1);" data-item='<?php echo $row['pn_6'] ?>' data-maquina="<?php echo $row['asset_id']; ?>" data-hr="6" type="button" id="6" class="tablahrxhr btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                        <?php
+                        $get_current_num = "SELECT SUM(reg_qty) AS quantity FROM hour_registry WHERE reg_order_id = {$row['plan_id']} AND reg_time_block = 6";
+                        $run_current_num = mysqli_query($connection, $get_current_num);
+                        $row_current = mysqli_fetch_array($run_current_num);
+                        ?>
+                        <span id="col_h6" class="hr_output"><?php echo $row_current['quantity']; ?></span>
+                        <span class="text-primary">/</span>
+                        <span id="col_hf6" class="hr_output2"><?php echo $row['6'] ?></span>
+                    </td>
+                    <td class="hourcell">
+                        <span id='pn_7' class="pn_now"><?php echo $row['pn_7'] ?></span>
+                        <input id="inputValue_2" class="form-control hr_input" type="number" name="value" style="min-width: 8rem;" />
+                        <button onclick="getSnackbar(this, 2);" data-item='<?php echo $row['pn_7'] ?>' data-maquina="<?php echo $row['asset_id']; ?>" data-hr="7" type="button" id="7" class="tablahrxhr btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                        <?php
+                        $get_current_num = "SELECT SUM(reg_qty) AS quantity FROM hour_registry WHERE reg_order_id = {$row['plan_id']} AND reg_time_block = 7";
+                        $run_current_num = mysqli_query($connection, $get_current_num);
+                        $row_current = mysqli_fetch_array($run_current_num);
+                        ?>
+                        <span id="col_h7" class="hr_output"><?php echo $row_current['quantity']; ?></span>
+                        <span class="text-primary">/</span>
+                        <span id="col_hf7" class="hr_output2"><?php echo $row['7'] ?></span>
+                    </td>
+                    <td class="hourcell">
+                        <span id='pn_8' class="pn_now"><?php echo $row['pn_8'] ?></span>
+                        <input id="inputValue_3" class="form-control hr_input" type="number" name="value" style="min-width: 8rem;" />
+                        <button onclick="getSnackbar(this, 3);" data-item='<?php echo $row['pn_8'] ?>' data-maquina="<?php echo $row['asset_id']; ?>" data-hr="8" type="button" id="8" class="tablahrxhr btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                        <?php
+                        $get_current_num = "SELECT SUM(reg_qty) AS quantity FROM hour_registry WHERE reg_order_id = {$row['plan_id']} AND reg_time_block = 8";
+                        $run_current_num = mysqli_query($connection, $get_current_num);
+                        $row_current = mysqli_fetch_array($run_current_num);
+                        ?>
+                        <span id="col_h8" class="hr_output"><?php echo $row_current['quantity']; ?></span>
+                        <span class="text-primary">/</span>
+                        <span id="col_hf8" class="hr_output2"><?php echo $row['8'] ?></span>
+                    </td>
+                    <td class="hourcell">
+                        <span id='pn_9' class="pn_now"><?php echo $row['pn_9'] ?></span>
+                        <input id="inputValue_4" class="form-control hr_input" type="number" name="value" style="min-width: 8rem;" />
+                        <button onclick="getSnackbar(this, 4);" data-item='<?php echo $row['pn_9'] ?>' data-maquina="<?php echo $row['asset_id']; ?>" data-hr="9" type="button" id="9" class="tablahrxhr btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                        <?php
+                        $get_current_num = "SELECT SUM(reg_qty) AS quantity FROM hour_registry WHERE reg_order_id = {$row['plan_id']} AND reg_time_block = 9";
+                        $run_current_num = mysqli_query($connection, $get_current_num);
+                        $row_current = mysqli_fetch_array($run_current_num);
+                        ?>
+                        <span id="col_h9" class="hr_output"><?php echo $row_current['quantity']; ?></span>
+                        <span class="text-primary">/</span>
+                        <span id="col_hf9" class="hr_output2"><?php echo $row['9'] ?></span>
+                    </td>
+                    <td class="hourcell">
+                        <span id='pn_10' class="pn_now"><?php echo $row['pn_10'] ?></span>
+                        <input id="inputValue_5" class="form-control hr_input" type="number" name="value" style="min-width: 8rem;" />
+                        <button onclick="getSnackbar(this, 5);" data-item='<?php echo $row['pn_10'] ?>' data-maquina="<?php echo $row['asset_id']; ?>" data-hr="10" type="button" id="10" class="tablahrxhr btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                        <?php
+                        $get_current_num = "SELECT SUM(reg_qty) AS quantity FROM hour_registry WHERE reg_order_id = {$row['plan_id']} AND reg_time_block = 10";
+                        $run_current_num = mysqli_query($connection, $get_current_num);
+                        $row_current = mysqli_fetch_array($run_current_num);
+                        ?>
+                        <span id="col_h10" class="hr_output"><?php echo $row_current['quantity']; ?></span>
+                        <span class="text-primary">/</span>
+                        <span id="col_hf10" class="hr_output2"><?php echo $row['10'] ?></span>
+                    </td>
+                    <td class="hourcell">
+                        <span id='pn_11' class="pn_now"><?php echo $row['pn_11'] ?></span>
+                        <input id="inputValue_6" class="form-control hr_input" type="number" name="value" style="min-width: 8rem;" />
+                        <button onclick="getSnackbar(this, 6);" data-item='<?php echo $row['pn_11'] ?>' data-maquina="<?php echo $row['asset_id']; ?>" data-hr="11" type="button" id="11" class="tablahrxhr btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                        <?php
+                        $get_current_num = "SELECT SUM(reg_qty) AS quantity FROM hour_registry WHERE reg_order_id = {$row['plan_id']} AND reg_time_block = 11";
+                        $run_current_num = mysqli_query($connection, $get_current_num);
+                        $row_current = mysqli_fetch_array($run_current_num);
+                        ?>
+                        <span id="col_h11" class="hr_output"><?php echo $row_current['quantity']; ?></span>
+                        <span class="text-primary">/</span>
+                        <span id="col_hf11" class="hr_output2"><?php echo $row['11'] ?></span>
+                    </td>
+                    <td class="hourcell">
+                        <span id='pn_<?php echo $cont ?>' class="pn_now"><?php echo $row['pn_12'] ?></span>
+                        <input id="inputValue_7" class="form-control hr_input" type="number" name="value" style="min-width: 8rem;" />
+                        <button onclick="getSnackbar(this, 7);" data-item='<?php echo $row['pn_12'] ?>' data-maquina="<?php echo $row['asset_id']; ?>" data-hr="12" type="button" id="12" class="tablahrxhr btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                        <?php
+                        $get_current_num = "SELECT SUM(reg_qty) AS quantity FROM hour_registry WHERE reg_order_id = {$row['plan_id']} AND reg_time_block = 12";
+                        $run_current_num = mysqli_query($connection, $get_current_num);
+                        $row_current = mysqli_fetch_array($run_current_num);
+                        ?>
+                        <span id="col_h12" class="hr_output"><?php echo $row_current['quantity']; ?></span>
+                        <span class="text-primary">/</span>
+                        <span id="col_hf12" class="hr_output2"><?php echo $row['12'] ?></span>
+                    </td>
+                    <td class="hourcell">
+                        <span id='pn_13' class="pn_now"><?php echo $row['pn_13'] ?></span>
+                        <input id="inputValue_8" class="form-control hr_input" type="number" name="value" style="min-width: 8rem;" />
+                        <button onclick="getSnackbar(this, 8);" data-item='<?php echo $row['pn_13'] ?>' data-maquina="<?php echo $row['asset_id']; ?>" data-hr="13" type="button" id="13" class="tablahrxhr btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                        <?php
+                        $get_current_num = "SELECT SUM(reg_qty) AS quantity FROM hour_registry WHERE reg_order_id = {$row['plan_id']} AND reg_time_block = 13";
+                        $run_current_num = mysqli_query($connection, $get_current_num);
+                        $row_current = mysqli_fetch_array($run_current_num);
+                        ?>
+                        <span id="col_h13" class="hr_output"><?php echo $row_current['quantity']; ?></span>
+                        <span class="text-primary">/</span>
+                        <span id="col_hf13" class="hr_output2"><?php echo $row['13'] ?></span>
+                    </td>
+                    <td class="hourcell">
+                        <span id='pn_14' class="pn_now"><?php echo $row['pn_14'] ?></span>
+                        <input id="inputValue_9" class="form-control hr_input" type="number" name="value" style="min-width: 8rem;" />
+                        <button onclick="getSnackbar(this, 9);" data-item='<?php echo $row['pn_14'] ?>' data-maquina="<?php echo $row['asset_id']; ?>" data-hr="14" type="button" id="14" class="tablahrxhr btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                        <?php
+                        $get_current_num = "SELECT SUM(reg_qty) AS quantity FROM hour_registry WHERE reg_order_id = {$row['plan_id']} AND reg_time_block = 14";
+                        $run_current_num = mysqli_query($connection, $get_current_num);
+                        $row_current = mysqli_fetch_array($run_current_num);
+                        ?>
+                        <span id="col_h14" class="hr_output"><?php echo $row_current['quantity']; ?></span>
+                        <span class="text-primary">/</span>
+                        <span id="col_hf14" class="hr_output2"><?php echo $row['14'] ?></span>
+                    </td>
+                    <td class="hourcell">
+                        <span id='pn_15' class="pn_now"><?php echo $row['pn_15'] ?></span>
+                        <input id="inputValue_10" class="form-control hr_input" type="number" name="value" style="min-width: 8rem;" />
+                        <button onclick="getSnackbar(this, 10);" data-item='<?php echo $row['pn_15'] ?>' data-maquina="<?php echo $row['asset_id']; ?>" data-hr="15" type="button" id="15" class="tablahrxhr btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                        <?php
+                        $get_current_num = "SELECT SUM(reg_qty) AS quantity FROM hour_registry WHERE reg_order_id = {$row['plan_id']} AND reg_time_block = 15";
+                        $run_current_num = mysqli_query($connection, $get_current_num);
+                        $row_current = mysqli_fetch_array($run_current_num);
+                        ?>
+                        <span id="col_h15" class="hr_output"><?php echo $row_current['quantity']; ?></span>
+                        <span class="text-primary">/</span>
+                        <span id="col_hf15" class="hr_output2"><?php echo $row['15'] ?></span>
+                    </td>
+                    <td class="hourcell">
+                        <span id='pn_16' class="pn_now"><?php echo $row['pn_16'] ?></span>
+                        <input id="inputValue_11" class="form-control hr_input" type="number" name="value" style="min-width: 8rem;" />
+                        <button onclick="getSnackbar(this, 11);" data-item='<?php echo $row['pn_16'] ?>' data-maquina="<?php echo $row['asset_id']; ?>" data-hr="16" type="button" id="16" class="tablahrxhr btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                        <?php
+                        $get_current_num = "SELECT SUM(reg_qty) AS quantity FROM hour_registry WHERE reg_order_id = {$row['plan_id']} AND reg_time_block = 16";
+                        $run_current_num = mysqli_query($connection, $get_current_num);
+                        $row_current = mysqli_fetch_array($run_current_num);
+                        ?>
+                        <span id="col_h16" class="hr_output"><?php echo $row_current['quantity']; ?></span>
+                        <span class="text-primary">/</span>
+                        <span id="col_hf16" class="hr_output2"><?php echo $row['16'] ?></span>
+                    </td>
+                    <td class="hourcell">
+                        <span id='pn_17' class="pn_now"><?php echo $row['pn_17'] ?></span>
+                        <input id="inputValue_12" class="form-control hr_input" type="number" name="value" style="min-width: 8rem;" />
+                        <button onclick="getSnackbar(this, 12);" data-item='<?php echo $row['pn_17'] ?>' data-maquina="<?php echo $row['asset_id']; ?>" data-hr="17" type="button" id="17" class="tablahrxhr btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                        <?php
+                        $get_current_num = "SELECT SUM(reg_qty) AS quantity FROM hour_registry WHERE reg_order_id = {$row['plan_id']} AND reg_time_block = 17";
+                        $run_current_num = mysqli_query($connection, $get_current_num);
+                        $row_current = mysqli_fetch_array($run_current_num);
+                        ?>
+                        <span id="col_h17" class="hr_output"><?php echo $row_current['quantity']; ?></span>
+                        <span class="text-primary">/</span>
+                        <span id="col_hf17" class="hr_output2"><?php echo $row['17'] ?></span>
+                    </td>
+                    <td class="hourcell">
+                        <span id='pn_18' class="pn_now"><?php echo $row['pn_18'] ?></span>
+                        <input id="inputValue_13" class="form-control hr_input" type="number" name="value" style="min-width: 8rem;" />
+                        <button onclick="getSnackbar(this, 13);" data-item='<?php echo $row['pn_18'] ?>' data-maquina="<?php echo $row['asset_id']; ?>" data-hr="18" type="button" id="18" class="tablahrxhr btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                        <?php
+                        $get_current_num = "SELECT SUM(reg_qty) AS quantity FROM hour_registry WHERE reg_order_id = {$row['plan_id']} AND reg_time_block = 18";
+                        $run_current_num = mysqli_query($connection, $get_current_num);
+                        $row_current = mysqli_fetch_array($run_current_num);
+                        ?>
+                        <span id="col_h18" class="hr_output"><?php echo $row_current['quantity']; ?></span>
+                        <span class="text-primary">/</span>
+                        <span id="col_hf18" class="hr_output2"><?php echo $row['18'] ?></span>
+                    </td>
+                    <td class="hourcell">
+                        <span id='pn_19' class="pn_now"><?php echo $row['pn_19'] ?></span>
+                        <input id="inputValue_14" class="form-control hr_input" type="number" name="value" style="min-width: 8rem;" />
+                        <button onclick="getSnackbar(this, 14);" data-item='<?php echo $row['pn_19'] ?>' data-maquina="<?php echo $row['asset_id']; ?>" data-hr="19" type="button" id="19" class="tablahrxhr btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                        <?php
+                        $get_current_num = "SELECT SUM(reg_qty) AS quantity FROM hour_registry WHERE reg_order_id = {$row['plan_id']} AND reg_time_block = 19";
+                        $run_current_num = mysqli_query($connection, $get_current_num);
+                        $row_current = mysqli_fetch_array($run_current_num);
+                        ?>
+                        <span id="col_h19" class="hr_output"><?php echo $row_current['quantity']; ?></span>
+                        <span class="text-primary">/</span>
+                        <span id="col_hf19" class="hr_output2"><?php echo $row['19'] ?></span>
+                    </td>
+                    <td class="hourcell">
+                        <span id='pn_20' class="pn_now"><?php echo $row['pn_20'] ?></span>
+                        <input id="inputValue_15" class="form-control hr_input" type="number" name="value" style="min-width: 8rem;" />
+                        <button onclick="getSnackbar(this, 15);" data-item='<?php echo $row['pn_20'] ?>' data-maquina="<?php echo $row['asset_id']; ?>" data-hr="20" type="button" id="20" class="tablahrxhr btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                        <?php
+                        $get_current_num = "SELECT SUM(reg_qty) AS quantity FROM hour_registry WHERE reg_order_id = {$row['plan_id']} AND reg_time_block = 20";
+                        $run_current_num = mysqli_query($connection, $get_current_num);
+                        $row_current = mysqli_fetch_array($run_current_num);
+                        ?>
+                        <span id="col_h20" class="hr_output"><?php echo $row_current['quantity']; ?></span>
+                        <span class="text-primary">/</span>
+                        <span id="col_hf20" class="hr_output2"><?php echo $row['20'] ?></span>
+                    </td>
+                    <td class="hourcell">
+                        <span id='pn_21' class="pn_now"><?php echo $row['pn_21'] ?></span>
+                        <input id="inputValue_16" class="form-control hr_input" type="number" name="value" style="min-width: 8rem;" />
+                        <button onclick="getSnackbar(this, 16);" data-item='<?php echo $row['pn_21'] ?>' data-maquina="<?php echo $row['asset_id']; ?>" data-hr="21" type="button" id="21" class="tablahrxhr btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                        <?php
+                        $get_current_num = "SELECT SUM(reg_qty) AS quantity FROM hour_registry WHERE reg_order_id = {$row['plan_id']} AND reg_time_block = 21";
+                        $run_current_num = mysqli_query($connection, $get_current_num);
+                        $row_current = mysqli_fetch_array($run_current_num);
+                        ?>
+                        <span id="col_h21" class="hr_output"><?php echo $row_current['quantity']; ?></span>
+                        <span class="text-primary">/</span>
+                        <span id="col_hf21" class="hr_output2"><?php echo $row['21'] ?></span>
+                    </td>
+                    <td class="hourcell">
+                        <span id='pn_22' class="pn_now"><?php echo $row['pn_22'] ?></span>
+                        <input id="inputValue_17" class="form-control hr_input" type="number" name="value" style="min-width: 8rem;" />
+                        <button onclick="getSnackbar(this, 17);" data-item='<?php echo $row['pn_22'] ?>' data-maquina="<?php echo $row['asset_id']; ?>" data-hr="22" type="button" id="22" class="tablahrxhr btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                        <?php
+                        $get_current_num = "SELECT SUM(reg_qty) AS quantity FROM hour_registry WHERE reg_order_id = {$row['plan_id']} AND reg_time_block = 22";
+                        $run_current_num = mysqli_query($connection, $get_current_num);
+                        $row_current = mysqli_fetch_array($run_current_num);
+                        ?>
+                        <span id="col_h22" class="hr_output"><?php echo $row_current['quantity']; ?></span>
+                        <span class="text-primary">/</span>
+                        <span id="col_hf22" class="hr_output2"><?php echo $row['22'] ?></span>
+                    </td>
+                    <td class="hourcell">
+                        <span id='pn_23' class="pn_now"><?php echo $row['pn_23'] ?></span>
+                        <input id="inputValue_18" class="form-control hr_input" type="number" name="value" style="min-width: 8rem;" />
+                        <button onclick="getSnackbar(this, 18);" data-item='<?php echo $row['pn_23'] ?>' data-maquina="<?php echo $row['asset_id']; ?>" data-hr="23" type="button" id="23" class="tablahrxhr btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                        <?php
+                        $get_current_num = "SELECT SUM(reg_qty) AS quantity FROM hour_registry WHERE reg_order_id = {$row['plan_id']} AND reg_time_block = 23";
+                        $run_current_num = mysqli_query($connection, $get_current_num);
+                        $row_current = mysqli_fetch_array($run_current_num);
+                        ?>
+                        <span id="col_h23" class="hr_output"><?php echo $row_current['quantity']; ?></span>
+                        <span class="text-primary">/</span>
+                        <span id="col_hf23" class="hr_output2"><?php echo $row['23'] ?></span>
+                    </td>
+                    <td class="hourcell">
+                        <span id='pn_0' class="pn_now"><?php echo $row['pn_0'] ?></span>
+                        <input id="inputValue_19" class="form-control hr_input" type="number" name="value" style="min-width: 8rem;" />
+                        <button onclick="getSnackbar(this, 19);" data-item='<?php echo $row['pn_0'] ?>' data-maquina="<?php echo $row['asset_id']; ?>" data-hr="0" type="button" id="0" class="tablahrxhr btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                        <?php
+                        $get_current_num = "SELECT SUM(reg_qty) AS quantity FROM hour_registry WHERE reg_order_id = {$row['plan_id']} AND reg_time_block = 0";
+                        $run_current_num = mysqli_query($connection, $get_current_num);
+                        $row_current = mysqli_fetch_array($run_current_num);
+                        ?>
+                        <span id="col_h0" class="hr_output"><?php echo $row_current['quantity']; ?></span>
+                        <span class="text-primary">/</span>
+                        <span id="col_hf0" class="hr_output2"><?php echo $row['0'] ?></span>
+                    </td>
+                    <td class="hourcell">
+                        <span id='pn_1' class="pn_now"><?php echo $row['pn_1'] ?></span>
+                        <input id="inputValue_20" class="form-control hr_input" type="number" name="value" style="min-width: 8rem;" />
+                        <button onclick="getSnackbar(this, 20);" data-item='<?php echo $row['pn_1'] ?>' data-maquina="<?php echo $row['asset_id']; ?>" data-hr="1" type="button" id="1" class="tablahrxhr btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                        <?php
+                        $get_current_num = "SELECT SUM(reg_qty) AS quantity FROM hour_registry WHERE reg_order_id = {$row['plan_id']} AND reg_time_block = 1";
+                        $run_current_num = mysqli_query($connection, $get_current_num);
+                        $row_current = mysqli_fetch_array($run_current_num);
+                        ?>
+                        <span id="col_h1" class="hr_output"><?php echo $row_current['quantity']; ?></span>
+                        <span class="text-primary">/</span>
+                        <span id="col_hf1" class="hr_output2"><?php echo $row['1'] ?></span>
+                    </td>
+                    <td class="hourcell">
+                        <span id='pn_2' class="pn_now"><?php echo $row['pn_2'] ?></span>
+                        <input id="inputValue_21" class="form-control hr_input" type="number" name="value" style="min-width: 8rem;" />
+                        <button onclick="getSnackbar(this, 21);" data-item='<?php echo $row['pn_2'] ?>' data-maquina="<?php echo $row['asset_id']; ?>" data-hr="2" type="button" id="2" class="tablahrxhr btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                        <?php
+                        $get_current_num = "SELECT SUM(reg_qty) AS quantity FROM hour_registry WHERE reg_order_id = {$row['plan_id']} AND reg_time_block = 2";
+                        $run_current_num = mysqli_query($connection, $get_current_num);
+                        $row_current = mysqli_fetch_array($run_current_num);
+                        ?>
+                        <span id="col_h2" class="hr_output"><?php echo $row_current['quantity']; ?></span>
+                        <span class="text-primary">/</span>
+                        <span id="col_hf2" class="hr_output2"><?php echo $row['2'] ?></span>
+                    </td>
+                    <td class="hourcell">
+                        <span id='pn_3' class="pn_now"><?php echo $row['pn_3'] ?></span>
+                        <input id="inputValue_22" class="form-control hr_input" type="number" name="value" style="min-width: 8rem;" />
+                        <button onclick="getSnackbar(this, 22);" data-item='<?php echo $row['pn_3'] ?>' data-maquina="<?php echo $row['asset_id']; ?>" data-hr="3" type="button" id="3" class="tablahrxhr btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                        <?php
+                        $get_current_num = "SELECT SUM(reg_qty) AS quantity FROM hour_registry WHERE reg_order_id = {$row['plan_id']} AND reg_time_block = 3";
+                        $run_current_num = mysqli_query($connection, $get_current_num);
+                        $row_current = mysqli_fetch_array($run_current_num);
+                        ?>
+                        <span id="col_h3" class="hr_output"><?php echo $row_current['quantity']; ?></span>
+                        <span class="text-primary">/</span>
+                        <span id="col_hf3" class="hr_output2"><?php echo $row['3'] ?></span>
+                    </td>
+                    <td class="hourcell">
+                        <span id='pn_4' class="pn_now"><?php echo $row['pn_4'] ?></span>
+                        <input id="inputValue_23" class="form-control hr_input" type="number" name="value" style="min-width: 8rem;" />
+                        <button onclick="getSnackbar(this, 23);" data-item='<?php echo $row['pn_4'] ?>' data-maquina="<?php echo $row['asset_id']; ?>" data-hr="4" type="button" id="4" class="tablahrxhr btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                        <?php
+                        $get_current_num = "SELECT SUM(reg_qty) AS quantity FROM hour_registry WHERE reg_order_id = {$row['plan_id']} AND reg_time_block = 4";
+                        $run_current_num = mysqli_query($connection, $get_current_num);
+                        $row_current = mysqli_fetch_array($run_current_num);
+                        ?>
+                        <span id="col_h4" class="hr_output"><?php echo $row_current['quantity']; ?></span>
+                        <span class="text-primary">/</span>
+                        <span id="col_hf4" class="hr_output2"><?php echo $row['4'] ?></span>
+                    </td>
+                    <td class="hourcell">
+                        <span id='pn_5' data_item="item_number" class="pn_now"><?php echo $row['pn_5'] ?></span>
+                        <input id="inputValue_24" class="form-control hr_input" type="number" name="value" style="min-width: 8rem;" />
+                        <button onclick="getSnackbar(this, 24);" data-item='<?php echo $row['pn_5'] ?>' data-maquina="<?php echo $row['asset_id']; ?>" data-hr="5" type="button" id="5" class="tablahrxhr btn btn-raised-primary shadow-5 ripple-info w-100 m-auto d-block mt-1">Guardar</button>
+                        <?php
+                        $get_current_num = "SELECT SUM(reg_qty) AS quantity FROM hour_registry WHERE reg_order_id = {$row['plan_id']} AND reg_time_block = 5";
+                        $run_current_num = mysqli_query($connection, $get_current_num);
+                        $row_current = mysqli_fetch_array($run_current_num);
+                        ?>
+                        <span id="col_h5" class="hr_output"><?php echo $row_current['quantity']; ?></span>
+                        <span class="text-primary">/</span>
+                        <span id="col_hf5" class="hr_output2"><?php echo $row['5'] ?></span>
+                    </td>
+                </tr>
+            <?php endwhile; ?>
         </tbody>
     </table>
     <mwc-snackbar id="snackbarAlert" labeltext="">
