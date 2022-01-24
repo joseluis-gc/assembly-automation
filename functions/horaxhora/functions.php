@@ -20,7 +20,7 @@ function getQuantity($row, $id, $cont_input)
 
 function getStation($row, $hour)
 {
-    if ($row['pn_' . $hour] = 'pn_0') {
+    if ($row['pn_' . $hour] === 'pn_0') {
         $response = <<<DELIMETER
         <div>
         <p>{$row['asset_name']}</p>

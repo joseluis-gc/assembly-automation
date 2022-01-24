@@ -73,7 +73,6 @@
                     "plan": get_plan
                 })
             }).done(function(response) {
-                console.log({response})
                 var set_response = document.querySelector('#id_new_quantity_' + get_id_wrapper);
                 var get_quantity = document.querySelector('#id_quantity_' + get_id_wrapper).innerHTML;
 
