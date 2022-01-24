@@ -4,7 +4,7 @@
 <footer class="py-4 mt-auto border-top" style="min-height: 74px">
     <div class="container-xl px-5">
         <div class="d-flex flex-column flex-sm-row align-items-center justify-content-sm-between small">
-            <div class="me-sm-2">Copyright &copy; Your Website 2021</div>
+            <div class="me-sm-2">Copyright &copy; MARTECH 2022</div>
             <div class="d-flex ms-sm-2">
                 <a class="text-decoration-none" href="#!">Privacy Policy</a>
                 <div class="mx-1">&middot;</div>
@@ -31,73 +31,84 @@
 <script src="views/_assets/js/datatables/datatables-simple-demo.js"></script>
 <!-- Load Chart.js via CDN-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.0.0-beta.10/chart.min.js" crossorigin="anonymous"></script>
-<!-- Load Chart.js customized defaults-->
-<script src="views/_assets/js/charts/chart-defaults.js"></script>
 <!-- Load demo bar charts-->
 <script src="views/_assets/js/charts/andon-charts.js"></script>
 
 
 <script>
-    $(".tablahrxhr").click(function postinput(id) {
-        console.log(this.id)
+    $(".tablahrxhr").click(function postinput(element, id) {
+        var id = this.id;
+        var object = element.target;
+        var get_maquina = object.getAttribute('data-maquina');
+        var get_items = object.getAttribute('data-item');
+        var get_hr = object.getAttribute('data-hr');
+        var get_id_wrapper = object.getAttribute('data-wrapper');
+        var method = "POST";
+        var url_update = "functions/horaxhora/update.php"
+        var url_item_name = "functions/horaxhora/update_item.php"
+        var url_read = "functions/horaxhora/read.php"
+        var get_value = document.querySelector("#inputValue_" + get_id_wrapper).value;
+        var get_plan = object.getAttribute('data-plan');
 
-        var pn = document.getElementsByClassName('pn_now');
-        var number_item = $(this).data("item");
-        var maquina = $(this).data("maquina");
-        var hora = $(this).data("hr");
-        var value = $(this).closest("td.hourcell").find("input[name='value']").val();
-        var div_id = $(this).closest('td').find('.hr_output').attr('id');
-        var div_id2 = $(this).closest('td').find('.hr_output2').attr('id');
-        var id_item = $(this).closest('td').find('.pn_now').attr('id');
-        var data = document.querySelector(".pn_now").innerHTML;
-
-        console.log({div_id2})
+        console.log("ID>", id);
+        console.log("VALUE>", get_value);
+        console.log("ITEM>", get_items);
+        console.log("PLAN>", get_plan);
 
         $.ajax({
             type: 'POST',
-            url: 'functions/horaxhora/update.php',
+            url: url_update,
             data: ({
-                "maquina": maquina,
-                "hr": hora,
-                "value": value,
-                "id": id_item,
-                "number_item": number_item
+                "id": id,
+                "hr": get_hr,
+                "value": get_value,
+                "item_name": get_items,
+                "maquina": get_maquina,
+                "plan": get_plan
             }),
-        }).done(function(responseData) {
-            $('.hourcell').find("input[name='value']").val('');
+        }).done(function(response) {
+            console.log({response})
             $.ajax({
-                type: 'POST',
-                url: 'functions/horaxhora/read.php',
+                type: method,
+                url: url_read,
                 data: ({
-                    "maquina": maquina,
-                    "hr": hora,
-                    "id": id_item,
-                    "number_item": number_item
-                }),
-            }).done(function(responseData) {
-                $('#' + div_id).html(responseData);
+                    "id": id,
+                    "hr": get_hr,
+                    "item_name": get_items,
+                    "maquina": get_maquina,
+                    "plan": get_plan
+                })
+            }).done(function(response) {
+                console.log({response})
+                var set_response = document.querySelector('#id_new_quantity_' + id);
+                var get_quantity = document.querySelector('#id_quantity_' + id).innerHTML;
 
-            }).fail(function() {
-                console.log('Failed');
-            });
-        }).fail(function() {
-            console.log('Failed');
-        }).done(function() {
+                set_response.innerHTML = response;
+                
+            }).fail(function(e) {
+                console.log("Error: ", e);
+            })
+        }).done(function(response) {
             $.ajax({
-                type: 'POST',
-                url: 'functions/horaxhora/update_item.php',
+                type: method,
+                url: url_item_name,
                 data: ({
-                    "maquina": maquina,
-                    "id": id_item,
-                    "number_item": number_item
-                }),
-            }).done(function(data) {
-                $('#' + id_item).html(data);
-            }).fail(function() {
-                console.log('Failed');
-            });
+                    "id": id,
+                    "hr": get_hr,
+                    "value": get_value,
+                    "item_name": get_items,
+                    "maquina": get_maquina,
+                })
+            }).done(function(response) {
+                console.log({response})
+                var set_response = document.querySelector('#id_' + get_id_wrapper);
+                set_response.innerHTML = response;
+            }).fail(function(e) {
+                console.log("Error: ", e);
+            })
         })
-    });  
+
+    })
 </script>
 </body>
 

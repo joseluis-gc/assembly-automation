@@ -1,17 +1,18 @@
 <?php
 require_once "../../_settings/db.php";
 
-$maquina = $_POST['maquina'];
 $id = $_POST['id'];
-$number_item = $_POST['number_item'];
+$date = date("Y-m-d H:i:s");
+$get_value = $_POST['value'];
+$get_hr = $_POST['hr'];
+$maquina = $_POST['maquina'];
+$item_name = $_POST['item_name'];
 
-$query = "SELECT * FROM plan_hrxhr WHERE plan_asset = '".$maquina."' ";
-$result = mysqli_query($connection, $query);
-if(!$result){
-    die("Failed $query");
+$query_item_name = "SELECT * FROM plan_hrxhr WHERE plan_asset = ".$maquina."";
+$result_item_name = mysqli_query($connection, $query_item_name);
+if (!$result_item_name) {
+    die("Failed $query_item_name");
 }
-$row = mysqli_fetch_array($result);
-$order = $row['plan_id'];
-$item_number = $row[$id];
+$row = mysqli_fetch_array($result_item_name);
 
-echo $item_number;
+echo $row['pn_'.$id];
