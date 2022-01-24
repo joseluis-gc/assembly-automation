@@ -50,11 +50,6 @@
         var get_value = document.querySelector("#inputValue_" + get_id_wrapper).value;
         var get_plan = object.getAttribute('data-plan');
 
-        console.log("ID>", id);
-        console.log("VALUE>", get_value);
-        console.log("ITEM>", get_items);
-        console.log("PLAN>", get_plan);
-
         $.ajax({
             type: 'POST',
             url: url_update,
@@ -67,7 +62,6 @@
                 "plan": get_plan
             }),
         }).done(function(response) {
-            console.log({response})
             $.ajax({
                 type: method,
                 url: url_read,
@@ -80,8 +74,8 @@
                 })
             }).done(function(response) {
                 console.log({response})
-                var set_response = document.querySelector('#id_new_quantity_' + id);
-                var get_quantity = document.querySelector('#id_quantity_' + id).innerHTML;
+                var set_response = document.querySelector('#id_new_quantity_' + get_id_wrapper);
+                var get_quantity = document.querySelector('#id_quantity_' + get_id_wrapper).innerHTML;
 
                 set_response.innerHTML = response;
                 
@@ -100,8 +94,8 @@
                     "maquina": get_maquina,
                 })
             }).done(function(response) {
-                console.log({response})
                 var set_response = document.querySelector('#id_' + get_id_wrapper);
+
                 set_response.innerHTML = response;
             }).fail(function(e) {
                 console.log("Error: ", e);

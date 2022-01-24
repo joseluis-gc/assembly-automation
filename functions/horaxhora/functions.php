@@ -1,7 +1,7 @@
 <?php
 require_once("_settings/db.php");
 
-function getQuantity($row, $id)
+function getQuantity($row, $id, $cont_input)
 {
     global $connection;
 
@@ -10,9 +10,9 @@ function getQuantity($row, $id)
     $row_current = mysqli_fetch_array($run_current_num);
 
     $response = <<<DELIMETER
-        <span id='id_new_quantity_$id'>{$row_current['quantity']}</span>
+        <span id='id_new_quantity_$cont_input'>{$row_current['quantity']}</span>
         <span class="text-primary">/</span>
-        <span id="id_quantity_$id">{$row[$id]}</span>
+        <span id="id_quantity_$cont_input">{$row[$id]}</span>
    DELIMETER;
 
     echo $response;
