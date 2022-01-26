@@ -9,7 +9,6 @@ $id = $_POST['id'];
 $plan = $_POST['plan'];
 $item_name = $_POST['item_name'];
 
-//$query_order = "SELECT * FROM hr_plan WHERE plan_asset = '".$maquina."' AND status = 1";
 $query_order = "SELECT * FROM plan_hrxhr WHERE plan_asset = " . $maquina . " AND (status = 0 OR status = 1)";
 $run_query_order = mysqli_query($connection, $query_order);
 if (!$run_query_order) {

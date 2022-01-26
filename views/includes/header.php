@@ -8,7 +8,7 @@
     <meta name="author" content="" />
     <title>Assembly - Automation</title>
     <!-- Load Favicon-->
-    <link href="views/_assets/assets/img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="views/_assets/img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <!-- Load Material Icons from Google Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet" />
     <!-- Load Simple DataTables Stylesheet-->
