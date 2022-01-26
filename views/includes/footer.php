@@ -49,6 +49,8 @@
         var url_read = "functions/horaxhora/read.php"
         var get_value = document.querySelector("#inputValue_" + get_id_wrapper).value;
         var get_plan = object.getAttribute('data-plan');
+        var input_change = document.querySelector('#item_name_input_' + get_id_wrapper);
+        var input_value = input_change.value;
 
         $.ajax({
             type: 'POST',
@@ -70,14 +72,14 @@
                     "hr": get_hr,
                     "item_name": get_items,
                     "maquina": get_maquina,
-                    "plan": get_plan
+                    "plan": get_plan,
+                    "value": get_value,
+                    "input_value": input_value
                 })
             }).done(function(response) {
-                var set_response = document.querySelector('#id_new_quantity_' + get_id_wrapper);
-                var get_quantity = document.querySelector('#id_quantity_' + get_id_wrapper).innerHTML;
+                var set_response = document.querySelector('#id_new_quantity_' + get_id_wrapper);        
 
                 set_response.innerHTML = response;
-                
             }).fail(function(e) {
                 console.log("Error: ", e);
             })
@@ -93,9 +95,9 @@
                     "maquina": get_maquina,
                 })
             }).done(function(response) {
-                var set_response = document.querySelector('#id_' + get_id_wrapper);
+                var set_response = document.querySelector('#item_name_input_' + get_id_wrapper);
 
-                set_response.innerHTML = response;
+                set_response.value = response;
             }).fail(function(e) {
                 console.log("Error: ", e);
             })
