@@ -29,6 +29,10 @@ if (!empty($page)) {
             include ("views/trigger/trigger_report.php");
             break;
 
+        case "andon_main":
+            include ("views/andon/andon_main.php");
+            break;
+
         default:
             include ("views/auth/login.php");
             break;
