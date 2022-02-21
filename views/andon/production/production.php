@@ -16,7 +16,7 @@
     <main class="container-fluid p-0">
         <table id="datatablesSimple" class="table text-center fs-6">
             <thead>
-                <tr class="bg-light">
+                <tr class="bg-light h4">
                     <th class="text-center fw-bold">Output</th>
                     <th class="text-center fw-bold">Order no.</th>
                     <th class="text-center fw-bold">Part no.</th>
@@ -26,35 +26,35 @@
             </thead>
             <tbody>
                 <tr>
-                    <td class="fw-bold text-primary">TIP30</td>
-                    <td>AC1002HF</td>
-                    <td> AC1830B-C</td>
-                    <td><span class="fw-bold text-success">10</span>/200</td>
-                    <td class="table-warning">
-                        <span class="fw-bold">SetUp</span><br>
-                        En proceso <br>
-                        <span style="font-size: 0.8rem; font-weight: bold;">
+                    <td class="fw-bold text-primary h4">TIP30</td>
+                    <td class="h4">AC1002HF</td>
+                    <td class="h4"> AC1830B-C</td>
+                    <td class="h4"><span class="fw-bold text-success">10</span>/200</td>
+                    <td class="bg-warning bg-gradient text-black">
+                        <span class="fw-bold h4">SetUp</span><br>
+                        <span class="fs-5">En proceso</span> <br>
+                        <span style="font-size: 1rem; font-weight: bold;">
                             47 dia(s), 22 hora(s), 46 minuto(s), 3 segundo(s) activo
                         </span>
                         <br>
-                        <span style="font-size: 0.8rem; font-weight: bold;">Atendido por:</span>
-                        <span style="font-size: 0.8rem;" class="text-danger fw-bold">JGomez</span>
+                        <span style="font-size: 1rem; font-weight: bold;">Atendido por:</span>
+                        <span style="font-size: 1rem;" class="text-danger fw-bold">JGomez</span>
                     </td>
                 </tr>
                 <tr>
-                    <td class="fw-bold text-primary">TIP32</td>
-                    <td>AC1002HF</td>
-                    <td> AC1830B-C</td>
-                    <td><span class="fw-bold text-success">20</span>/50</td>
-                    <td class="table-danger">
-                        <span class="fw-bold">Falta de material</span><br>
-                        En proceso <br>
-                        <span style="font-size: 0.8rem; font-weight: bold;">
+                    <td class="fw-bold text-primary h4">TIP32</td>
+                    <td class="h4">AC1002HF</td>
+                    <td class="h4"> AC1830B-C</td>
+                    <td class="h4"><span class="fw-bold text-success">20</span>/50</td>
+                    <td class="bg-danger bg-gradient text-black">
+                        <span class="fw-bold h4">Falta de material</span><br>
+                        <span class="fs-5">En proceso</span> <br>
+                        <span style="font-size: 1rem; font-weight: bold;">
                             47 dia(s), 22 hora(s), 46 minuto(s), 3 segundo(s) activo
                         </span>
                         <br>
-                        <span style="font-size: 0.8rem; font-weight: bold;">Atendido por:</span>
-                        <span style="font-size: 0.8rem;" class="text-danger fw-bold">JGomez</span>
+                        <span style="font-size: 1rem; font-weight: bold;">Atendido por:</span>
+                        <span style="font-size: 1rem;" class="fw-bold">JGomez</span>
                     </td>
                 </tr>
             </tbody>

@@ -28,7 +28,7 @@
                         <h6 class="fw-bold">Pantallas</h6>
                         <p>Pantallas en el piso de Producción, reflejan el estado de las maquinas.</p>
                         <div class="btn-group w-100 mt-4">
-                            <div class="btn btn-primary m-auto w-100 d-block">Ingresar</div>
+                        <a href="index.php?page=screen_production" class="btn btn-primary m-auto w-100 d-block">Ingresar</a>
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -38,7 +38,7 @@
                         <h6 class="fw-bold">Pantallas</h6>
                         <p>Pantallas por departamento, reflejan el estado de cada departamento.</p>
                         <div class="btn-group w-100 mt-4">
-                            <div class="btn btn-primary m-auto w-100 d-block">Ingresar</div>
+                        <a href="index.php?page=screen_department" class="btn btn-primary m-auto w-100 d-block">Ingresar</a>
                         </div>
                     </div>
                     <div class="col-md-3">

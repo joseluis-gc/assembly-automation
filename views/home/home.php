@@ -5,7 +5,7 @@
                 <h1 class="display-4 mb-0">Panel de control</h1>
                 <div class="text-muted">Aplicaciones Disponibles</div>
             </div>
-            <div class="col-12 col-md-auto">
+            <!-- <div class="col-12 col-md-auto">
                 <div class="d-flex flex-column flex-sm-row gap-3">
                     <mwc-select class="mw-50 mb-2 mb-md-0" outlined label="View by">
                         <mwc-list-item selected value="0">Order type</mwc-list-item>
@@ -19,19 +19,19 @@
                         <mwc-list-item selected value="3">Last year</mwc-list-item>
                     </mwc-select>
                 </div>
-            </div>
+            </div> -->
         </div>
         <!-- Colored status cards-->
         <div class="row gx-5">
             <div class="col-xxl-3 col-md-6 mb-5">
-                <div class="card card-raised border-start border-primary border-4">
+                <div class="card card-raised border-start bg-primary border-4">
                     <div class="card-body px-4">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
+                        <div class="d-flex justify-content-between text-white align-items-center mb-2">
                             <div class="me-2">
-                                <div class="display-5">Andon</div>
+                                <div class="display-5 text-white">Andon</div>
                                 <div class="card-text">Interrupciones de flujo</div>
                             </div>
-                            <div class="icon-circle bg-primary text-white"><i class="material-icons">download</i></div>
+                            <div class="icon-circle bg-white-50 text-white"><i class="material-icons">space_dashboard</i></div>
                         </div>
                         <!--
                         <div class="card-text">
@@ -46,14 +46,14 @@
                 </div>
             </div>
             <div class="col-xxl-3 col-md-6 mb-5">
-                <div class="card card-raised border-start border-info border-4">
+                <div class="card card-raised border-start bg-info border-4">
                     <div class="card-body px-4">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
+                        <div class="d-flex justify-content-between text-white align-items-center mb-2">
                             <div class="me-2">
-                                <div class="display-5">Hora x Hora</div>
+                                <div class="display-5 text-white">Hora x Hora</div>
                                 <div class="card-text">Seguimiento</div>
                             </div>
-                            <div class="icon-circle bg-info text-white"><i class="material-icons">storefront</i></div>
+                            <div class="icon-circle bg-white-50 text-white"><i class="material-icons">pending_actions</i></div>
                         </div>
                         <!--
                         <div class="card-text">
@@ -164,7 +164,7 @@
                                 <h2 class="card-title mb-0">Interrupciones</h2>
                                 <div class="card-subtitle">Alertas</div>
                             </div>
-                            <div class="dropdown">
+                            <!-- <div class="dropdown">
                                 <button class="btn btn-lg btn-text-gray btn-icon me-n2 dropdown-toggle" id="segmentsDropdownButton" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></button>
                                 <ul class="dropdown-menu" aria-labelledby="segmentsDropdownButton">
                                     <li><a class="dropdown-item" href="#!">Action</a></li>
@@ -174,12 +174,13 @@
                                     <li><a class="dropdown-item" href="#!">Separated link</a></li>
                                     <li><a class="dropdown-item" href="#!">Separated link</a></li>
                                 </ul>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
-                    <div class="card-body p-4">
+                    <div class="card-body">
                         <div class="d-flex h-100 w-100 align-items-center justify-content-center">
-                            <div class="w-100" style="max-width: 20rem"><canvas id="myPieChart"></canvas></div>
+                            <div class="w-100" style="max-width: 20rem"><canvas id="myPieChart_HoraxHora"></canvas></div>
+
                         </div>
                     </div>
                     <div class="card-footer bg-transparent position-relative ripple-gray">
@@ -191,8 +192,7 @@
                 </div>
             </div>
         </div>
-        <div class="row gx-5">
-            <!-- Privacy suggestions illustrated card-->
+        <!-- <div class="row gx-5">
             <div class="col-xl-6 mb-5">
                 <div class="card card-raised h-100">
                     <div class="card-body p-4">
@@ -207,7 +207,6 @@
                     <div class="card-footer bg-transparent position-relative ripple-gray px-4"><a class="stretched-link text-decoration-none" href="#!">Review suggestions (4)</a></div>
                 </div>
             </div>
-            <!-- Account storage illustrated card-->
             <div class="col-xl-6 mb-5">
                 <div class="card card-raised h-100">
                     <div class="card-body p-4">
@@ -239,7 +238,6 @@
                 </div>
             </div>
             <div class="card-body p-4">
-                <!-- Simple DataTables example-->
                 <table id="datatablesSimple">
                     <thead>
                     <tr>
@@ -269,5 +267,5 @@
                     </tbody>
                 </table>
             </div>
-        </div>
+        </div> -->
     </div>

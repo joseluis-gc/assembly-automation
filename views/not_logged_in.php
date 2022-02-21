@@ -33,6 +33,22 @@ if (!empty($page)) {
             include ("views/andon/andon_main.php");
             break;
 
+        case "production":
+            include ("views/andon/production/production.php");
+            break;
+
+        case "screen_production":
+            include ("views/andon/production/select_screen_production.php");
+            break;
+
+        case "department":
+            include ("views/andon/production/department.php");
+            break;
+    
+        case "screen_department":
+            include ("views/andon/production/select_screen_department.php");
+            break;
+    
         default:
             include ("views/auth/login.php");
             break;
