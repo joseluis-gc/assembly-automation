@@ -13,7 +13,9 @@ if(isset($_GET['plan_site']) && is_numeric($_GET['plan_site'])) {
     <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 gx-5">
 
         <?php
-        $query = "SELECT * FROM assets INNER JOIN plan_hrxhr ON plan_asset = asset_id WHERE asset_site = $plan_site AND pom = 1";
+        $shift = getShift();
+        //$query = "SELECT * FROM assets INNER JOIN plan_hrxhr ON plan_asset = asset_id WHERE asset_site = $plan_site AND pom = 1";
+        $query = "SELECT * FROM assets INNER JOIN plan_hrxhr ON plan_asset = asset_id WHERE asset_site = $plan_site AND pom = 1 AND shift = $shift ";
         $result = mysqli_query($connection,$query);
         if(!$result):
 
