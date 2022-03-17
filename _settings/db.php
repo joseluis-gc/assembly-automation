@@ -8,5 +8,5 @@ const DB_NAME = 'andonv2';
 
 $connection = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 if(!$connection){
-    die("DB Connection Failed  :(");
+    die("DB Connection Failed");
 }

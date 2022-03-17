@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
+    <!-- Title -->
     <title>Assembly - Automation</title>
     <!-- Load Favicon-->
     <link href="views/_assets/img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
@@ -22,4 +24,5 @@
     <!--sweet alert-->
     <script src="views/_assets/js/swal/swal.js"></script>
 </head>
+
 <body class="nav-fixed bg-light">

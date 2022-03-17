@@ -78,18 +78,25 @@ if (!empty($page)) {
             include("views/andon/machines.php");
             break;
 
+        case "daily_report":
+            include("views/hr/report/daily_report.php");
+            break;
+
+        case "custom_report":
+            include("views/hr/report/custom_report.php");
+            break;
+
+
         default:
             include("views/home/home.php");
             break;
     }
 } elseif (isset($_SESSION['newsession'])) {
-    $_SESSION['newsession'] = $value;
-    include("views/andon/dashboard.php");
-} elseif (!isset($_SESSION['newsession'])) {
-    $_SESSION['newsession'] = $dashboard;
-    include("views/home/home.php");
-} else {
-    include("views/home/home.php");
+    if ($_SESSION['newsession'] == 'dashboard') {
+        include("views/home/home.php");
+    } else {
+        include("views/andon/dashboard.php");
+    }
 }
 
 include_once("includes/footer.php");

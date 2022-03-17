@@ -142,7 +142,7 @@ if (isset($response)) {
                         <input type="number" class="hc" name="hc_7" id="hc_2" onkeyup="calculatedQtyByHr(2)" />
                     </td>
                     <td>
-                        <input style="min-width: 10rem; border: 0; background-color: transparent;" on="calculatedQtyByHr(2)" id="input_item_number_2" onchange="getValueSelectedItemNumber(this, 2);" placeholder="Select" type="text" list="pn" name="partno_7" class="form-control" />
+                        <input style="min-width: 10rem; border: 0; background-color: transparent;" onkeyup="calculatedQtyByHr(2)" id="input_item_number_2" onchange="getValueSelectedItemNumber(this, 2);" placeholder="Select" type="text" list="pn" name="partno_7" class="form-control" />
                         <datalist id="pn"></datalist>
                     </td>
                     <td>
