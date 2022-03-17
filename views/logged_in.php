@@ -97,6 +97,8 @@ if (!empty($page)) {
     } else {
         include("views/andon/dashboard.php");
     }
+} else {
+    include("views/home/home.php");
 }
 
 include_once("includes/footer.php");
