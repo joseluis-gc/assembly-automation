@@ -1,3 +1,7 @@
+<?php
+require_once "classes/models/PlantModel.php";
+?>
+
 <div class="container">
     <div class="card card-raised">
         <div class="card-header bg-transparent px-4">
@@ -31,32 +35,30 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Planta 3</td>
-                        <td>
-                            <a href="" class="btn btn-warning">
-                                <i class="material-icons icon-sm me-1 text-light">edit</i>
-                            </a>
-                            <a href="" class="btn btn-danger">
-                                <i class="material-icons icon-sm me-1">delete</i>
 
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>8</td>
-                        <td>Planta 6</td>
-                        <td>
-                            <a href="" class="btn btn-warning">
-                                <i class="material-icons icon-sm me-1 text-light">edit</i>
-                            </a>
-                            <a href="" class="btn btn-danger">
-                                <i class="material-icons icon-sm me-1">delete</i>
 
-                            </a>
-                        </td>
-                    </tr>
+                    <?php 
+
+                        $plantModel = new PlantModel;                    
+                        foreach($plantModel->getAll() as $plant)
+                        {
+                            echo <<<OUT
+                                <tr>
+                                <td>{$plant->plant_id}</td>
+                                <td>{$plant->plant_name}</td>
+                                <td>
+                                    <a href="" class="btn btn-warning">
+                                        <i class="material-icons icon-sm me-1 text-light">edit</i>
+                                    </a>
+                                    <a href="" class="btn btn-danger">
+                                        <i class="material-icons icon-sm me-1">delete</i>
+        
+                                    </a>
+                                </td>
+                                </tr>
+                            OUT;                   
+                        }  
+                    ?>
                 </tbody>
             </table>
         </div>
