@@ -3,6 +3,10 @@ include_once("includes/header.php");
 include_once("includes/topbar.php");
 include_once("includes/sidebar.php");
 
+
+
+
+
 $value = 'trigger';
 $dashboard = 'dashboard';
 
@@ -71,7 +75,11 @@ if (!empty($page)) {
             break;
 
         case "plants":
-            include("views/andon/plants.php");
+            //Cargar el controlador de Plantas
+            include_once("classes/controllers/PlantController.php");
+
+            $controller = new PlantController;
+            //include("views/andon/plants.php");
             break;
 
         case "machines":

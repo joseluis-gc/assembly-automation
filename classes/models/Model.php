@@ -5,13 +5,12 @@ include_once ("_settings/db.php");
 class Model
 {
 
-    protected $table;
-    
     private $connection = null;
 
+    protected $table;
+    protected $column_id;
+    
     protected $time_fields = ['create' => 'date_create', 'update' => 'date_update'];
-
-
     protected $table_info = array();
 
     //protected $column_index = array();
@@ -87,15 +86,13 @@ class Model
         return $response;        
     }
 
-    public function get($where)
-    {
-        $reset($where);
-        $idField = $key($where);
-        $idValue = $key($value);
+    public function get($id)
+    {     
+        $idField = $this->column_id;
+        $idValue = $id;
         $id_type = $this->table_info[$idField]["type"];
 
-
-        $query = "SELECT * FROM {$this->table} WHERE {$idField} = ";
+        $sql = "SELECT * FROM {$this->table} WHERE {$idField} = ";
 
 
         if($id_type == 'varchar')
@@ -107,7 +104,7 @@ class Model
             $sql .= "'";
 
 
-        $result = mysqli_query($this->connection, $query);
+        $result = mysqli_query($this->connection, $sql);
         if (!$result) {
             return FALSE;
         }
@@ -131,7 +128,7 @@ class Model
         //inser data
         $data[ $this->time_fields['create'] ] = date("Y-m-d H:i:s");        
 
-        $sql = "INSERT INTO {$this->table}";
+        $sql = "INSERT INTO {$this->table} ";
 
         $keys = array_keys($data);
 
@@ -169,7 +166,6 @@ class Model
 
         $sql .= $columnPart . " VALUES " . $valuesPart;
 
-       
         $inserted = $this->connection->query($sql);
 
         // if user has been added successfully
@@ -187,7 +183,7 @@ class Model
     */
 
     //Tw    o Arrays
-    public function update($data, $where)
+    public function update($data, $id)
     {
         //inser data
         $data[ $this->time_fields['create'] ] = date("Y-m-d H:i:s");        
@@ -197,7 +193,7 @@ class Model
         $keys = array_keys($data);
 
         //$columnPart = "(";
-        $valuesPart = "(";
+        $valuesPart = "";
         for($f = 0; $f < count($data) ; $f++)
         {
             $field_name = $keys[$f];
@@ -225,12 +221,12 @@ class Model
 
         }
 
-        $reset($where);
-        $idField = $key($where);
-        $idValue = $key($value);
+        //$reset($where);
+        $idField = $this->column_id;
+        $idValue = $id;
         $id_type = $this->table_info[$idField]["type"];
 
-        $sql .=  $valuesPart . " WHERE " . $idField - " = " ;
+        $sql .=  $valuesPart . " WHERE " . $idField . " = " ;
 
         if($id_type == 'varchar')
             $sql .= "'";
@@ -239,6 +235,8 @@ class Model
         
         if($id_type == 'varchar')
             $sql .= "'";
+
+        //echo $sql;
 
         $updated = $this->connection->query($sql);
 
@@ -254,12 +252,11 @@ class Model
         DELETE FROM table_name WHERE condition;
     */
 
-    public function delete($data, $where)
+    public function delete($id)
     {
 
-        $reset($where);
-        $idField = $key($where);
-        $idValue = $key($value);
+        $idField = $this->column_id;
+        $idValue = $id;
         $id_type = $this->table_info[$idField]["type"];
 
 
@@ -280,8 +277,7 @@ class Model
         $this->connection->close();
 
         return $deleted;
-
-        
+       
     }
 
 }

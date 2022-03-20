@@ -8,7 +8,9 @@ class PlantModel extends Model
 {
 
     protected $table = 'plant';
+    protected $column_id = 'plant_id';
 
+    
     function __construct() {
         parent::__construct();
         //print "En el constructor SubClass\n";

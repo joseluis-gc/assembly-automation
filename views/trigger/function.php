@@ -21,10 +21,12 @@ function getPlants()
     while ($row = mysqli_fetch_assoc($result)) {
         $plant = <<<DELIMETER
         <option value='{$row['plant_id']}'>{$row['plant_name']}</option>
-        DELIMETER;
+DELIMETER;
         echo $plant;
     };
 };
+
+
 
 function getAssets()
 {
@@ -41,10 +43,12 @@ function getAssets()
     while ($row = mysqli_fetch_assoc($result)) {
         $asset = <<<DELIMETER
         <option value='{$row['asset_id']}'>{$row['asset_control_number']}</option>
-        DELIMETER;
+DELIMETER;
         echo $asset;
     };
 };
+
+
 
 function getCapture()
 {
@@ -61,10 +65,11 @@ function getCapture()
     while ($row = mysqli_fetch_assoc($result)) {
         $capture = <<<DELIMETER
         <option value='{$row['user_id']}'>{$row['user_firstname']} {$row['user_lastname']}</option>
-        DELIMETER;
+DELIMETER;
         echo $capture;
     };
 };
+
 
 function getSite()
 {
@@ -81,13 +86,16 @@ function getSite()
     while ($row = mysqli_fetch_assoc($result)) {
         $site = <<<DELIMETER
         <option value='{$row['site_id']}'>{$row['site_name']}</option>
-        DELIMETER;
+DELIMETER;
         echo $site;
     };
 };
 
+
+
 function getAlertName()
 {
+    
     global $connection;
 
     $query = "SELECT * FROM alerts  WHERE alert_id = " . escape_string($_GET['alert_id']) . "";
@@ -100,16 +108,21 @@ function getAlertName()
     }
     $row = mysqli_fetch_array($result);
     echo "{$row['alert_name']}";
+    
 }
+
 
 function addInput($name, $id, $label)
 {
     $input = <<<DELEMETER
     <label for='$id'>$label</label>
     <input class='form-control' name='$name' id='$id' >
-    DELEMETER;
+DELEMETER;
     echo $input;
 };
+
+
+
 
 function getAlertChild()
 {
@@ -126,7 +139,7 @@ function getAlertChild()
     while ($row = mysqli_fetch_assoc($result)) {
         $alert_child = <<<DELIMETER
         <option value='{$row['child_id']}'>{$row['child_name']}</option>
-        DELIMETER;
+DELIMETER;
         echo $alert_child;
     };
-}
+};
