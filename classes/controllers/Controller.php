@@ -45,6 +45,11 @@ class Controller
                 {
                     $this->delete();
                 }break;
+
+                case 'pdf':
+                {
+                    $this->pdf();
+                } break;
             }
         } else
         {
@@ -97,6 +102,9 @@ class Controller
 
 
     public function delete(){}
+
+
+    public function pdf(){}
 
 }
 

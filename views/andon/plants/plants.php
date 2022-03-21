@@ -7,11 +7,17 @@ require_once "classes/models/PlantModel.php";
         <div class="card-header bg-transparent px-4">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="me-4">
-                    <h2 class="card-title mb-0">Plants</h2>
+                    <?php if (isset($action) && $action == 'edit' ): ?>
+                        <h2 class="card-title mb-0">Editando Planta</h2>
+                    <?php else: ?>
+                        <h2 class="card-title mb-0">Plantas</h2>
+                    <?php endif; ?>
+                    
+
                 </div>
                 <div class="d-flex gap-2">
                     <button class="btn btn-lg btn-icon" type="button"><i class="material-icons">download</i></button>
-                    <button class="btn btn-lg btn-icon" type="button"><i class="material-icons">print</i></button>
+                    <a class="btn btn-lg btn-icon" type="button" href="index.php?page=plants&action=pdf" target="_blank"><i class="material-icons">print</i></a>
                 </div>
             </div>
 
@@ -60,14 +66,19 @@ require_once "classes/models/PlantModel.php";
                         >
 
                     </div>
-                    <div class="text-end"><button class="btn btn-primary mt-3" type="submit">
+                    <div class="text-end">
+                         <?php if (isset($action) && $action == 'edit' ): ?>
+                        <a class="btn btn-secondary mt-3" href="index.php?page=plants">Cancelar</a>
+                        <?php endif; ?>
+
+                        <button class="btn btn-primary mt-3" type="submit">
                         <?php if (isset($action) && $action == 'edit' ): ?>
                             Actualizar
                         <?php else: ?>
                             Crear Planta
                         <?php endif; ?>
-
-                    </button></div>
+                        </button>
+                    </div>
                     
                 </div>
             </form>

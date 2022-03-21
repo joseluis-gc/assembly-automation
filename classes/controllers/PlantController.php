@@ -1,8 +1,9 @@
 <?php
 
 include_once("Controller.php");
-
 include_once("classes/models/PlantModel.php");
+
+include_once("classes/reports/PlantsPdfReport.php");
 
 class PlantController extends Controller
 {
@@ -74,6 +75,12 @@ class PlantController extends Controller
         $_SESSION['success'] = "plant was deleted correctly!!!";
         header("Location: index.php?page=plants");
         exit();
+    }
+
+    public function pdf()
+    {
+        $report = new PlantsPdfReport;
+        $report->GenerateReport();
     }
     
 
