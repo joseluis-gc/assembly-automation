@@ -2,8 +2,8 @@
 
 include_once("Controller.php");
 include_once("classes/models/PlantModel.php");
-
 include_once("classes/reports/PlantsPdfReport.php");
+include_once("classes/database/QueryBuilder.php");
 
 class PlantController extends Controller
 {
@@ -79,8 +79,19 @@ class PlantController extends Controller
 
     public function pdf()
     {
+
+        $queryBuilder = new QueryBuilder;
+        $queryBuilder->select('plant_id, plant_name, plant_password');
+        $query =  $queryBuilder->get('plant');    
+
+        //echo $query;
+
         $report = new PlantsPdfReport;
-        $report->GenerateReport();
+
+        //echo json_encode( $queryBuilder->getData());
+
+        $report->GenerateReport('plantas.pdf', 'Lista de Plantas', 'www.martechmedical.com', 
+            $queryBuilder->getColumns(),['id', 'Planta','Password',],  $queryBuilder->getData() );
     }
     
 
