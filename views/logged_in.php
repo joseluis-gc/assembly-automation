@@ -71,7 +71,8 @@ if (!empty($page)) {
             break;
 
         case "areas":
-            include("views/andon/areas.php");
+            include_once("classes/controllers/AreaController.php");
+            $controller = new AreaController;
             break;
 
         case "plants":

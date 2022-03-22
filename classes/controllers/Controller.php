@@ -100,11 +100,74 @@ class Controller
     public function edit() {}
     public function update() {}
 
-
     public function delete(){}
 
-
     public function pdf(){}
+
+
+
+    protected $rules = array();
+    protected $errors = array();
+
+    public function set_rule($field, $rule, $message_error)
+    {
+        array_push( $this->rules, ['field' => $field, 'rule' => $rule, 'message_error' => $message_error ] );
+    }
+
+
+
+    public function getErrorMessage()
+    {
+        $result = '<div class="alert alert-danger" role="alert">';
+                    
+                    //echo json_encode($_SESSION['errors']);
+                    //$errors = $_SESSION['errors'];
+
+        $result .= "<b>Something went wrong!</b>";
+                    
+        foreach($this->errors as $error)
+        {
+            $result .= "<li>";
+            $result .= $error['message'];
+            $result .= "</li>";
+        }
+                    
+
+        $result .= '</div>';
+
+        return $result;
+    }
+
+    public function validateData()
+    {
+        $validatedData = TRUE;
+
+        for($i = 0; $i < count($this->rules) ;$i++)
+        {
+            $field = $this->rules[$i]['field'];
+            $rule = $this->rules[$i]['rule'];
+            $message_error = $this->rules[$i]['message_error'];
+
+
+            //greater_than[0]
+            switch($rule)
+            {
+                case 'required':
+                {
+                    if( $this->{$field} == NULL  )
+                    {
+                        $validatedData = false;
+                        array_push( $this->errors, ['field' => $field, 'message' => $message_error] ) ;
+                    }  
+                }break;
+            }
+        }
+
+        return $validatedData;
+    }
+
+
+
 
 }
 

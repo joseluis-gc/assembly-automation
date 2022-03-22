@@ -8,7 +8,7 @@ require_once "classes/models/PlantModel.php";
             <div class="d-flex justify-content-between align-items-center">
                 <div class="me-4">
                     <?php if (isset($action) && $action == 'edit' ): ?>
-                        <h2 class="card-title mb-0">Editando Planta</h2>
+                        <h2 class="card-title mb-0">Editing Plant</h2>
                     <?php else: ?>
                         <h2 class="card-title mb-0">Plantas</h2>
                     <?php endif; ?>
@@ -84,7 +84,7 @@ require_once "classes/models/PlantModel.php";
             </form>
         </div>
         <div class="card-body p-4">
-
+                            
              <?php if ( isset($_SESSION['success'] ) ): ?>
                 <div class="alert alert-success">
                     <strong>Success!</strong> <?php echo $_SESSION['success']; unset($_SESSION['success']);  ?>

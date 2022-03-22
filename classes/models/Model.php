@@ -1,6 +1,7 @@
 <?php
 
 include_once ("_settings/db.php");
+include_once ("classes/database/QueryBuilder.php");
 
 class Model
 {
@@ -64,10 +65,21 @@ class Model
     }
 
 
-    public function getAll()
+    public function getAll($includes = NULL)
     {
-        $query = "SELECT * FROM {$this->table}";
+        $qBuilder = new QueryBuilder;
+        $qBuilder->table($this->table);
 
+        if($includes != NULL)
+        {
+            foreach($includes as $include)
+            {
+                $qBuilder->add_innerjoin($include);
+            }
+        }
+
+        $query = $qBuilder->select();
+        
         $result = mysqli_query($this->connection, $query);
         if (!$result) {
             return FALSE;
@@ -166,6 +178,7 @@ class Model
 
         $sql .= $columnPart . " VALUES " . $valuesPart;
 
+    
         $inserted = $this->connection->query($sql);
 
         // if user has been added successfully
@@ -174,6 +187,10 @@ class Model
         return $inserted;
 
     }
+
+    
+    //column => 'name',  validations => array[ { 'validation' => 'required', 'message' => 'Please blablabla' } ]
+
     
 
     /*
