@@ -71,13 +71,14 @@ if (!empty($page)) {
             break;
 
         case "areas":
-            include("views/andon/areas.php");
+            //include("views/andon/plants/areas.php");
+            include_once("classes/controllers/AreaController.php");
+            $controller = new AreaController;
             break;
 
         case "plants":
             //Cargar el controlador de Plantas
             include_once("classes/controllers/PlantController.php");
-
             $controller = new PlantController;
             //include("views/andon/plants.php");
             break;
