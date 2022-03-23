@@ -8,7 +8,7 @@ require_once "classes/models/PlantModel.php";
             <div class="d-flex justify-content-between align-items-center">
                 <div class="me-4">
                     <?php if (isset($action) && $action == 'edit' ): ?>
-                        <h2 class="card-title mb-0">Editando Planta</h2>
+                        <h2 class="card-title mb-0">Editing Plant</h2>
                     <?php else: ?>
                         <h2 class="card-title mb-0">Plantas</h2>
                     <?php endif; ?>
@@ -16,7 +16,7 @@ require_once "classes/models/PlantModel.php";
 
                 </div>
                 <div class="d-flex gap-2">
-                    <button class="btn btn-lg btn-icon" type="button"><i class="material-icons">download</i></button>
+                    <a class="btn btn-lg btn-icon" type="button" onclick="exportCSV('plants')" ><i class="material-icons">download</i></a>
                     <a class="btn btn-lg btn-icon" type="button" href="index.php?page=plants&action=pdf" target="_blank"><i class="material-icons">print</i></a>
                 </div>
             </div>
@@ -84,7 +84,7 @@ require_once "classes/models/PlantModel.php";
             </form>
         </div>
         <div class="card-body p-4">
-
+                            
              <?php if ( isset($_SESSION['success'] ) ): ?>
                 <div class="alert alert-success">
                     <strong>Success!</strong> <?php echo $_SESSION['success']; unset($_SESSION['success']);  ?>

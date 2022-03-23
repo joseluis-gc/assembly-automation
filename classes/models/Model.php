@@ -1,6 +1,7 @@
 <?php
 
 include_once ("_settings/db.php");
+include_once ("classes/database/QueryBuilder.php");
 
 class Model
 {
@@ -64,9 +65,19 @@ class Model
     }
 
 
-    public function getAll()
+    //include  foreign_key, foreign_table, foreign_column_id, column, 
+    public function getAll($includes = NULL)
     {
-        $query = "SELECT * FROM {$this->table}";
+        //$query = "SELECT * FROM {$this->table}";
+        $queryBuilder = new QueryBuilder;
+        $queryBuilder->table($this->table);
+
+        if($includes != NULL)
+            $queryBuilder->innerjoin($includes);
+
+        $query = $queryBuilder->getQuery();
+
+        //echo $query;
 
         $result = mysqli_query($this->connection, $query);
         if (!$result) {
@@ -165,6 +176,8 @@ class Model
         $valuesPart .= ")";
 
         $sql .= $columnPart . " VALUES " . $valuesPart;
+
+        //echo $sql;
 
         $inserted = $this->connection->query($sql);
 

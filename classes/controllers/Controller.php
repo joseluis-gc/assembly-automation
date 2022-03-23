@@ -6,55 +6,62 @@ class Controller
 
     protected $_data = array();
 
+    protected $useDefaultActions = TRUE;
+
     function __construct() {
         
-        if( isset( $_GET['action']) )
+
+        //Aqui se llenan todos los campos que trae
+       foreach($_POST as $key => $value)
+       {
+          $this->{$key} = $value;
+       }
+
+        if($this->useDefaultActions == TRUE)
         {
-            $action = $_GET['action'];
-
-            //Aqui se llenan todos los campos que trae
-            foreach($_POST as $key => $value)
+            if( isset( $_GET['action']) )
             {
-                $this->{$key} = $value;
-            }
-
-            switch($action)
-            {
-                case 'insert':
+                $action = $_GET['action'];
+    
+                switch($action)
                 {
-                    $this->insert();
-                }break;
-
-                case 'edit':
-                {
-                    $this->edit();
-                }break;
-
-                case 'update':
-                {
-                    $this->update();
-                }break;
-
-
-                case 'confirm':
+                    case 'insert':
+                    {
+                        $this->insert();
+                    }break;
+    
+                    case 'edit':
+                    {
+                        $this->edit();
+                    }break;
+    
+                    case 'update':
+                    {
+                        $this->update();
+                    }break;
+    
+    
+                    case 'confirm':
                     {
                         $this->confirm();
                     }break;
-
-                case 'delete':
-                {
-                    $this->delete();
-                }break;
-
-                case 'pdf':
-                {
-                    $this->pdf();
-                } break;
+    
+                    case 'delete':
+                    {
+                        $this->delete();
+                    }break;
+    
+                    case 'pdf':
+                    {
+                        $this->pdf();
+                    } break;
+                }
+            } else
+            {
+                $this->view();
             }
-        } else
-        {
-            $this->view();
         }
+   
     }
 
 
@@ -100,11 +107,78 @@ class Controller
     public function edit() {}
     public function update() {}
 
-
     public function delete(){}
 
-
     public function pdf(){}
+
+
+
+    protected $rules = array();
+    protected $errors = array();
+
+    public function set_rule($field, $rule, $message_error)
+    {
+        array_push( $this->rules, ['field' => $field, 'rule' => $rule, 'message_error' => $message_error ] );
+    }
+
+
+
+    public function getErrorMessage()
+    {
+        $result = '';
+                    
+                    //echo json_encode($_SESSION['errors']);
+                    //$errors = $_SESSION['errors'];    
+        foreach($this->errors as $error)
+        {
+            $result .= "<li>";
+            $result .= $error['message'];
+            $result .= "</li>";
+        }
+                
+        return $result;
+    }
+
+    public function validateData()
+    {
+        $validatedData = true;
+
+        for($i = 0; $i < count($this->rules) ;$i++)
+        {
+            $field = $this->rules[$i]['field'];
+            $rule = $this->rules[$i]['rule'];
+            $message_error = $this->rules[$i]['message_error'];
+
+
+            if ( substr($rule, 0, strlen('required')) === 'required') {
+
+                if( $this->{$field} == NULL  )
+                {
+                    $validatedData = false;
+                    array_push( $this->errors, ['field' => $field, 'message' => $message_error] ) ;
+                }  
+            } else if(  substr($rule, 0, strlen('greater_than')) === 'greater_than' )  
+            {
+                 //greater_than[0]
+                 $start  = strpos($rule, '[');
+                 $end    = strpos($rule, ']', $start + 1);
+                 $length = $end - $start;
+                 $compare_number = intval( substr($rule, $start + 1, $length - 1)) ;
+                 $number = intval( $this->{$field} );
+
+                 if( !($number > $compare_number) )
+                {
+                    $validatedData = false;
+                    array_push( $this->errors, ['field' => $field, 'message' => $message_error] ) ;
+                }
+            }     
+        }
+
+        return $validatedData;
+    }
+
+
+
 
 }
 
