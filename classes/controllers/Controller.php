@@ -6,55 +6,62 @@ class Controller
 
     protected $_data = array();
 
+    protected $useDefaultActions = TRUE;
+
     function __construct() {
         
-        if( isset( $_GET['action']) )
+
+        //Aqui se llenan todos los campos que trae
+       foreach($_POST as $key => $value)
+       {
+          $this->{$key} = $value;
+       }
+
+        if($this->useDefaultActions == TRUE)
         {
-            $action = $_GET['action'];
-
-            //Aqui se llenan todos los campos que trae
-            foreach($_POST as $key => $value)
+            if( isset( $_GET['action']) )
             {
-                $this->{$key} = $value;
-            }
-
-            switch($action)
-            {
-                case 'insert':
+                $action = $_GET['action'];
+    
+                switch($action)
                 {
-                    $this->insert();
-                }break;
-
-                case 'edit':
-                {
-                    $this->edit();
-                }break;
-
-                case 'update':
-                {
-                    $this->update();
-                }break;
-
-
-                case 'confirm':
+                    case 'insert':
+                    {
+                        $this->insert();
+                    }break;
+    
+                    case 'edit':
+                    {
+                        $this->edit();
+                    }break;
+    
+                    case 'update':
+                    {
+                        $this->update();
+                    }break;
+    
+    
+                    case 'confirm':
                     {
                         $this->confirm();
                     }break;
-
-                case 'delete':
-                {
-                    $this->delete();
-                }break;
-
-                case 'pdf':
-                {
-                    $this->pdf();
-                } break;
+    
+                    case 'delete':
+                    {
+                        $this->delete();
+                    }break;
+    
+                    case 'pdf':
+                    {
+                        $this->pdf();
+                    } break;
+                }
+            } else
+            {
+                $this->view();
             }
-        } else
-        {
-            $this->view();
         }
+   
     }
 
 

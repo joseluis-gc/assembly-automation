@@ -8,7 +8,7 @@ include_once("classes/database/QueryBuilder.php");
 class PlantController extends Controller
 {
 
-    
+    protected $useDefaultActions = TRUE;
 
     function __construct() {
         parent::__construct();
@@ -63,8 +63,6 @@ class PlantController extends Controller
         header("Location: index.php?page=plants");
         exit();
     }
-
-
 
 
     public function delete()

@@ -73,7 +73,7 @@ require_once "classes/models/AreaModel.php";
                         <td>{$site->site_name}</td>
                         <td>{$site->plant}</td>
                         <td>
-                            <a href="index.php?page=plants&action=edit&id={$site->site_id}" class="btn btn-warning">
+                            <a href="index.php?page=areas&action=edit&id={$site->site_id}" class="btn btn-warning">
                                 <i class="material-icons icon-sm me-1 text-light">edit</i>
                             </a>
                             <a  class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#YesNoModal" 

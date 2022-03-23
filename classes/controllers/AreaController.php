@@ -1,7 +1,7 @@
 <?php
 
 include_once("Controller.php");
-include_once("classes/models/PlantModel.php");
+include_once("classes/models/AreaModel.php");
 
 
 include_once("classes/reports/PlantsPdfReport.php");
@@ -10,7 +10,7 @@ include_once("classes/database/QueryBuilder.php");
 class AreaController extends Controller
 {
 
-    
+    protected $useDefaultActions = TRUE;
 
     function __construct() {
         parent::__construct();
