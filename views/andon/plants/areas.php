@@ -1,4 +1,5 @@
 <?php
+require_once "classes/models/PlantModel.php";
 require_once "classes/models/AreaModel.php";
 ?>
 
@@ -7,41 +8,104 @@ require_once "classes/models/AreaModel.php";
         <div class="card-header bg-transparent px-4">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="me-4">
-                    <h2 class="card-title mb-0">Areas</h2>
+                <?php if (isset($action) && $action == 'edit' ): ?>
+                        <h2 class="card-title mb-0">Editing Area</h2>
+                    <?php else: ?>
+                        <h2 class="card-title mb-0">Areas</h2>
+                    <?php endif; ?>
                 </div>
                 <div class="d-flex gap-2">
                     <button class="btn btn-lg btn-icon" type="button"><i class="material-icons">download</i></button>
                     <button class="btn btn-lg btn-icon" type="button"><i class="material-icons">print</i></button>
                 </div>
             </div>
+
+            <form method="post" autocomplete="off" 
+            
+            <?php if (isset($action) && $action == 'edit' ): ?>
+                action="index.php?page=areas&action=update"
+            <?php else: ?>
+                action="index.php?page=areas&action=insert"
+            <?php endif; ?>          
+            >
+
             <div class="row mb-4 mt-3">
 
                 <div class="form-group col-md-6">
                     <label for="inputPlantName">Nombre de la Planta</label>
-                    <select class="form-select" id="inputPlanName" aria-label="Seleccione la Planta">
+                    <select class="form-select" name="plant_id" id="inputPlanName" aria-label="Seleccione la Planta">
                         <option selected>Seleccione la Planta</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+
+                        <?php 
+                            $plantModel = new PlantModel;                    
+                            foreach($plantModel->getAll() as $plant)
+                            {
+                                echo '<option value="' . $plant->plant_id . '">' . $plant->plant_name . '</option>';
+                            }
+                        ?>
                     </select>
                     <!--<mwc-textfield class="w-100" label="Plant" outlined type="text" value=""></mwc-textfield>-->
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputArea">Nombre del Área</label>
-                    <input type="text" name="plant_name" class="form-control" id="inputArea" 
+                    <input type="text" name="site_name" class="form-control" id="inputArea" 
 
                     <?php if (isset($action) && $action == 'edit' ): ?>
-                            value="<?php echo $plant_name ?>"
+                            value="<?php echo $site_name ?>"
                     <?php else: ?>
                            value=""
                          <?php endif; ?>
                     >
                 </div>
-                <div class="text-end"><button class="btn btn-primary mt-3" type="button">Save changes</button></div>
+                
+                             
+                <div class="text-end">
+                    <?php if (isset($action) && $action == 'edit' ): ?>
+                            <a class="btn btn-secondary mt-3" href="index.php?page=areas">Cancelar</a>
+                    <?php endif; ?>    
+                    <button class="btn btn-primary mt-3" type="submit">
+                        <?php if (isset($action) && $action == 'edit' ): ?>
+                            Update
+                        <?php else: ?>
+                            Create Area
+                        <?php endif; ?>
+                        </button>
+                </div>
             </div>
+
+            </form> 
+
         </div>
         <div class="card-body p-4">
 
+            <?php
+
+                if ( isset($_SESSION['errors'])  )
+                {
+                    echo <<<EOF
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                     {$_SESSION['errors']}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+EOF;
+
+                    $_SESSION['errors'] = NULL;
+                }
+
+                if ( isset($_SESSION['success'])  )
+                {
+                    echo <<<EOF
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                     {$_SESSION['success']}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+EOF;
+
+                    $_SESSION['success'] = NULL;
+                }
+
+                
+            ?>
 
             <!-- Simple DataTables example-->
             <table id="datatablesSimple" class="text-center">

@@ -125,29 +125,23 @@ class Controller
 
     public function getErrorMessage()
     {
-        $result = '<div class="alert alert-danger" role="alert">';
+        $result = '';
                     
                     //echo json_encode($_SESSION['errors']);
-                    //$errors = $_SESSION['errors'];
-
-        $result .= "<b>Something went wrong!</b>";
-                    
+                    //$errors = $_SESSION['errors'];    
         foreach($this->errors as $error)
         {
             $result .= "<li>";
             $result .= $error['message'];
             $result .= "</li>";
         }
-                    
-
-        $result .= '</div>';
-
+                
         return $result;
     }
 
     public function validateData()
     {
-        $validatedData = TRUE;
+        $validatedData = true;
 
         for($i = 0; $i < count($this->rules) ;$i++)
         {
@@ -156,18 +150,28 @@ class Controller
             $message_error = $this->rules[$i]['message_error'];
 
 
-            //greater_than[0]
-            switch($rule)
-            {
-                case 'required':
+            if ( substr($rule, 0, strlen('required')) === 'required') {
+
+                if( $this->{$field} == NULL  )
                 {
-                    if( $this->{$field} == NULL  )
-                    {
-                        $validatedData = false;
-                        array_push( $this->errors, ['field' => $field, 'message' => $message_error] ) ;
-                    }  
-                }break;
-            }
+                    $validatedData = false;
+                    array_push( $this->errors, ['field' => $field, 'message' => $message_error] ) ;
+                }  
+            } else if(  substr($rule, 0, strlen('greater_than')) === 'greater_than' )  
+            {
+                 //greater_than[0]
+                 $start  = strpos($rule, '[');
+                 $end    = strpos($rule, ']', $start + 1);
+                 $length = $end - $start;
+                 $compare_number = intval( substr($rule, $start + 1, $length - 1)) ;
+                 $number = intval( $this->{$field} );
+
+                 if( !($number > $compare_number) )
+                {
+                    $validatedData = false;
+                    array_push( $this->errors, ['field' => $field, 'message' => $message_error] ) ;
+                }
+            }     
         }
 
         return $validatedData;

@@ -177,6 +177,8 @@ class Model
 
         $sql .= $columnPart . " VALUES " . $valuesPart;
 
+        //echo $sql;
+
         $inserted = $this->connection->query($sql);
 
         // if user has been added successfully

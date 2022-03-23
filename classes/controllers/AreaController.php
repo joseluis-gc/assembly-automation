@@ -25,39 +25,64 @@ class AreaController extends Controller
 
     public function insert()
     {
+        //$field, $rule, $message_error
+        $this->set_rule('site_name','required','The area name is required');
+        $this->set_rule('plant_id','greater_than[0]','select a plant for insert a new area');
+
+        if(!$this->validateData())
+        {
+            $_SESSION['errors'] = $this->getErrorMessage();
+            header("Location: index.php?page=areas");
+            exit();
+            return;
+        }
+
+        
         //Send the data
-        $model = new PlantModel;
-        $data['plant_name'] = $this->plant_name;
-        $data['plant_password'] = $this->plant_password;
-        $data['use_pass'] = $this->plant_password == '' ? 0 : 1;
+        $model = new AreaModel;
+        $data['plant_id'] = $this->plant_id;
+        $data['site_name'] = $this->site_name;
         $data['date_create'] = date("Y-m-d H:i:s");
         $model->insert($data);
 
-        $_SESSION['success'] = "plant was inserted correctly!!!";
-        header("Location: index.php?page=plants");
+        $_SESSION['success'] = "Area was inserted correctly!!!";
+        header("Location: index.php?page=areas");
         exit();
+        
     }
     
 
     public function edit()
     {
-        $model = new PlantModel;
-        $plant = $model->get( $_GET['id']  );
+        
+        $model = new AreaModel;
+        $site = $model->get( $_GET['id']  );
 
         $data['action'] = $_GET['action'];
-        $data['plant_id'] = $plant->plant_id;
-        $data['plant_name'] = $plant->plant_name;
-        $data['plant_password'] = $plant->plant_password;
+        $data['site_id'] = $site->site_id;
+        $data['site_name'] = $site->site_name;
+        $data['plant_id'] = $site->plant_id;
 
-        $this->includeWithVariables("views/andon/plants/plants.php", $data );
+        $this->includeWithVariables("views/andon/plants/areas.php", $data );
     }
 
     public function update()
     {
-        $model = new PlantModel;
-        $data['plant_name'] = $this->plant_name;
-        $data['plant_password'] = $this->plant_password;
-        $model->update($data, $this->plant_id);
+        $this->set_rule('site_name','required','The area name is required');
+        $this->set_rule('plant_id','greater_than[0]','select a plant for insert a new area');
+
+        if(!$this->validateData())
+        {
+            $_SESSION['errors'] = $this->getErrorMessage();
+            header("Location: index.php?page=areas&action=edit");
+            exit();
+            return;
+        }
+
+        $model = new AreaModel;
+        $data['site_name'] = $site->site_name;
+        $data['plant_id'] = $site->plant_id;
+        $model->update($data, $this->site_id);
 
         //echo json_encode($this->plant_id);
 
@@ -71,11 +96,11 @@ class AreaController extends Controller
 
     public function delete()
     {
-        $model = new PlantModel;
+        $model = new AreaModel;
         $model->delete( $_POST['id'] );
 
-        $_SESSION['success'] = "plant was deleted correctly!!!";
-        header("Location: index.php?page=plants");
+        $_SESSION['success'] = "Area was deleted correctly!!!";
+        header("Location: index.php?page=areas");
         exit();
     }
 
@@ -92,8 +117,8 @@ class AreaController extends Controller
 
         //echo json_encode( $queryBuilder->getData());
 
-        $report->GenerateReport('plantas.pdf', 'Lista de Plantas', 'www.martechmedical.com', 
-            $queryBuilder->getColumns(),['id', 'Planta','Password',],  $queryBuilder->getData() );
+        $report->GenerateReport('areas.pdf', 'Areas List', 'www.martechmedical.com', 
+            $queryBuilder->getColumns(),['id', 'Site Name','Plant Id',],  $queryBuilder->getData() );
     }
     
 
