@@ -16,7 +16,7 @@ require_once "classes/models/PlantModel.php";
 
                 </div>
                 <div class="d-flex gap-2">
-                    <button class="btn btn-lg btn-icon" type="button"><i class="material-icons">download</i></button>
+                    <a class="btn btn-lg btn-icon" type="button" onclick="exportCSV('plants')" ><i class="material-icons">download</i></a>
                     <a class="btn btn-lg btn-icon" type="button" href="index.php?page=plants&action=pdf" target="_blank"><i class="material-icons">print</i></a>
                 </div>
             </div>

@@ -32,9 +32,9 @@ require_once "classes/models/AreaModel.php";
             <div class="row mb-4 mt-3">
 
                 <div class="form-group col-md-6">
-                    <label for="inputPlantName">Nombre de la Planta</label>
+                    <label for="inputPlantName">Plant's name</label>
                     <select class="form-select" name="plant_id" id="inputPlanName" aria-label="Seleccione la Planta">
-                        <option selected>Seleccione la Planta</option>
+                        <option selected>choose plant</option>
 
                         <?php 
                             $plantModel = new PlantModel;                    
@@ -47,7 +47,7 @@ require_once "classes/models/AreaModel.php";
                     <!--<mwc-textfield class="w-100" label="Plant" outlined type="text" value=""></mwc-textfield>-->
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="inputArea">Nombre del Área</label>
+                    <label for="inputArea">Area Name</label>
                     <input type="text" name="site_name" class="form-control" id="inputArea" 
 
                     <?php if (isset($action) && $action == 'edit' ): ?>
