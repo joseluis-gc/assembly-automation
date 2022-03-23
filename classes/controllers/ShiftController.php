@@ -1,13 +1,13 @@
 <?php
 
 include_once("Controller.php");
-include_once("classes/models/AreaModel.php");
+include_once("classes/models/ShiftModel.php");
 
 
-include_once("classes/reports/PlantsPdfReport.php");
+//include_once("classes/reports/PlantsPdfReport.php");
 include_once("classes/database/QueryBuilder.php");
 
-class AreaController extends Controller
+class ShiftController extends Controller
 {
 
     protected $useDefaultActions = TRUE;
@@ -20,13 +20,13 @@ class AreaController extends Controller
 
     public function view()
     {
-        include("views/andon/plants/areas.php");
+        include("views/hr/shift/shifts.php");
     }
 
     public function insert()
     {
         //$field, $rule, $message_error
-        $this->set_rule('site_name','required','The area name is required');
+        /*$this->set_rule('site_name','required','The area name is required');
         $this->set_rule('plant_id','greater_than[0]','select a plant for insert a new area');
 
         if(!$this->validateData())
@@ -36,18 +36,20 @@ class AreaController extends Controller
             exit();
             return;
         }
-
+        */
         
         //Send the data
-        $model = new AreaModel;
-        $data['plant_id'] = $this->plant_id;
-        $data['site_name'] = $this->site_name;
+        $model = new ShiftModel;
+        $data['name'] = $this->name;
+        $data['start_hour'] = $this->start_hour;
+        $data['end_hour'] = $this->end_hour;
+        
+        //echo json_encode($data);
         $model->insert($data);
 
         $_SESSION['success'] = "Area was inserted correctly!!!";
-        header("Location: index.php?page=areas");
+        header("Location: index.php?page=shifts");
         exit();
-        
     }
     
 

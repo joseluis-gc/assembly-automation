@@ -132,12 +132,29 @@ class Model
     }
 
 
+    public function getCharForInput($type)
+    {
+        $str = "";
+        
+        switch($type)
+        {
+            case 'int':
+            case 'float':
+            case 'long':
+                $str = "";
+            break;
+
+            default:
+                $str = "'";
+            break;
+        }
+    }
     
     public function insert($data)
     {
         
         //inser data
-        $data[ $this->time_fields['create'] ] = date("Y-m-d H:i:s");        
+        $data[ $this->time_fields['create'] ] = "'" . date("Y-m-d H:i:s") . "'";        
 
         $sql = "INSERT INTO {$this->table} ";
 
@@ -156,17 +173,13 @@ class Model
                 $columnPart .= ', ';
 
 
-            if($type == 'varchar')
-                $valuesPart .= "'";
-            else if($type == 'timestamp')
-                $valuesPart .= "'";
+            $str_char = $this->getCharForInput($type);
+
+            $valuesPart .= $str_char;
 
             $valuesPart .= $data[ $field_name ];
 
-            if($type == 'varchar')
-                $valuesPart .= "'";
-            else if($type == 'timestamp')
-                $valuesPart .= "'";
+            $valuesPart .= $str_char;
 
             if($f != (count($data) - 1))
                 $valuesPart .= ', ';
@@ -177,7 +190,8 @@ class Model
 
         $sql .= $columnPart . " VALUES " . $valuesPart;
 
-        //echo $sql;
+        echo $sql;
+        echo json_encode($this->table_info);
 
         $inserted = $this->connection->query($sql);
 
@@ -199,8 +213,6 @@ class Model
     public function update($data, $id)
     {
         //inser data
-        $data[ $this->time_fields['create'] ] = date("Y-m-d H:i:s");        
-
         $sql = "UPDATE {$this->table} SET ";
 
         $keys = array_keys($data);

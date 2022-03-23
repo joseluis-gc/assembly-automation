@@ -87,6 +87,11 @@ if (!empty($page)) {
             include("views/andon/machines.php");
             break;
 
+        case "shifts":
+            include_once("classes/controllers/ShiftController.php");
+            $controller = new ShiftController;
+            break;
+
         case "daily_report":
             include("views/hr/report/daily_report.php");
             break;

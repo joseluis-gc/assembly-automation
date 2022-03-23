@@ -28,7 +28,6 @@ class PlantController extends Controller
         $data['plant_name'] = $this->plant_name;
         $data['plant_password'] = $this->plant_password;
         $data['use_pass'] = $this->plant_password == '' ? 0 : 1;
-        $data['date_create'] = date("Y-m-d H:i:s");
         $model->insert($data);
 
         $_SESSION['success'] = "plant was inserted correctly!!!";
