@@ -107,7 +107,7 @@
                 <div class="dropdown">
                     <button class="btn btn-lg btn-icon dropdown-toggle" id="dropdownMenuProfile" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="material-icons">person</i></button>
                     <ul class="dropdown-menu dropdown-menu-end mt-3" aria-labelledby="dropdownMenuProfile">
-                        <li>
+                        <!--<li>
                             <a class="dropdown-item" href="#!">
                                 <i class="material-icons leading-icon">person</i>
                                 <div class="me-3">Profile</div>
@@ -125,7 +125,7 @@
                                 <div class="me-3">Help</div>
                             </a>
                         </li>
-                        <li><hr class="dropdown-divider" /></li>
+                        <li><hr class="dropdown-divider" /></li>-->
                         <li>
                             <a class="dropdown-item" href="index.php?logout">
                                 <i class="material-icons leading-icon">logout</i>

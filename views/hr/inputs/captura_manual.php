@@ -221,6 +221,7 @@
                 <?php } ?>
         </tbody>
     </table>
+
     <mwc-snackbar id="snackbarAlert" labeltext="">
         <mwc-icon-button icon="close" slot="dismiss"></mwc-icon-button>
     </mwc-snackbar>
@@ -232,6 +233,10 @@
 
         let dataValue = document.querySelector('#inputValue_' + get_id_wrapper).value;
         let snackbar = document.querySelector('#snackbarAlert');
+
+        console.log({dataValue});
+        console.log({snackbar});
+        console.log({get_id_wrapper});
 
         snackbar.labelText = dataValue + " items have been added";
         snackbar.show();

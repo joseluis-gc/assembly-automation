@@ -1,4 +1,3 @@
-<!-- Main dashboard content-->
 <div class="container-xl p-5">
     <div class="row justify-content-between align-items-center mb-5">
         <div class="col flex-shrink-0 mb-5 mb-md-0">
@@ -6,10 +5,9 @@
             <div class="text-muted">Aplicaciones Disponibles</div>
         </div>
     </div>
-    <!-- Colored status cards-->
     <div class="row gx-5">
         <div class="col-xxl-3 col-md-6 mb-5">
-            <div class="card card-raised border-start bg-primary border-4" style="cursor: no-drop;">
+            <div class="card card-raised border-start bg-primary border-4">
                 <div class="card-body px-4">
                     <div class="d-flex justify-content-between text-white align-items-center mb-2">
                         <div class="me-2">
@@ -34,7 +32,6 @@
                 </div>
             </div>
         </div>
-        <!-- End Colored status cards-->
     </div>
     <div class="row gx-5">
         <div class="col-lg-8 mb-5">
@@ -80,7 +77,6 @@
                 </div>
             </div>
         </div>
-        <!-- Segments pie chart example-->
         <div class="col-lg-4 mb-5">
             <div class="card card-raised h-100">
                 <div class="card-header bg-transparent px-4">
